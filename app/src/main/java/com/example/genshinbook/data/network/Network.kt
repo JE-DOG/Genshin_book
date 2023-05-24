@@ -1,5 +1,7 @@
 package com.example.genshinbook.data.network
 
+import com.example.genshinbook.data.network.api.CharactersApi
+import kotlinx.coroutines.runBlocking
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,5 +14,6 @@ object Network {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
+    val charactersApi = retrofit.create(CharactersApi::class.java)
 
 }

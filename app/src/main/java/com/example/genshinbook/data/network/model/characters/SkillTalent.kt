@@ -1,4 +1,4 @@
-package com.example.genshinbook.data.network.model
+package com.example.genshinbook.data.network.model.characters
 
 data class SkillTalent(
     val description: String,

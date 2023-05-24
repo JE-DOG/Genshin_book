@@ -1,6 +1,6 @@
-package com.example.genshinbook.data.network.model
+package com.example.genshinbook.data.network.model.characters
 
-data class Constellation(
+data class PassiveTalent(
     val description: String,
     val level: Int,
     val name: String,

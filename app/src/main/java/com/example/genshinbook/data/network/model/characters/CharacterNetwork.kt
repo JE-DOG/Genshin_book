@@ -1,6 +1,6 @@
-package com.example.genshinbook.data.network.model
+package com.example.genshinbook.data.network.model.characters
 
-data class CharactersNetwork(
+data class CharacterNetwork(
     val affiliation: String,
     val birthday: String,
     val constellation: String,
