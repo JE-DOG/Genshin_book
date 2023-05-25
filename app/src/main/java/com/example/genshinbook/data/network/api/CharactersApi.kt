@@ -1,6 +1,7 @@
 package com.example.genshinbook.data.network.api
 
 import com.example.genshinbook.data.network.model.characters.CharacterNetwork
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -10,9 +11,9 @@ private const val GET_ALL = "characters"
 interface CharactersApi {
 
     @GET(GET_ALL)
-    suspend fun getAll():List<String>
+    suspend fun getAll():Response<List<String>>
 
     @GET(GET_CURRENT)
-    suspend fun getCurrent(@Path("character") character: String): CharacterNetwork
+    suspend fun getCurrent(@Path("character") character: String): Response<CharacterNetwork>
 
 }
