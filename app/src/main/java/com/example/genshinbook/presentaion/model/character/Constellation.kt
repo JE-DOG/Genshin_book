@@ -1,4 +1,4 @@
-package com.example.genshinbook.data.network.model.characters
+package com.example.genshinbook.presentaion.model.character
 
 data class Constellation(
     val description: String,
