@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Genshin book</string>
+
+    <!--ct = Content type-->
+    <string name="ct_characters">Characters</string>
+    <string name="ct_artifacts">Artifacts</string>
+    <string name="ct_boss">Boss</string>
+    <string name="ct_consumables">Consumables</string>
+    <string name="ct_domains">Domains</string>
+    <string name="ct_elements">Elements</string>
+    <string name="ct_enemies">Enemies</string>
+    <string name="ct_materials">Materials</string>
+    <string name="ct_nations">Nations</string>
+    <string name="ct_weapons">Weapons</string>
+
+
 </resources>

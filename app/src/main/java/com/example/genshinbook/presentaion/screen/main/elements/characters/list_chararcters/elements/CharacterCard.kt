@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.screen.main.elements.list_chararcters.elements
+package com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.elements
 
 import android.service.autofill.OnClickAction
 import androidx.compose.foundation.BorderStroke

@@ -1,58 +1,55 @@
 package com.example.genshinbook.presentaion.screen.main.elements.tabs
 
-import androidx.compose.material.TabRow
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material.TabRowDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.genshinbook.presentaion.screen.main.elements.tabs.elements.CategoryTab
+import com.example.genshinbook.presentaion.ui.theme.CardBackground
+import com.example.genshinbook.presentaion.ui.theme.TabSelectedColor
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun CategoryTabs(category: List<String>) {
+fun CategoryTabs(category: List<String>,pagerState: PagerState) {
 
-    val selected = remember {
-        mutableStateOf(0)
-    }
+    val scope = rememberCoroutineScope()
 
     ScrollableTabRow(
-        selectedTabIndex = selected.value,
+        selectedTabIndex = pagerState.currentPage,
         edgePadding = 0.dp,
-        containerColor = Color.Black
+        containerColor = CardBackground,
+        indicator = {
+            TabRowDefaults.Indicator(
+                Modifier.tabIndicatorOffset(it[pagerState.currentPage]),
+                color = TabSelectedColor
+            )
+        },
+        contentColor = TabSelectedColor
     ) {
 
         category.forEachIndexed{ index, label ->
 
             CategoryTab(
-                selected = index == selected.value,
+                selected = index == pagerState.currentPage,
                 label = label,
-                onClick = { selected.value = index }
+                onClick = {
+                    scope.launch {
+                        pagerState.animateScrollToPage(index)
+                    }
+                }
             )
 
         }
 
     }
-
-}
-
-@Composable
-@Preview(showBackground = true)
-fun CategoryTabsPreview() {
-
-    CategoryTabs(category = listOf(
-        "Персонажи",
-        "Персонажи",
-        "Персонажи",
-        "Персонажи",
-        "Артефакты",
-        "Артефакты",
-        "Артефакты",
-        "Артефакты",
-        "Артефакты",
-    ))
 
 }
