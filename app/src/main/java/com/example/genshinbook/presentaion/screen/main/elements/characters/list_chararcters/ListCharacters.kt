@@ -1,9 +1,12 @@
 package com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.unit.dp
+import com.example.genshinbook.core.elements.MyError
 import com.example.genshinbook.core.elements.LoadingContent
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.elements.CharacterCard
@@ -11,7 +14,7 @@ import com.example.genshinbook.presentaion.screen.main.elements.characters.list_
 @Composable
 fun ListCharacters(viewModel: CharactersTabViewModel, onClick: () -> Unit) {
 
-    val state = viewModel.state.value
+    val state = viewModel.state.observeAsState().value
 
     LoadingContent(
         isLoading = state!!.isLoading,
@@ -24,14 +27,26 @@ fun ListCharacters(viewModel: CharactersTabViewModel, onClick: () -> Unit) {
         }
     ) {
 
-        LazyColumn{
+        if (state.characters.isNotEmpty()) {
 
-            items(state.characters){
 
-                CharacterCard(character = it,onClick)
+            LazyColumn(
+                contentPadding = PaddingValues(10.dp)
+            ) {
+
+                items(state.characters) {
+
+                    CharacterCard(character = it, onClick)
+
+                }
 
             }
-
+        }else{
+            MyError(
+                onRepeat = {
+                    viewModel.getAllInfoCharactersUseCase()
+                }
+            )
         }
 
     }

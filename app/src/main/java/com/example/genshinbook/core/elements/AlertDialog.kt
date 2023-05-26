@@ -1,7 +1,8 @@
 package com.example.genshinbook.core.elements
 
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Button
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
@@ -25,7 +26,7 @@ fun MyAlertDialog(
             onDismiss()
         },
         shape = AlertShape,
-        backgroundColor = AlertBackground,
+        containerColor = AlertBackground,
         confirmButton = {
             Button(onClick = { onConfirm() }) {
                 Text(text =
@@ -37,7 +38,7 @@ fun MyAlertDialog(
             }
         },
         dismissButton = {
-            Button(onClick = { onDismiss() }) {
+            OutlinedButton(onClick = { onDismiss() }) {
                 Text(text =
                 if (dismissButText.isNull())
                     stringResource(id = R.string.alert_dismiss_but)

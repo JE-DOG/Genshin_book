@@ -1,5 +1,6 @@
 package com.example.genshinbook.data.repository.characters
 
+import android.util.Log
 import com.example.genshinbook.data.network.repository.characters.CharactersNetwork
 import com.example.genshinbook.domain.model.characters.CharacterDomain
 import com.example.genshinbook.domain.repository.characters.CharactersRepository
@@ -19,8 +20,10 @@ class CharactersRepositoryImpl(
     }
 
     override suspend fun getAllInfo(): List<CharacterDomain> {
-        val result = charactersNetwork.getAllInfo()
-        return result.map { CharacterDomain.fromNetwork(it) }
+        val result = charactersNetwork.getAllInfo().map { CharacterDomain.fromNetwork(it) }
+        Log.d("DomainMapFromNet","Ended")
+
+        return result
     }
 
 }

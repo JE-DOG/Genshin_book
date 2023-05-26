@@ -33,9 +33,10 @@ class MainScreen : Screen{
 
             HorizontalPager(
                 contentTypes.size,
-                state = pagerState
+                state = pagerState,
+                modifier = Modifier.weight(1f)
             ) {
-                contentTypes[it].screen
+                contentTypes[it].screen()
             }
         }
     }

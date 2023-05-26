@@ -1,6 +1,5 @@
 package com.example.genshinbook.data.network.repository.characters
 
-import android.util.Log
 import com.example.genshinbook.core.ext.log
 import com.example.genshinbook.data.network.Network
 import com.example.genshinbook.data.network.model.character.CharacterNetwork

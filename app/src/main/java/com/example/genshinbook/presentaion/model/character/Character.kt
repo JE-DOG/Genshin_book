@@ -4,7 +4,7 @@ import com.example.genshinbook.domain.model.characters.CharacterDomain
 
 data class Character(
     val affiliation: String,
-    val birthday: String,
+    val birthday: String?,
     val constellation: String,
     val constellations: List<Constellation>,
     val description: String,
@@ -13,7 +13,7 @@ data class Character(
     val passiveTalents: List<PassiveTalent>,
     val rarity: Int,
     val skillTalents: List<SkillTalent>,
-    val title: String,
+    val title: String?,
     val vision: String,
     val vision_key: String,
     val weapon: String,

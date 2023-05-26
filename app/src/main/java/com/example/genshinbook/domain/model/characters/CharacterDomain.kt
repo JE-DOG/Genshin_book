@@ -1,5 +1,6 @@
 package com.example.genshinbook.domain.model.characters
 
+import android.util.Log
 import com.example.genshinbook.data.network.model.character.CharacterNetwork
 import com.example.genshinbook.presentaion.model.character.Constellation
 import com.example.genshinbook.presentaion.model.character.PassiveTalent
@@ -8,7 +9,7 @@ import com.example.genshinbook.presentaion.model.character.Character
 
 data class CharacterDomain(
     val affiliation: String,
-    val birthday: String,
+    val birthday: String?,
     val constellation: String,
     val constellations: List<Constellation>,
     val description: String,
@@ -17,7 +18,7 @@ data class CharacterDomain(
     val passiveTalents: List<PassiveTalent>,
     val rarity: Int,
     val skillTalents: List<SkillTalent>,
-    val title: String,
+    val title: String?,
     val vision: String,
     val vision_key: String,
     val weapon: String,
@@ -32,10 +33,26 @@ data class CharacterDomain(
             characterNetwork: CharacterNetwork
         ): CharacterDomain{
 
+
             characterNetwork.run {
 
+                Log.d("DomainMapFromNet","Begin")
                 return CharacterDomain(
-                    affiliation, birthday, constellation, constellations, description, name, nation, passiveTalents, rarity, skillTalents, title, vision, vision_key, weapon, weapon_type
+                    affiliation,
+                    birthday,
+                    constellation,
+                    constellations,
+                    description,
+                    name,
+                    nation,
+                    passiveTalents,
+                    rarity,
+                    skillTalents,
+                    title,
+                    vision,
+                    vision_key,
+                    weapon,
+                    weapon_type
                 )
 
             }

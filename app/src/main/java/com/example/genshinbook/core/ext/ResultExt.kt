@@ -10,7 +10,7 @@ fun<T: Any> Response<T>.log(logName: String){
     if (this.isSuccessful)
         Log.d(logName,this.body().toString())
     else
-        this.errorBody()?.let { Log.d("CharacterApiTest",it.string()) }
+        this.errorBody()?.let { Log.d(logName,it.string()) }
     Log.d(logName,"--------------------------------")
 
 }
