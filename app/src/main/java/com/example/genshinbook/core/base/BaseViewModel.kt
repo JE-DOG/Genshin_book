@@ -11,8 +11,8 @@ import kotlinx.coroutines.withContext
 abstract class BaseViewModel: ViewModel() {
 
     private fun launchCoroutine(
-        error: () -> Unit,
-        finally: () -> Unit,
+        error: () -> Unit = {},
+        finally: () -> Unit = {},
         block: suspend CoroutineScope.() -> Unit
     ){
         viewModelScope.launch {
@@ -30,8 +30,8 @@ abstract class BaseViewModel: ViewModel() {
     }
 
     protected fun launchIoCoroutine(
-        error: () -> Unit,
-        finally: () -> Unit,
+        error: () -> Unit = {},
+        finally: () -> Unit = {},
         block: suspend CoroutineScope.() -> Unit
     ){
         launchCoroutine(
@@ -42,8 +42,8 @@ abstract class BaseViewModel: ViewModel() {
     }
 
     protected fun launchDefaultCoroutine(
-        error: () -> Unit,
-        finally: () -> Unit,
+        error: () -> Unit = {},
+        finally: () -> Unit = {},
         block: suspend CoroutineScope.() -> Unit
     ){
         launchCoroutine(

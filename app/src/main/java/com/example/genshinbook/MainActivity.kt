@@ -18,9 +18,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.Navigator
 import com.example.genshinbook.presentaion.screen.TestScreen
+import com.example.genshinbook.presentaion.screen.main.MainScreen
 import com.example.genshinbook.presentaion.ui.theme.GenshinBookTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,15 +35,8 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     Modifier
                         .fillMaxSize(),
-
                 ) {
-                    Column(
-                        Modifier
-                            .fillMaxSize()
-                            .padding(it)
-                    ) {
-
-                    }
+                    Navigator(screen = MainScreen())
                 }
             }
         }

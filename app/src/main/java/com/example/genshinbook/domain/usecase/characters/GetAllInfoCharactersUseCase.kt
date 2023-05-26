@@ -3,7 +3,7 @@ package com.example.genshinbook.domain.usecase.characters
 import com.example.genshinbook.domain.repository.characters.CharactersRepository
 import com.example.genshinbook.presentaion.model.character.Character
 
-class GetAllInfoCharacters(
+class GetAllInfoCharactersUseCase(
     private val charactersRepository: CharactersRepository
 ) {
 

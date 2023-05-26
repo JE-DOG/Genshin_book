@@ -8,3 +8,4 @@ val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 val TabSelectedColor = Color.Red
 val CardBackground = Color(0xFF3D3D3D)
+val AlertBackground = Color(0xFF3D3D3D)

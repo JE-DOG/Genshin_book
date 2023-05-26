@@ -13,5 +13,15 @@
     <string name="ct_nations">Nations</string>
     <string name="ct_weapons">Weapons</string>
 
+    <!--  Alert dialog  -->
+    <string name="alert_confirm_but">Yes,sir</string>
+    <string name="alert_dismiss_but">Fuck you</string>
+    <string name="alert_error">Fuck you</string>
+    <string name="alert_error_internet_text">
+        Check your internet connection and try again
+    </string>
+    <string name="alert_error_internet_title">
+        Something went wrong
+    </string>
 
 </resources>

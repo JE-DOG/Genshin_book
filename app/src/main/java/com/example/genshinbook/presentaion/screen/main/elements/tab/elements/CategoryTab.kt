@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.screen.main.elements.tabs.elements
+package com.example.genshinbook.presentaion.screen.main.elements.tab.elements
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Tab

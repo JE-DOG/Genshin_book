@@ -2,23 +2,37 @@
 
 package com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters
 
-import android.service.autofill.OnClickAction
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import com.example.genshinbook.presentaion.model.character.Character
+import com.example.genshinbook.core.elements.LoadingContent
+import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.elements.CharacterCard
 
 @Composable
-fun ListCharacters(list: List<Character>,onClick: () -> Unit) {
+fun ListCharacters(viewModel: CharactersTabViewModel, onClick: () -> Unit) {
 
-    LazyColumn{
+    val state = viewModel.state.value
 
-        items(list){
+    LoadingContent(
+        isLoading = state!!.isLoading,
+        isError = state.isError,
+        onConfirm = {
+            viewModel.getAllInfoCharactersUseCase()
+        },
+        onDismiss = {
+            viewModel.changeErrorState()
+        }
+    ) {
 
-            CharacterCard(character = it,onClick)
+        LazyColumn{
+
+            items(state.characters){
+
+                CharacterCard(character = it,onClick)
+
+            }
 
         }
 
