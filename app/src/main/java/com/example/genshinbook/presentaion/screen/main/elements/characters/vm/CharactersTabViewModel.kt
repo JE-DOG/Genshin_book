@@ -6,9 +6,10 @@ import com.example.genshinbook.domain.usecase.characters.GetAllInfoCharactersUse
 import com.example.genshinbook.domain.usecase.characters.GetAllNameCharactersUseCase
 import com.example.genshinbook.domain.usecase.characters.GetCurrentInfoCharacterUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 @HiltViewModel
-class CharactersTabViewModel(
+class CharactersTabViewModel @Inject constructor(
     private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
     private val getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
     private val getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase

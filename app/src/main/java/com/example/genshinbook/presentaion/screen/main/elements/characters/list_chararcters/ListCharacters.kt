@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalFoundationApi::class)
-
 package com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters
 
 import androidx.compose.foundation.ExperimentalFoundationApi
