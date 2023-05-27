@@ -6,12 +6,12 @@ import com.example.genshinbook.presentaion.model.character.PassiveTalent
 import com.example.genshinbook.presentaion.model.character.SkillTalent
 
 data class CharacterNetwork(
+    val name: String,
     val affiliation: String,
     val birthday: String?,
     val constellation: String,
     val constellations: List<Constellation>,
     val description: String,
-    val name: String,
     val nation: String,
     val passiveTalents: List<PassiveTalent>,
     val rarity: Int,
@@ -31,7 +31,21 @@ data class CharacterNetwork(
             characterDomain.run {
 
                 return CharacterNetwork(
-                    affiliation, birthday, constellation, constellations, description, name, nation, passiveTalents, rarity, skillTalents, title, vision, vision_key, weapon, weapon_type
+                    name,
+                    affiliation,
+                    birthday,
+                    constellation,
+                    constellations,
+                    description,
+                    nation,
+                    passiveTalents,
+                    rarity,
+                    skillTalents,
+                    title,
+                    vision,
+                    vision_key,
+                    weapon,
+                    weapon_type
                 )
 
             }

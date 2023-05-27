@@ -1,6 +1,7 @@
 package com.example.genshinbook.domain.model.characters
 
 import android.util.Log
+import com.example.genshinbook.core.ext.isNull
 import com.example.genshinbook.data.network.model.character.CharacterNetwork
 import com.example.genshinbook.presentaion.model.character.Constellation
 import com.example.genshinbook.presentaion.model.character.PassiveTalent
@@ -8,12 +9,12 @@ import com.example.genshinbook.presentaion.model.character.SkillTalent
 import com.example.genshinbook.presentaion.model.character.Character
 
 data class CharacterDomain(
+    val name: String,
     val affiliation: String,
     val birthday: String?,
     val constellation: String,
     val constellations: List<Constellation>,
     val description: String,
-    val name: String,
     val nation: String,
     val passiveTalents: List<PassiveTalent>,
     val rarity: Int,
@@ -36,14 +37,13 @@ data class CharacterDomain(
 
             characterNetwork.run {
 
-                Log.d("DomainMapFromNet","Begin")
                 return CharacterDomain(
+                    name,
                     affiliation,
                     birthday,
                     constellation,
                     constellations,
                     description,
-                    name,
                     nation,
                     passiveTalents,
                     rarity,
@@ -66,7 +66,21 @@ data class CharacterDomain(
             character.run {
 
                 return CharacterDomain(
-                    affiliation, birthday, constellation, constellations, description, name, nation, passiveTalents, rarity, skillTalents, title, vision, vision_key, weapon, weapon_type
+                    name,
+                    affiliation,
+                    birthday,
+                    constellation,
+                    constellations,
+                    description,
+                    nation,
+                    passiveTalents,
+                    rarity,
+                    skillTalents,
+                    title,
+                    vision,
+                    vision_key,
+                    weapon,
+                    weapon_type
                 )
 
             }
