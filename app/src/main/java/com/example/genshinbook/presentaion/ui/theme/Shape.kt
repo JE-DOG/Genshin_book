@@ -11,4 +11,5 @@ val Shapes = Shapes(
 )
 
 val CardShape = RoundedCornerShape(12.dp)
+val BottomSheetShape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)
 val AlertShape = RoundedCornerShape(12.dp)

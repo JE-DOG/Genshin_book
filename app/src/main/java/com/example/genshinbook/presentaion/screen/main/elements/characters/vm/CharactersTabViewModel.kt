@@ -1,8 +1,7 @@
 package com.example.genshinbook.presentaion.screen.main.elements.characters.vm
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.genshinbook.core.base.BaseViewModel
+import com.example.genshinbook.core.base.vm.BaseViewModel
 import com.example.genshinbook.domain.usecase.characters.GetAllInfoCharactersUseCase
 import com.example.genshinbook.domain.usecase.characters.GetAllNameCharactersUseCase
 import com.example.genshinbook.domain.usecase.characters.GetCurrentInfoCharacterUseCase
@@ -23,30 +22,32 @@ class CharactersTabViewModel @Inject constructor(
 
     fun getAllInfoCharactersUseCase(){
 
-        launchIoCoroutine(
-            error = {
-                _state.value = state.value!!.copy(
-                    isError = true,
-                    isLoading = false,
-                )
+        if (state.value!!.characters.isEmpty()){
+            launchIoCoroutine(
+                error = {
+                    _state.value = state.value!!.copy(
+                        isError = true,
+                        isLoading = false,
+                    )
 
+                }
+            ){
+                _state.postValue(
+                    state.value!!.copy(
+                        isError = false,
+                        isLoading = true,
+                    )
+                )
+                val result = getAllInfoCharactersUseCase.execute()
+
+                _state.postValue(
+                    state.value!!.copy(
+                        characters = result,
+                        isLoading = false,
+                        isError = false,
+                    )
+                )
             }
-        ){
-            _state.postValue(
-                state.value!!.copy(
-                    isError = false,
-                    isLoading = true,
-                )
-            )
-            val result = getAllInfoCharactersUseCase.execute()
-
-            _state.postValue(
-                state.value!!.copy(
-                    characters = result,
-                    isLoading = false,
-                    isError = false,
-                )
-            )
         }
 
     }

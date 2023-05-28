@@ -1,4 +1,4 @@
-package com.example.genshinbook.core.base
+package com.example.genshinbook.core.base.vm
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

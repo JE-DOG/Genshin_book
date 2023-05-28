@@ -1,12 +1,14 @@
 package com.example.genshinbook.presentaion.screen.main.elements.characters
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import com.example.genshinbook.presentaion.screen.detail.CharacterDetailScreen
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.ListCharacters
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
 
@@ -14,6 +16,7 @@ import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.Ch
 fun CharactersTab() {
 
     val viewModel = viewModel<CharactersTabViewModel>()
+    val navigator = LocalNavigator.currentOrThrow
 
     Column(
         Modifier
@@ -23,7 +26,7 @@ fun CharactersTab() {
         ListCharacters(
             viewModel = viewModel,
             onClick = {
-                //todo call detail screen characters
+                navigator.push(CharacterDetailScreen(it))
             }
         )
     }

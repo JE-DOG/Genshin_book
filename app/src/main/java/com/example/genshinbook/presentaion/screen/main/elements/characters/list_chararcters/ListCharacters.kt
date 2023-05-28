@@ -10,9 +10,10 @@ import com.example.genshinbook.core.elements.MyError
 import com.example.genshinbook.core.elements.LoadingContent
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.elements.CharacterCard
+import com.example.genshinbook.presentaion.model.character.Character
 
 @Composable
-fun ListCharacters(viewModel: CharactersTabViewModel, onClick: () -> Unit) {
+fun ListCharacters(viewModel: CharactersTabViewModel, onClick: (Character) -> Unit) {
 
     val state = viewModel.state.observeAsState().value
 
@@ -36,7 +37,12 @@ fun ListCharacters(viewModel: CharactersTabViewModel, onClick: () -> Unit) {
 
                 items(state.characters) {
 
-                    CharacterCard(character = it, onClick)
+                    CharacterCard(
+                        character = it,
+                        onClick = {
+                            onClick(it)
+                        }
+                    )
 
                 }
 
