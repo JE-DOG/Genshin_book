@@ -26,18 +26,13 @@ data class CharacterDomain(
     val weapon: String,
     val weapon_type: String
 ) {
-
-
-
     companion object{
 
         fun fromNetwork(
             characterNetwork: CharacterNetwork
         ): CharacterDomain{
 
-
             characterNetwork.run {
-
                 return CharacterDomain(
                     name,
                     affiliation,
@@ -55,7 +50,6 @@ data class CharacterDomain(
                     weapon,
                     weapon_type
                 )
-
             }
 
         }
@@ -90,11 +84,11 @@ data class CharacterDomain(
 
         fun fromStorage(
             characterStorage: CharacterStorage
-        ): CharacterStorage{
+        ): CharacterDomain{
 
             characterStorage.run {
 
-                return CharacterStorage(
+                return CharacterDomain(
                     name,
                     affiliation,
                     birthday,

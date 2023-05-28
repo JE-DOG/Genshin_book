@@ -10,4 +10,10 @@ interface CharactersRepository {
 
     suspend fun getAllInfo(): List<CharacterDomain>
 
+    suspend fun removeFromStorage(characterDomain: CharacterDomain)
+
+    suspend fun addToStorage(characterDomain: CharacterDomain)
+
+    suspend fun getAllFromStorage(): List<CharacterDomain>
+
 }
