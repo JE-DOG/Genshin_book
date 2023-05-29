@@ -6,10 +6,7 @@ import com.example.genshinbook.data.repository.characters.CharactersRepositoryIm
 import com.example.genshinbook.data.storage.repository.character.CharacterStorageRepository
 import com.example.genshinbook.data.storage.repository.character.CharacterStorageRepositoryImpl
 import com.example.genshinbook.domain.repository.characters.CharactersRepository
-import com.example.genshinbook.domain.usecase.characters.GetAllInfoCharactersUseCase
-import com.example.genshinbook.domain.usecase.characters.GetAllNameCharactersUseCase
-import com.example.genshinbook.domain.usecase.characters.GetCurrentInfoCharacterUseCase
-import com.example.genshinbook.domain.usecase.characters.IsCharacterInTheDatabaseUseCase
+import com.example.genshinbook.domain.usecase.characters.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,10 +20,26 @@ class CharactersModule {
 
     @Provides
     @Singleton
-    fun provideIsCharacterInTheDataBase(
+    fun provideIsCharacterInTheDataBaseUseCase(
         charactersRepository: CharactersRepository
     ): IsCharacterInTheDatabaseUseCase{
         return IsCharacterInTheDatabaseUseCase(charactersRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAddCharacterToStorageUseCase(
+        charactersRepository: CharactersRepository
+    ): AddCharacterToStorage{
+        return AddCharacterToStorage(charactersRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRemoveCharacterFromStorageUseCase(
+        charactersRepository: CharactersRepository
+    ): RemoveCharacterFromStorageUseCase{
+        return RemoveCharacterFromStorageUseCase(charactersRepository)
     }
 
     @Provides
