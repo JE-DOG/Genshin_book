@@ -8,7 +8,7 @@ class GetAllCharactersFromStorage(
 ) {
 
     suspend fun execute(): List<Character>{
-        val result = charactersRepository.getAllFromStorage().map { Character.fromDomain(it) }
+        val result = charactersRepository.getAllFromStorage().map { Character.fromDomain(it).apply { isDownload = true } }
         return result
     }
 
