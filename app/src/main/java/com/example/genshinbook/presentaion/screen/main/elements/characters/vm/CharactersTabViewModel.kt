@@ -5,6 +5,7 @@ import com.example.genshinbook.core.base.vm.BaseViewModel
 import com.example.genshinbook.domain.usecase.characters.GetAllInfoCharactersUseCase
 import com.example.genshinbook.domain.usecase.characters.GetAllNameCharactersUseCase
 import com.example.genshinbook.domain.usecase.characters.GetCurrentInfoCharacterUseCase
+import com.example.genshinbook.domain.usecase.characters.IsCharacterInTheDatabaseUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -12,7 +13,8 @@ import javax.inject.Inject
 class CharactersTabViewModel @Inject constructor(
     private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
     private val getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
-    private val getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase
+    private val getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase,
+    private val isCharacterInTheDatabaseUseCase: IsCharacterInTheDatabaseUseCase
 ): BaseViewModel() {
 
     private val _state = MutableLiveData(
