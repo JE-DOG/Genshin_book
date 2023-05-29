@@ -24,7 +24,11 @@ fun ListCharacters(viewModel: CharactersTabViewModel, onClick: (Character) -> Un
             viewModel.getAllInfoCharactersUseCase()
         },
         onDismiss = {
-            viewModel.changeErrorState()
+            viewModel.changeState(
+                state.copy(
+                    isError = false
+                )
+            )
         }
     ) {
 

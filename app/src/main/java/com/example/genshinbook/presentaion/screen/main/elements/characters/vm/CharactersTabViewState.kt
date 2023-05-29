@@ -4,5 +4,6 @@ import com.example.genshinbook.presentaion.model.character.Character
 data class CharactersTabViewState(
     val isLoading: Boolean = false,
     val isError: Boolean = false,
+    val isOffline: Boolean = false,
     val characters: List<Character> = emptyList()
 )

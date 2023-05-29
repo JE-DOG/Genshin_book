@@ -54,10 +54,8 @@ class CharactersTabViewModel @Inject constructor(
 
     }
 
-    fun changeErrorState(){
-        _state.value = state.value!!.copy(
-            isError = false
-        )
+    fun changeState(state: CharactersTabViewState){
+        _state.value = state
     }
 
 }

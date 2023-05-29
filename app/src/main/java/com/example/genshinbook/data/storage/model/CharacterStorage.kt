@@ -9,53 +9,53 @@ import io.realm.kotlin.types.annotations.PrimaryKey
 import org.mongodb.kbson.ObjectId
 import com.example.genshinbook.presentaion.model.character.Character
 
-data class CharacterStorage(
-    val name: String,
-    val affiliation: String,
-    val birthday: String?,
-    val constellation: String,
-    val constellations: List<Constellation>,
-    val description: String,
-    val nation: String,
-    val passiveTalents: List<PassiveTalent>,
-    val rarity: Int,
-    val skillTalents: List<SkillTalent>,
-    val title: String?,
-    val vision: String,
-    val vision_key: String,
-    val weapon: String,
-    val weapon_type: String,
-    @PrimaryKey
-    val id: ObjectId = ObjectId()
-): RealmObject{
+class CharacterStorage: RealmObject {
 
-    companion object{
+    @PrimaryKey
+    var id: ObjectId = ObjectId()
+    var name: String = ""
+    var affiliation: String = ""
+    var birthday: String? = null
+    var constellation: String = ""
+    var constellations: List<Constellation> = emptyList()
+    var description: String = ""
+    var nation: String = ""
+    var passiveTalents: List<PassiveTalent> = emptyList()
+    var rarity: Int = 0
+    var skillTalents: List<SkillTalent> = emptyList()
+    var title: String? = null
+    var vision: String = ""
+    var vision_key: String = ""
+    var weapon: String = ""
+    var weapon_type: String = ""
+
+    companion object {
         fun fromDomain(
             characterDomain: CharacterDomain
         ): CharacterStorage {
 
-            characterDomain.run {
-                return CharacterStorage(
-                    name,
-                    affiliation,
-                    birthday,
-                    constellation,
-                    constellations,
-                    description,
-                    nation,
-                    passiveTalents,
-                    rarity,
-                    skillTalents,
-                    title,
-                    vision,
-                    vision_key,
-                    weapon,
-                    weapon_type
-                )
+            return CharacterStorage().apply {
+                name  = characterDomain.name
+                affiliation = characterDomain.affiliation
+                birthday = characterDomain.birthday
+                constellation = characterDomain.constellation
+                constellations = characterDomain.constellations
+                description = characterDomain.description
+                nation = characterDomain.nation
+                passiveTalents = characterDomain.passiveTalents
+                rarity = characterDomain.rarity
+                skillTalents = characterDomain.skillTalents
+                title = characterDomain.title
+                vision = characterDomain.vision
+                vision_key = characterDomain.vision_key
+                weapon = characterDomain.weapon
+                weapon_type = characterDomain.weapon_type
             }
+
 
         }
 
     }
 
 }
+
