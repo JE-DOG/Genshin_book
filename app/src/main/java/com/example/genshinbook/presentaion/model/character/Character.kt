@@ -18,7 +18,7 @@ data class Character(
     val vision_key: String,
     val weapon: String,
     val weapon_type: String,
-    val isDownload: Boolean = false
+    var isDownload: Boolean = false
 ) {
 
     companion object{
