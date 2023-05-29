@@ -30,8 +30,8 @@ class CharactersModule {
     @Singleton
     fun provideAddCharacterToStorageUseCase(
         charactersRepository: CharactersRepository
-    ): AddCharacterToStorage{
-        return AddCharacterToStorage(charactersRepository)
+    ): AddCharacterToStorageUseCase{
+        return AddCharacterToStorageUseCase(charactersRepository)
     }
 
     @Provides
