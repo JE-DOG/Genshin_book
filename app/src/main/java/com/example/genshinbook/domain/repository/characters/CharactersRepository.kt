@@ -16,4 +16,6 @@ interface CharactersRepository {
 
     suspend fun getAllFromStorage(): List<CharacterDomain>
 
+    suspend fun isCharacterInTheDataBase(character: CharacterDomain): Boolean
+
 }

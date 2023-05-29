@@ -10,4 +10,6 @@ interface CharacterStorageRepository {
 
     suspend fun remove(characterStorage: CharacterStorage)
 
+    suspend fun isInTheDataBase(characterStorage: CharacterStorage):Boolean
+
 }

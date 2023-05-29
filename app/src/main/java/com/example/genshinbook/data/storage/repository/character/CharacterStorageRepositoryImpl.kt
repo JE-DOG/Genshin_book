@@ -24,4 +24,13 @@ class CharacterStorageRepositoryImpl @Inject constructor(
             this.delete(characterStorage)
         }
     }
+
+    override suspend fun isInTheDataBase(characterStorage: CharacterStorage): Boolean {
+        val result = dataBase
+            .query(CharacterStorage::class,"name",characterStorage.name)
+            .query("vision_key",characterStorage.vision_key)
+            .find()
+
+        return result.isNotEmpty()
+    }
 }

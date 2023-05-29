@@ -41,4 +41,9 @@ class CharactersRepositoryImpl(
         return result
     }
 
+    override suspend fun isCharacterInTheDataBase(character: CharacterDomain): Boolean {
+        val result = characterStorageRepository.isInTheDataBase(CharacterStorage.fromDomain(character))
+        return result
+    }
+
 }

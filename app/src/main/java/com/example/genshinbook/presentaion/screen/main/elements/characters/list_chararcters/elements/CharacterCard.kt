@@ -49,6 +49,12 @@ fun CharacterCard(character: Character,onClick: () -> Unit = {}) {
             ) {
                 Text(text = character.name, fontSize = 25.sp, color = Color.White)
                 Image(painter = painterResource(vision.icon), contentDescription = "Card",Modifier.size(29.dp))
+                Spacer(modifier = Modifier.weight(1f))
+                if (character.isDownload){
+                    Image(painter = painterResource(id = R.drawable.ic_delete), contentDescription = "delete card")
+                }else{
+                    Image(painter = painterResource(id = R.drawable.ic_download), contentDescription = "save card")
+                }
             }
 
             LazyRow(Modifier.padding(bottom = 10.dp)) {

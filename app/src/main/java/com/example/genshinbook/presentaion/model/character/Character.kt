@@ -17,7 +17,8 @@ data class Character(
     val vision: String,
     val vision_key: String,
     val weapon: String,
-    val weapon_type: String
+    val weapon_type: String,
+    val isDownload: Boolean = false
 ) {
 
     companion object{
@@ -29,7 +30,21 @@ data class Character(
             characterDomain.run {
 
                 return Character(
-                    affiliation, birthday, constellation, constellations, description, name, nation, passiveTalents, rarity, skillTalents, title, vision, vision_key, weapon, weapon_type
+                    affiliation,
+                    birthday,
+                    constellation,
+                    constellations,
+                    description,
+                    name,
+                    nation,
+                    passiveTalents,
+                    rarity,
+                    skillTalents,
+                    title,
+                    vision,
+                    vision_key,
+                    weapon,
+                    weapon_type
                 )
 
             }

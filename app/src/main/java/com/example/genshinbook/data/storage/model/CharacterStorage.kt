@@ -31,7 +31,7 @@ data class CharacterStorage(
 
     companion object{
         fun fromDomain(
-            characterDomain: CharacterDomain,
+            characterDomain: CharacterDomain
         ): CharacterStorage {
 
             characterDomain.run {

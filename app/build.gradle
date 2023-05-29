@@ -84,7 +84,7 @@ dependencies {
     // Voyager
     implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
     // TabNavigator
-    implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+    implementation "cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion"
 
 
     // ViewModel
