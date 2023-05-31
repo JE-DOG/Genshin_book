@@ -99,14 +99,6 @@ class CharactersTabViewModel @Inject constructor(
 
     }
 
-
-
-    private fun removeCharacterFromStorage(character: Character){
-        launchIoCoroutine {
-            removeCharacterFromStorageUseCase.execute(character = character)
-        }
-    }
-
     fun characterDownload(character: Character,isDownload: Boolean){
         val list = state.value!!.characters
         if (isDownload){
@@ -122,6 +114,15 @@ class CharactersTabViewModel @Inject constructor(
                 this.isDownload = !this.isDownload
                 Log.d("checkingCharacterForDownloaded", "after:\n${this.name} -> Downloaded(${this.isDownload})")
             }
+        }
+    }
+
+    fun changeState(state: CharactersTabViewState){
+        _state.value = state
+    }
+    private fun removeCharacterFromStorage(character: Character){
+        launchIoCoroutine {
+            removeCharacterFromStorageUseCase.execute(character = character)
         }
     }
 
@@ -191,8 +192,5 @@ class CharactersTabViewModel @Inject constructor(
         }
     }
 
-    fun changeState(state: CharactersTabViewState){
-        _state.value = state
-    }
 
 }
