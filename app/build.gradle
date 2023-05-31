@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'io.realm.kotlin'
 }
 
 android {
@@ -83,7 +84,7 @@ dependencies {
     // Voyager
     implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
     // TabNavigator
-    implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+    implementation "cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion"
 
 
     // ViewModel
@@ -93,5 +94,8 @@ dependencies {
     //live data
     implementation 'androidx.compose.runtime:runtime-livedata:1.5.0-beta01'
 
+    //storage
+    //Realm
+    implementation 'io.realm.kotlin:library-base:1.8.0' // Add to use local realm (no sync)
 
 }

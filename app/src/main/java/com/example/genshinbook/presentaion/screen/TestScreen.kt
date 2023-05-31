@@ -19,22 +19,10 @@ import kotlinx.coroutines.launch
 @Composable
 fun TestScreen() {
 
-    val charactersNetwork = CharactersNetworkImpl()
-    val charactersRepository = CharactersRepositoryImpl(charactersNetwork)
-    val getAllNameCharactersUseCase =GetAllNameCharactersUseCase(charactersRepository)
-
-    val text = remember {
-        mutableStateOf("")
-    }
-    val scope = rememberCoroutineScope()
-    scope.launch {
-        text.value = getAllNameCharactersUseCase.execute().toString()
-    }
-
 
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
 
-        Text(text = text.value)
+        Text(text = "text.value")
 
     }
 

@@ -1,14 +1,14 @@
 package com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.elements
 
-import android.service.autofill.OnClickAction
-import androidx.compose.foundation.BorderStroke
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,14 +17,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.genshinbook.R
+import com.example.genshinbook.core.ext.isNotNull
+import com.example.genshinbook.core.ext.isNull
 import com.example.genshinbook.presentaion.model.character.Character
 import com.example.genshinbook.presentaion.model.vision.Vision
 import com.example.genshinbook.presentaion.ui.theme.CardBackground
 import com.example.genshinbook.presentaion.ui.theme.CardShape
+import kotlin.concurrent.thread
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CharacterCard(character: Character,onClick: () -> Unit = {}) {
+fun CharacterCard(
+    character: Character,
+    onItemClick: () -> Unit = {},
+    onDownload: (Character,Boolean) -> Unit
+) {
 
     val vision = Vision.valueOf(character.vision_key)
 
@@ -34,8 +41,12 @@ fun CharacterCard(character: Character,onClick: () -> Unit = {}) {
         elevation = CardDefaults
             .cardElevation(pressedElevation = 500.dp),
         modifier = Modifier.padding(bottom = 5.dp),
-        onClick = { onClick() }
+        onClick = { onItemClick() }
     ) {
+
+        val isDownloaded = remember {
+            mutableStateOf<Boolean?>(character.isDownload)
+        }
 
         Column(
             Modifier.padding(20.dp)
@@ -49,6 +60,37 @@ fun CharacterCard(character: Character,onClick: () -> Unit = {}) {
             ) {
                 Text(text = character.name, fontSize = 25.sp, color = Color.White)
                 Image(painter = painterResource(vision.icon), contentDescription = "Card",Modifier.size(29.dp))
+                Spacer(modifier = Modifier.weight(1f))
+                if (isDownloaded.value.isNotNull()){
+                    IconButton(onClick = {
+                        isDownloaded.value = null
+                        onDownload(character, character.isDownload)
+                        thread {
+                            Thread.sleep(2000)
+                            isDownloaded.value = character.isDownload
+                        }
+                        Log.d("RememberTest", isDownloaded.value.toString())
+                    }) {
+                        if (isDownloaded.value!!) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_delete),
+                                contentDescription = "delete card",
+                                Modifier.size(25.dp),
+                                tint = Color.Gray
+                            )
+                        } else {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_download),
+                                contentDescription = "save card",
+                                Modifier.size(25.dp),
+                                tint = Color.Gray
+                            )
+                        }
+                    }
+                }else{
+                    CircularProgressIndicator()
+                }
+
             }
 
             LazyRow(Modifier.padding(bottom = 10.dp)) {
@@ -61,38 +103,6 @@ fun CharacterCard(character: Character,onClick: () -> Unit = {}) {
             Text(text = "Nation: ${character.nation}", color = Color.White, fontSize = 15.sp)
             Text(text = "Constellation: ${character.constellation}", color = Color.White, fontSize = 15.sp)
 
-        }
-
-    }
-
-}
-
-@Preview(showBackground = true)
-@Composable
-fun CharacterCardPreview() {
-
-    val character = Character(
-        "Inazuma City",
-        "2000-12-01",
-        "Imperatrix Umbrosa",
-        emptyList(),
-        "Her Excellency, the Almighty, Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity",
-        "Raiden Shogun",
-        "Inazuma",
-        emptyList(),
-        5,
-        emptyList(),
-        "Plane of Euthymia",
-        "Electro",
-        "ELECTRO",
-        "Polearm",
-        "POLEARM"
-    )
-
-    LazyColumn{
-
-        items(10){
-            CharacterCard(character = character,{})
         }
 
     }
