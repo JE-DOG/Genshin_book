@@ -81,7 +81,6 @@ class CharactersTabViewModel @Inject constructor(
             ) {
                 _state.postValue(
                     state.value!!.copy(
-                        isError = false,
                         isLoading = true,
                     )
                 )
@@ -91,8 +90,7 @@ class CharactersTabViewModel @Inject constructor(
                 _state.postValue(
                     state.value!!.copy(
                         characters = result, //todo maybe this error because we give mutable list ,but in the state list
-                        isLoading = false,
-                        isError = false
+                        isLoading = false
                     )
                 )
             }
