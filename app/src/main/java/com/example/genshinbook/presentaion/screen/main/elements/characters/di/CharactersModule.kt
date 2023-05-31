@@ -41,6 +41,15 @@ class CharactersModule {
     ): RemoveCharacterFromStorageUseCase{
         return RemoveCharacterFromStorageUseCase(charactersRepository)
     }
+    @Provides
+    @Singleton
+    fun provideGetAllCharactersFromStorageUseCase(
+        charactersRepository: CharactersRepository
+    ): GetAllCharactersFromStorageUseCase{
+        return GetAllCharactersFromStorageUseCase(
+            charactersRepository = charactersRepository
+        )
+    }
 
     @Provides
     @Singleton

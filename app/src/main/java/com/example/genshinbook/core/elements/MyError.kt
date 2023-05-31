@@ -41,7 +41,7 @@ fun MyError(
         )
 
         Button(onClick = onRepeat) {
-            Text(text = if (repeatButText.isNotNull()) repeatButText!! else stringResource(id = R.string.alert_error_repeat) )
+            Text(text = if (repeatButText.isNotNull()) repeatButText!! else stringResource(id = R.string.error_repeat) )
         }
     }
 

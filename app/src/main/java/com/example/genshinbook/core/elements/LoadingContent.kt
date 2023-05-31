@@ -2,6 +2,7 @@ package com.example.genshinbook.core.elements
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.AlertDialog
@@ -26,7 +27,7 @@ fun LoadingContent(
 ) {
     Box(
         Modifier
-            .fillMaxSize(),
+            .wrapContentSize(),
         contentAlignment = Alignment.Center
     ) {
         if (isLoading) {

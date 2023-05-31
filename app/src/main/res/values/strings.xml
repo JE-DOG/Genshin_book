@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Genshin book</string>
 
+    <string name="offline">This is offline mode</string>
+    <string name="error_repeat">Repeat</string>
+
     <!--ct = Content type-->
     <string name="ct_characters">Characters</string>
     <string name="ct_artifacts">Artifacts</string>
@@ -17,7 +20,6 @@
     <string name="alert_confirm_but">Yes,sir</string>
     <string name="alert_dismiss_but">Fuck you</string>
     <string name="alert_error">Something went wrong</string>
-    <string name="alert_error_repeat">Repeat</string>
     <string name="alert_error_internet_text">
         Check your internet connection and try again
     </string>

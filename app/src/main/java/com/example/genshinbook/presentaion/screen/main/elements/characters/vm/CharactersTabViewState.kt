@@ -5,5 +5,5 @@ data class CharactersTabViewState(
     val isLoading: Boolean = false,
     val isError: Boolean = false,
     val isOffline: Boolean = false,
-    val characters: List<Character> = emptyList()
+    val characters: MutableList<Character> = mutableListOf()
 )
