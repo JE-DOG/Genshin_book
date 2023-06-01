@@ -58,6 +58,7 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
     implementation 'androidx.compose.material:material:1.4.3'
     implementation 'androidx.compose.material3:material3:1.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
 
 
     //Tests
@@ -76,9 +77,6 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
     //android
     testImplementation 'androidx.arch.core:core-testing:2.2.0'
-
-
-
 
     //di
     //Hilt

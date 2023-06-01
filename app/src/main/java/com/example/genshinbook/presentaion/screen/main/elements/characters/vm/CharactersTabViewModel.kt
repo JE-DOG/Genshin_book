@@ -26,7 +26,7 @@ class CharactersTabViewModel @Inject constructor(
     )
     val state = _state
 
-    fun getAllInfoCharactersUseCase(){
+    fun getAllCharacters(){
 
         if (state.value!!.characters.isEmpty() || state.value!!.isOffline){
             launchIoCoroutine(
@@ -54,7 +54,7 @@ class CharactersTabViewModel @Inject constructor(
 
                 _state.postValue(
                     state.value!!.copy(
-                        characters = result.await(), //todo maybe this error because we give mutable list ,but in the state list
+                        characters = result.await(),
                         isLoading = false,
                         isError = false,
                         isOffline = false
@@ -89,7 +89,7 @@ class CharactersTabViewModel @Inject constructor(
 
                 _state.postValue(
                     state.value!!.copy(
-                        characters = result, //todo maybe this error because we give mutable list ,but in the state list
+                        characters = result,
                         isLoading = false
                     )
                 )
