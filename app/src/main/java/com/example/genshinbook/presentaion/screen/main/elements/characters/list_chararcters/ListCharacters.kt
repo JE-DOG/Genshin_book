@@ -29,10 +29,9 @@ fun ListCharacters(viewModel: CharactersTabViewModel, onClick: (Character) -> Un
                     onItemClick = {
                         onClick(it)
                     },
-                    onDownload = { character, isDownload ->
+                    onDownload = { character ->
                         viewModel.characterDownload(
-                            character = character,
-                            isDownload = isDownload
+                            character = character
                         )
                     }
                 )

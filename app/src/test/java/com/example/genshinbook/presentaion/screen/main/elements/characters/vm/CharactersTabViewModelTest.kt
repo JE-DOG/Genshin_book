@@ -93,7 +93,7 @@ class CharactersTabViewModelTest{
             isOffline = false
         )
         delay(3000)
-        var actual = viewModel.state.value
+        val actual = viewModel.state.value
         Assert.assertEquals(expanded,actual)
     }
 
@@ -124,6 +124,49 @@ class CharactersTabViewModelTest{
         Assert.assertEquals(expanded,actual)
     }
 
+    //characterDownload
+    @Test
+    fun `remove character from data base`() = runBlocking{
+        //get ready
+        val character = Character()
+        val characterDownloaded = Character(isDownload = true)
+        val list = mutableListOf(
+            character,
+            character,
+            characterDownloaded,
+        )
+        viewModel.changeState(
+            CharactersTabViewState(characters = list)
+        )
+        //call
+        viewModel.characterDownload(characterDownloaded)
+        //assert
+        val expended = character
+        delay(2000)
+        val actual = viewModel.state.value!!.characters[2]
+        Assert.assertEquals(expended,actual)
+    }
+
+    @Test
+    fun `add character to data base`() = runBlocking {
+        //get ready
+        val character1 = Character(name = "Number 1")
+        val character2 = Character(name = "Number 2")
+        val list = mutableListOf(
+            character1,
+            character2
+        )
+        viewModel.changeState(
+            CharactersTabViewState(characters = list)
+        )
+        //call
+        viewModel.characterDownload(character1)
+        //assert
+        val expended = Character(name = "Number 1", isDownload = true)
+        delay(2000)
+        val actual = viewModel.state.value!!.characters[0]
+        Assert.assertEquals(expended,actual)
+    }
 
 
 }

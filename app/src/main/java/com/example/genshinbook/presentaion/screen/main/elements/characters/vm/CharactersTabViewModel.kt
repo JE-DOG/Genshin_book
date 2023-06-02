@@ -99,20 +99,18 @@ class CharactersTabViewModel @Inject constructor(
 
     }
 
-    fun characterDownload(character: Character,isDownload: Boolean){
-        val list = state.value!!.characters
-        if (isDownload){
+    fun characterDownload(character: Character){
+        if (character.isDownload){
             removeCharacterFromStorage(character)
         }else{
             addCharacterToStorage(character)
         }
 
+        val list = state.value!!.characters
         val index = list.lastIndexOf(character)
         if (index != -1){
             list[index] = character.apply {
-                Log.d("checkingCharacterForDownloaded", "before:\n${this.name} -> Downloaded(${this.isDownload})")
                 this.isDownload = !this.isDownload
-                Log.d("checkingCharacterForDownloaded", "after:\n${this.name} -> Downloaded(${this.isDownload})")
             }
         }
     }
