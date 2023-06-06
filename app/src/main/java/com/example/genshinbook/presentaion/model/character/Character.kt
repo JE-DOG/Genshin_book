@@ -1,6 +1,7 @@
 package com.example.genshinbook.presentaion.model.character
 
 import com.example.genshinbook.domain.model.characters.CharacterDomain
+import java.io.Serializable
 
 data class Character(
     val affiliation: String = "",
@@ -19,7 +20,10 @@ data class Character(
     val weapon: String = "",
     val weapon_type: String = "",
     var isDownload: Boolean = false
-) {
+): Serializable {
+
+    //todo add parcelize for fix bag ( android.os.BadParcelableException: Parcelable encountered IOException writing serializable object (name = com.example.genshinbook.presentaion.screen.detail.CharacterDetailScreen) )
+
 
     companion object{
 
