@@ -1,15 +1,28 @@
 package com.example.genshinbook
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.example.genshinbook.core.ext.viewModelStore
+import com.example.genshinbook.di.AppComponent
+import com.example.genshinbook.di.DaggerAppComponent
+import com.example.genshinbook.presentaion.di.veiwModelStore.ViewModelStoreComponent
 
-@HiltAndroidApp
 class App: Application() {
+
+    lateinit var appComponent: AppComponent
+    //subcomponents
+    lateinit var viewModelStoreComponent: ViewModelStoreComponent
 
     override fun onCreate() {
         super.onCreate()
-        INSTANCE = this
+        init()
+    }
 
+    private fun init() {
+        INSTANCE = this
+        //components
+        appComponent = DaggerAppComponent.create()
+        //subcomponents
+        viewModelStoreComponent = appComponent.viewModelStoreComponent.build()
     }
 
     companion object{

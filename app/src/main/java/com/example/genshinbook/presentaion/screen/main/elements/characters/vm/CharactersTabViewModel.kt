@@ -5,12 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.genshinbook.core.base.vm.BaseViewModel
 import com.example.genshinbook.domain.usecase.characters.*
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
 import com.example.genshinbook.presentaion.model.character.Character
 
-@HiltViewModel
 class CharactersTabViewModel @Inject constructor(
     private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
     private val getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
