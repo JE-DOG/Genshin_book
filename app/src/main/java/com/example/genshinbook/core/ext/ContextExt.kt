@@ -1,6 +1,8 @@
 package com.example.genshinbook.core.ext
 
 import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModelStore
 import com.example.genshinbook.App
 import com.example.genshinbook.di.AppComponent
@@ -14,6 +16,7 @@ val Context.appComponent: AppComponent
     else -> this.applicationContext.appComponent
 }
 
+
 val Context.viewModelStore: ViewModelStoreComponent
     get() = when(this){
 
@@ -21,4 +24,11 @@ val Context.viewModelStore: ViewModelStoreComponent
 
          else -> this.applicationContext.viewModelStore
 
+}
+
+@Composable
+fun ViewModelStore(): ViewModelStoreComponent{
+    val context = LocalContext.current
+
+    return context.viewModelStore
 }

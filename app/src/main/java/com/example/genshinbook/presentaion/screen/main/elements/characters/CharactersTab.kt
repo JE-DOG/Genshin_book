@@ -12,6 +12,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.example.genshinbook.core.elements.LoadingContent
 import com.example.genshinbook.core.elements.OfflineModeNotification
+import com.example.genshinbook.core.ext.ViewModelStore
 import com.example.genshinbook.presentaion.screen.detail.CharacterDetailScreen
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.ListCharacters
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
@@ -19,7 +20,8 @@ import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.Ch
 @Composable
 fun CharactersTab() {
 
-    val viewModel = viewModel<CharactersTabViewModel>()
+    val viewModelStore = ViewModelStore()
+    val viewModel = viewModel( initializer = { viewModelStore.characterTab } )
     val state = viewModel.state.observeAsState().value
     val navigator = LocalNavigator.currentOrThrow
 
@@ -59,7 +61,9 @@ fun CharactersTab() {
         }
 
         LaunchedEffect(key1 = Unit) {
-            viewModel.getAllCharacters()
+            if (!state.isOffline && state.characters.isEmpty()){
+                viewModel.getAllCharacters()
+            }
         }
     }
 
