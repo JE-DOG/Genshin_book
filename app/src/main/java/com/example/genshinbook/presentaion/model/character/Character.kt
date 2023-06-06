@@ -3,21 +3,21 @@ package com.example.genshinbook.presentaion.model.character
 import com.example.genshinbook.domain.model.characters.CharacterDomain
 
 data class Character(
-    val affiliation: String,
-    val birthday: String?,
-    val constellation: String,
-    val constellations: List<Constellation>,
-    val description: String,
-    val name: String,
-    val nation: String,
-    val passiveTalents: List<PassiveTalent>,
-    val rarity: Int,
-    val skillTalents: List<SkillTalent>,
-    val title: String?,
-    val vision: String,
-    val vision_key: String,
-    val weapon: String,
-    val weapon_type: String,
+    val affiliation: String = "",
+    val birthday: String? = null,
+    val constellation: String = "",
+    val constellations: List<Constellation> = emptyList(),
+    val description: String = "",
+    val name: String = "",
+    val nation: String = "",
+    val passiveTalents: List<PassiveTalent> = emptyList(),
+    val rarity: Int = 0,
+    val skillTalents: List<SkillTalent> = emptyList(),
+    val title: String? = null,
+    val vision: String  = "",
+    val vision_key: String = "",
+    val weapon: String = "",
+    val weapon_type: String = "",
     var isDownload: Boolean = false
 ) {
 

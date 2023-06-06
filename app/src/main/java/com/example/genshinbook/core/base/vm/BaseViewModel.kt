@@ -3,6 +3,7 @@ package com.example.genshinbook.core.base.vm
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.genshinbook.BuildConfig
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,7 +21,9 @@ abstract class BaseViewModel: ViewModel() {
             try {
                 block()
             }catch (e: Exception){
-                Log.e("Error",e.toString())
+                if (!BuildConfig.DEBUG){
+                    Log.e("Error",e.toString())
+                }
                 error()
             }finally {
                 finally()

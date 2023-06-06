@@ -30,7 +30,7 @@ import kotlin.concurrent.thread
 fun CharacterCard(
     character: Character,
     onItemClick: () -> Unit = {},
-    onDownload: (Character,Boolean) -> Unit
+    onDownload: (Character) -> Unit
 ) {
 
     val vision = Vision.valueOf(character.vision_key)
@@ -64,7 +64,7 @@ fun CharacterCard(
                 if (isDownloaded.value.isNotNull()){
                     IconButton(onClick = {
                         isDownloaded.value = null
-                        onDownload(character, character.isDownload)
+                        onDownload(character)
                         thread {
                             Thread.sleep(2000)
                             isDownloaded.value = character.isDownload

@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.screen.main.elements.characters.di
+package com.example.genshinbook.domain.usecase.characters.di
 
 import com.example.genshinbook.data.network.repository.characters.CharactersNetwork
 import com.example.genshinbook.data.network.repository.characters.CharactersNetworkImpl
@@ -9,17 +9,12 @@ import com.example.genshinbook.domain.repository.characters.CharactersRepository
 import com.example.genshinbook.domain.usecase.characters.*
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import io.realm.kotlin.Realm
-import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
-class CharactersModule {
+class CharactersDomainModule {
 
     @Provides
-    @Singleton
     fun provideIsCharacterInTheDataBaseUseCase(
         charactersRepository: CharactersRepository
     ): IsCharacterInTheDatabaseUseCase{
@@ -27,7 +22,6 @@ class CharactersModule {
     }
 
     @Provides
-    @Singleton
     fun provideAddCharacterToStorageUseCase(
         charactersRepository: CharactersRepository
     ): AddCharacterToStorageUseCase{
@@ -35,14 +29,12 @@ class CharactersModule {
     }
 
     @Provides
-    @Singleton
     fun provideRemoveCharacterFromStorageUseCase(
         charactersRepository: CharactersRepository
     ): RemoveCharacterFromStorageUseCase{
         return RemoveCharacterFromStorageUseCase(charactersRepository)
     }
     @Provides
-    @Singleton
     fun provideGetAllCharactersFromStorageUseCase(
         charactersRepository: CharactersRepository
     ): GetAllCharactersFromStorageUseCase{
@@ -52,7 +44,6 @@ class CharactersModule {
     }
 
     @Provides
-    @Singleton
     fun provideGetAllInfoCharactersUseCase(
         charactersRepository: CharactersRepository
     ): GetAllInfoCharactersUseCase{
@@ -62,7 +53,6 @@ class CharactersModule {
     }
 
     @Provides
-    @Singleton
     fun provideGetAllNameCharactersUseCase(
         charactersRepository: CharactersRepository
     ): GetAllNameCharactersUseCase {
@@ -72,43 +62,12 @@ class CharactersModule {
     }
 
     @Provides
-    @Singleton
     fun provideGetCurrentInfoCharacterUseCase(
         charactersRepository: CharactersRepository
     ): GetCurrentInfoCharacterUseCase {
         return GetCurrentInfoCharacterUseCase(
             charactersRepository = charactersRepository
         )
-    }
-
-
-
-    @Provides
-    @Singleton
-    fun provideCharactersRepository(
-        charactersNetwork: CharactersNetwork,
-        characterStorageRepository: CharacterStorageRepository
-    ):CharactersRepository{
-
-        return CharactersRepositoryImpl(
-            charactersNetwork = charactersNetwork,
-            characterStorageRepository
-        )
-
-    }
-
-    @Provides
-    @Singleton
-    fun provideStorageCharacterRepository(
-        database: Realm
-    ):CharacterStorageRepository{
-        return CharacterStorageRepositoryImpl(database)
-    }
-
-    @Provides
-    @Singleton
-    fun provideCharactersNetwork(): CharactersNetwork{
-        return CharactersNetworkImpl()
     }
 
 }

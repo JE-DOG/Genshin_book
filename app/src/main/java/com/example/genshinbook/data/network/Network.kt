@@ -9,6 +9,8 @@ const val BASE_URL = "https://api.genshin.dev/"
 
 object Network {
 
+    //todo Remove this into DI
+
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())

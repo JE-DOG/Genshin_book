@@ -5,12 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.genshinbook.core.base.vm.BaseViewModel
 import com.example.genshinbook.domain.usecase.characters.*
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
 import com.example.genshinbook.presentaion.model.character.Character
 
-@HiltViewModel
 class CharactersTabViewModel @Inject constructor(
     private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
     private val getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
@@ -26,7 +24,7 @@ class CharactersTabViewModel @Inject constructor(
     )
     val state = _state
 
-    fun getAllInfoCharactersUseCase(){
+    fun getAllCharacters(){
 
         if (state.value!!.characters.isEmpty() || state.value!!.isOffline){
             launchIoCoroutine(
@@ -54,7 +52,7 @@ class CharactersTabViewModel @Inject constructor(
 
                 _state.postValue(
                     state.value!!.copy(
-                        characters = result.await(), //todo maybe this error because we give mutable list ,but in the state list
+                        characters = result.await(),
                         isLoading = false,
                         isError = false,
                         isOffline = false
@@ -89,7 +87,7 @@ class CharactersTabViewModel @Inject constructor(
 
                 _state.postValue(
                     state.value!!.copy(
-                        characters = result, //todo maybe this error because we give mutable list ,but in the state list
+                        characters = result,
                         isLoading = false
                     )
                 )
@@ -99,29 +97,28 @@ class CharactersTabViewModel @Inject constructor(
 
     }
 
-
-
-    private fun removeCharacterFromStorage(character: Character){
-        launchIoCoroutine {
-            removeCharacterFromStorageUseCase.execute(character = character)
-        }
-    }
-
-    fun characterDownload(character: Character,isDownload: Boolean){
-        val list = state.value!!.characters
-        if (isDownload){
+    fun characterDownload(character: Character){
+        if (character.isDownload){
             removeCharacterFromStorage(character)
         }else{
             addCharacterToStorage(character)
         }
 
+        val list = state.value!!.characters
         val index = list.lastIndexOf(character)
         if (index != -1){
             list[index] = character.apply {
-                Log.d("checkingCharacterForDownloaded", "before:\n${this.name} -> Downloaded(${this.isDownload})")
                 this.isDownload = !this.isDownload
-                Log.d("checkingCharacterForDownloaded", "after:\n${this.name} -> Downloaded(${this.isDownload})")
             }
+        }
+    }
+
+    fun changeState(state: CharactersTabViewState){
+        _state.value = state
+    }
+    private fun removeCharacterFromStorage(character: Character){
+        launchIoCoroutine {
+            removeCharacterFromStorageUseCase.execute(character = character)
         }
     }
 
@@ -191,8 +188,5 @@ class CharactersTabViewModel @Inject constructor(
         }
     }
 
-    fun changeState(state: CharactersTabViewState){
-        _state.value = state
-    }
 
 }

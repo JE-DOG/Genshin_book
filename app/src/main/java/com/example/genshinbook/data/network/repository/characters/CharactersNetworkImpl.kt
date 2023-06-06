@@ -4,7 +4,9 @@ import com.example.genshinbook.core.ext.log
 import com.example.genshinbook.data.network.Network
 import com.example.genshinbook.data.network.model.character.CharacterNetwork
 
-class CharactersNetworkImpl : CharactersNetwork {
+class CharactersNetworkImpl(
+    //todo remove Network and created api in the DI
+) : CharactersNetwork {
 
     private val api = Network.charactersApi
     private val logName = "CharacterApiTest"
