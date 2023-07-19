@@ -10,7 +10,6 @@ import retrofit2.Retrofit
 @Module
 class CharacterNetworkModule {
 
-    //todo provide character network repo
     @Provides
     fun provideCharacterApi(
         retrofit: Retrofit

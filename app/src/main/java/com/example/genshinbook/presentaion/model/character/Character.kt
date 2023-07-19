@@ -22,8 +22,6 @@ data class Character(
     var isDownload: Boolean = false
 ): Serializable {
 
-    //todo add parcelize for fix bag ( android.os.BadParcelableException: Parcelable encountered IOException writing serializable object (name = com.example.genshinbook.presentaion.screen.detail.CharacterDetailScreen) )
-
 
     companion object{
 
