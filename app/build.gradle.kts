@@ -1,8 +1,8 @@
 plugins {
-    id("com.android.application")
-    id ("org.jetbrains.kotlin.android")
-    id ("kotlin-kapt")
-    id ("io.realm.kotlin")
+    id(Plugins.Android.application)
+    id (Plugins.Kotlin.android)
+    id (Plugins.Kotlin.kapt)
+    id (Plugins.Another.Realm.realm)
 }
 
 android {
@@ -29,17 +29,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = Dependencies.Compose.version
     }
     packagingOptions {
         resources {
@@ -50,64 +50,57 @@ android {
 
 dependencies {
 
-    implementation ("androidx.core:core-ktx:1.10.1")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation ("androidx.activity:activity-compose:1.7.2")
-//    implementation ("androidx.compose.ui:ui:$compose_ui_version")
-//    implementation ("androidx.compose.ui:ui-tooling-preview:$compose_ui_version")
-    implementation ("androidx.compose.material:material:1.4.3")
-    implementation ("androidx.compose.material3:material3:1.1.1")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
+    implementation (Dependencies.AndroidX.LifeCycle.runtime_ktx)
+    implementation (Dependencies.AndroidX.LifeCycle.viewmodel_compose)
+    implementation (Dependencies.AndroidX.Core.ktx)
+    implementation (Dependencies.AndroidX.Activity.compose)
+    implementation (Dependencies.Compose.ui)
+    implementation (Dependencies.Compose.ui_tooling_preview)
+    implementation (Dependencies.Compose.Material2.material2)
+    implementation (Dependencies.Compose.Material3.material3)
+    implementation (Dependencies.Test.Coroutine.coroutine)
 
 
     //Tests
     //mockito
-    val mockito_version = "4.0.0"
-    testImplementation ("org.mockito:mockito-core:$mockito_version")
-    testImplementation ("org.mockito.kotlin:mockito-kotlin:$mockito_version")
-    testImplementation ("org.mockito:mockito-inline:$mockito_version")
+    testImplementation (Dependencies.Test.Mockito.core)
+    testImplementation (Dependencies.Test.Mockito.kotlin)
+    testImplementation (Dependencies.Test.Mockito.inline)
     //j-unit
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    testImplementation ("junit:junit:4.13.2")
+    androidTestImplementation (Dependencies.Test.Junit.ext_junit)
+    testImplementation (Dependencies.Test.Junit.junit)
     //ui
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
-//    debugImplementation ("androidx.compose.ui:ui-tooling:$compose_ui_version")
-//    androidTestImplementation ("androidx.compose.ui:ui-test-junit4:$compose_ui_version")
-//    debugImplementation ("androidx.compose.ui:ui-test-manifest:$compose_ui_version")
+    debugImplementation (Dependencies.Compose.ui_tooling)
+    androidTestImplementation (Dependencies.Compose.ui_test_junit4)
+    debugImplementation (Dependencies.Compose.ui_test_manifest)
     //android
-    testImplementation ("androidx.arch.core:core-testing:2.2.0")
+    testImplementation (Dependencies.Test.AndroidX.Core.core_testing)
+    androidTestImplementation (Dependencies.Test.AndroidX.Espresso.core)
 
     //di
-    val dagger_version = "2.44.2"
     //dagger
-    implementation ("com.google.dagger:dagger:$dagger_version")
-    kapt ("com.google.dagger:dagger-compiler:$dagger_version")
+    implementation (Dependencies.Another.DI.Dagger.dagger)
+    kapt (Dependencies.Another.DI.Dagger.compiler)
 
     //network
     //Retrofit
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation (Dependencies.Another.Network.Retrofit.gson)
+    implementation (Dependencies.Another.Network.Retrofit.retrofit)
     //OkHttp
-    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.9")
+    implementation (Dependencies.Another.Network.OkHttp.okhttp)
+    implementation (Dependencies.Another.Network.OkHttp.interceptor)
 
     //navigation
-    val voyagerVersion = "1.0.0-rc05"
     // Voyager
-    implementation ("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-    // TabNavigator
-    implementation ("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+    implementation (Dependencies.Compose.Navigation.Voyager.navigator)
+    implementation (Dependencies.Compose.Navigation.Voyager.tab_navigator)
 
 
     // ViewModel
-    val lifecycle_version = "2.4.0"
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
-    //live data
-    implementation ("androidx.compose.runtime:runtime-livedata:1.6.0-alpha01")
+    implementation (Dependencies.Compose.LiveData.runtime)
 
     //storage
     //Realm
-    implementation ("io.realm.kotlin:library-base:1.8.0")
+    implementation (Dependencies.Another.Database.Realm.base)
 
 }

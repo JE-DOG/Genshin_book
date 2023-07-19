@@ -1,7 +1,12 @@
+buildscript {
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.0.0")
+    }
+}
 plugins {
-    id ("com.android.application") version "8.0.0" apply false
-    id ("com.android.library") version "8.0.0" apply false
-    id ("org.jetbrains.kotlin.android") version "1.8.10" apply false
+    id (Plugins.Android.application) version Plugins.Android.version apply false
+    id (Plugins.Android.library) version Plugins.Android.version apply false
+    id (Plugins.Kotlin.android) version Plugins.Kotlin.version apply false
     //realm
-    id ("io.realm.kotlin") version "1.6.1" apply false
+    id (Plugins.Another.Realm.realm) version Plugins.Another.Realm.version apply false
 }
