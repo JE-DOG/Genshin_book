@@ -1,7 +1,6 @@
 package com.example.genshinbook
 
 import android.app.Application
-import com.example.genshinbook.core.ext.viewModelStore
 import com.example.genshinbook.di.AppComponent
 import com.example.genshinbook.di.DaggerAppComponent
 import com.example.genshinbook.presentaion.di.veiwModelStore.ViewModelStoreComponent

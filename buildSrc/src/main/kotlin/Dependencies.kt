@@ -38,6 +38,30 @@ object Dependencies {
         }
     }
 
+    object XML {
+        object Material2 {
+            const val version = "1.9.0"
+
+            const val material2 = "com.google.android.material:material:$version"
+        }
+
+        object Navigation {
+
+            object Cicerone {
+                const val version = "7.1"
+
+                const val cicerone = "com.github.terrakok:cicerone:$version"
+            }
+
+        }
+
+        object AppCompat {
+            const val version = "1.6.1"
+
+            const val app_compat = "androidx.appcompat:appcompat:$version"
+        }
+    }
+
     object AndroidX {
 
         object LifeCycle{

@@ -1,5 +1,5 @@
 plugins {
-    id(Plugins.Android.application)
+    id (Plugins.Android.application)
     id (Plugins.Kotlin.android)
     id (Plugins.Kotlin.kapt)
     id (Plugins.Another.Realm.realm)
@@ -37,6 +37,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = Dependencies.Compose.version
@@ -59,6 +60,14 @@ dependencies {
     implementation (Dependencies.Compose.Material2.material2)
     implementation (Dependencies.Compose.Material3.material3)
     implementation (Dependencies.Test.Coroutine.coroutine)
+
+    //xml
+    //material 2
+    implementation (Dependencies.XML.Material2.material2)
+    //app compat
+    implementation (Dependencies.XML.AppCompat.app_compat)
+    //navigation
+    implementation (Dependencies.XML.Navigation.Cicerone.cicerone)
 
 
     //Tests
