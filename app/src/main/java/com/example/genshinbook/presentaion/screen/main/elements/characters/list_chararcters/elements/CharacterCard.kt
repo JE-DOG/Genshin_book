@@ -3,7 +3,6 @@ package com.example.genshinbook.presentaion.screen.main.elements.characters.list
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -13,16 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.genshinbook.R
-import com.example.genshinbook.core.ext.isNotNull
-import com.example.genshinbook.core.ext.isNull
+import com.example.core.ext.isNotNull
 import com.example.genshinbook.presentaion.model.character.Character
 import com.example.genshinbook.presentaion.model.vision.Vision
-import com.example.genshinbook.presentaion.ui.theme.CardBackground
-import com.example.genshinbook.presentaion.ui.theme.CardShape
+import com.example.core.ui.theme.CardBackground
+import com.example.core.ui.theme.CardShape
 import kotlin.concurrent.thread
 
 @OptIn(ExperimentalMaterial3Api::class)

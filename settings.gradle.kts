@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Genshin book"
 include(":app")
+include(":core")

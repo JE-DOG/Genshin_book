@@ -3,7 +3,7 @@ package com.example.genshinbook.presentaion.screen.main.elements.characters.vm
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.genshinbook.core.base.vm.BaseViewModel
+import com.example.core.base.vm.BaseViewModel
 import com.example.genshinbook.domain.usecase.characters.*
 import kotlinx.coroutines.async
 import javax.inject.Inject
@@ -17,7 +17,7 @@ class CharactersTabViewModel @Inject constructor(
     private val addCharacterToStorageUseCase: AddCharacterToStorageUseCase,
     private val removeCharacterFromStorageUseCase: RemoveCharacterFromStorageUseCase,
     private val getAllCharactersFromStorage: GetAllCharactersFromStorageUseCase
-): BaseViewModel() {
+): com.example.core.base.vm.BaseViewModel() {
 
     private val _state = MutableLiveData(
         CharactersTabViewState()

@@ -1,7 +1,7 @@
 package com.example.genshinbook.presentaion.model.vision
 
 import androidx.annotation.DrawableRes
-import com.example.genshinbook.R
+import com.example.core.R
 
 enum class Vision(val visionName: String, @DrawableRes val icon: Int) {
 

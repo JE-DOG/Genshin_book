@@ -1,6 +1,6 @@
 package com.example.genshinbook.data.network.repository.characters
 
-import com.example.genshinbook.core.ext.log
+import com.example.core.ext.log
 import com.example.genshinbook.data.network.api.CharactersApi
 import com.example.genshinbook.data.network.model.character.CharacterNetwork
 import javax.inject.Inject

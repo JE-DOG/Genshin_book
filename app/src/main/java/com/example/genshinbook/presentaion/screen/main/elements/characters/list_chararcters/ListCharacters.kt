@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.unit.dp
-import com.example.genshinbook.core.elements.MyError
+import com.example.core.elements.MyError
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.elements.CharacterCard
 import com.example.genshinbook.presentaion.model.character.Character
@@ -41,7 +41,7 @@ fun ListCharacters(viewModel: CharactersTabViewModel, onClick: (Character) -> Un
         }
 
     } else {
-        MyError(
+        com.example.core.elements.MyError(
             onRepeat = {
                 viewModel.getAllCharacters()
             }

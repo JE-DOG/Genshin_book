@@ -23,8 +23,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
+import com.example.core.ui.theme.BottomSheetBackground
+import com.example.core.ui.theme.BottomSheetScrimColor
+import com.example.core.ui.theme.BottomSheetShape
+import com.example.core.ui.theme.ButtonTextColor
+import com.example.core.ui.theme.DetailBackground
 import com.example.genshinbook.R
-import com.example.genshinbook.core.elements.Expandable
 import com.example.genshinbook.presentaion.model.character.Character
 import com.example.genshinbook.presentaion.model.character.Constellation
 import com.example.genshinbook.presentaion.model.character.PassiveTalent
@@ -33,7 +37,6 @@ import com.example.genshinbook.presentaion.model.vision.Vision
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.ConstellationsDetail
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.PassiveTalentDetail
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.SkillTalentDetail
-import com.example.genshinbook.presentaion.ui.theme.*
 import kotlinx.coroutines.launch
 
 data class CharacterDetailScreen(
@@ -135,7 +138,7 @@ data class CharacterDetailScreen(
                 Text(text = "Affiliation: ${character.affiliation}", color = Color.White, fontSize = 20.sp)
                 Text(text = "Birthday: ${character.birthday}", color = Color.White, fontSize = 20.sp)
 
-                Expandable(headerText = "Skill talents") {
+                com.example.core.elements.Expandable(headerText = "Skill talents") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {
@@ -143,7 +146,7 @@ data class CharacterDetailScreen(
                         character.skillTalents.forEach {
                             OutlinedButton(
                                 onClick = {
-                                    bottomSheetType.value  = it
+                                    bottomSheetType.value = it
                                     scope.launch {
                                         bottomSheetState.show()
                                     }
@@ -159,7 +162,7 @@ data class CharacterDetailScreen(
                     }
                 }
 
-                Expandable(headerText = "Passive talents") {
+                com.example.core.elements.Expandable(headerText = "Passive talents") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {
@@ -183,7 +186,7 @@ data class CharacterDetailScreen(
                     }
                 }
 
-                Expandable(headerText = "Constellations") {
+                com.example.core.elements.Expandable(headerText = "Constellations") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {

@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.example.genshinbook.core.elements.LoadingContent
-import com.example.genshinbook.core.elements.OfflineModeNotification
-import com.example.genshinbook.core.ext.ViewModelStore
+import com.example.core.elements.LoadingContent
+import com.example.core.elements.OfflineModeNotification
+import com.example.genshinbook.utils.ext.ViewModelStore
 import com.example.genshinbook.presentaion.screen.detail.CharacterDetailScreen
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.ListCharacters
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
@@ -32,12 +32,12 @@ fun CharactersTab() {
     ) {
 
         if (state!!.isOffline) {
-            OfflineModeNotification {
+            com.example.core.elements.OfflineModeNotification {
                 viewModel.getAllCharacters()
             }
         }
 
-        LoadingContent(
+        com.example.core.elements.LoadingContent(
             isLoading = state.isLoading,
             isError = state.isError,
             onConfirm = {

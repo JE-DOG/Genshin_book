@@ -2,7 +2,7 @@ package com.example.genshinbook.presentaion.model.content_types
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
-import com.example.genshinbook.R
+import com.example.core.R
 import com.example.genshinbook.presentaion.screen.empty.EmptyScreen
 import com.example.genshinbook.presentaion.screen.main.elements.characters.CharactersTab
 

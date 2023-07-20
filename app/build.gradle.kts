@@ -32,15 +32,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Dependencies.Compose.version
+    }
     kotlinOptions {
         jvmTarget = "17"
     }
     buildFeatures {
         compose = true
         viewBinding = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Dependencies.Compose.version
     }
     packagingOptions {
         resources {
@@ -51,65 +51,10 @@ android {
 
 dependencies {
 
-    implementation (Dependencies.AndroidX.LifeCycle.runtime_ktx)
-    implementation (Dependencies.AndroidX.LifeCycle.viewmodel_compose)
-    implementation (Dependencies.AndroidX.Core.ktx)
-    implementation (Dependencies.AndroidX.Activity.compose)
-    implementation (Dependencies.Compose.ui)
-    implementation (Dependencies.Compose.ui_tooling_preview)
-    implementation (Dependencies.Compose.Material2.material2)
-    implementation (Dependencies.Compose.Material3.material3)
-    implementation (Dependencies.Test.Coroutine.coroutine)
+    //include modules
+    implementation (project(path = Modules.core))
 
-    //xml
-    //material 2
-    implementation (Dependencies.XML.Material2.material2)
-    //app compat
-    implementation (Dependencies.XML.AppCompat.app_compat)
-    //navigation
-    implementation (Dependencies.XML.Navigation.Cicerone.cicerone)
-
-
-    //Tests
-    //mockito
-    testImplementation (Dependencies.Test.Mockito.core)
-    testImplementation (Dependencies.Test.Mockito.kotlin)
-    testImplementation (Dependencies.Test.Mockito.inline)
-    //j-unit
-    androidTestImplementation (Dependencies.Test.Junit.ext_junit)
-    testImplementation (Dependencies.Test.Junit.junit)
-    //ui
-    debugImplementation (Dependencies.Compose.ui_tooling)
-    androidTestImplementation (Dependencies.Compose.ui_test_junit4)
-    debugImplementation (Dependencies.Compose.ui_test_manifest)
-    //android
-    testImplementation (Dependencies.Test.AndroidX.Core.core_testing)
-    androidTestImplementation (Dependencies.Test.AndroidX.Espresso.core)
-
-    //di
-    //dagger
-    implementation (Dependencies.Another.DI.Dagger.dagger)
+    //dagger compiler
     kapt (Dependencies.Another.DI.Dagger.compiler)
-
-    //network
-    //Retrofit
-    implementation (Dependencies.Another.Network.Retrofit.gson)
-    implementation (Dependencies.Another.Network.Retrofit.retrofit)
-    //OkHttp
-    implementation (Dependencies.Another.Network.OkHttp.okhttp)
-    implementation (Dependencies.Another.Network.OkHttp.interceptor)
-
-    //navigation
-    // Voyager
-    implementation (Dependencies.Compose.Navigation.Voyager.navigator)
-    implementation (Dependencies.Compose.Navigation.Voyager.tab_navigator)
-
-
-    // ViewModel
-    implementation (Dependencies.Compose.LiveData.runtime)
-
-    //storage
-    //Realm
-    implementation (Dependencies.Another.Database.Realm.base)
 
 }

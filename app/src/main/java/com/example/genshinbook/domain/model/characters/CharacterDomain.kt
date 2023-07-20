@@ -1,7 +1,5 @@
 package com.example.genshinbook.domain.model.characters
 
-import android.util.Log
-import com.example.genshinbook.core.ext.isNull
 import com.example.genshinbook.data.network.model.character.CharacterNetwork
 import com.example.genshinbook.data.storage.model.CharacterStorage
 import com.example.genshinbook.presentaion.model.character.Constellation

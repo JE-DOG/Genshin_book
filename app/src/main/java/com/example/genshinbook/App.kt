@@ -19,6 +19,7 @@ class App: Application() {
     private fun init() {
         INSTANCE = this
         //components
+
         appComponent = DaggerAppComponent.create()
         //subcomponents
         viewModelStoreComponent = appComponent.viewModelStoreComponent.build()
