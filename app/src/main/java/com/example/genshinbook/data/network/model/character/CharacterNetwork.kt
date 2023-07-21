@@ -1,6 +1,6 @@
 package com.example.genshinbook.data.network.model.character
 
-import com.example.genshinbook.domain.model.characters.CharacterDomain
+import com.example.domain_characters.domain.model.characters.CharacterDomain
 import com.example.genshinbook.presentaion.model.character.Constellation
 import com.example.genshinbook.presentaion.model.character.PassiveTalent
 import com.example.genshinbook.presentaion.model.character.SkillTalent
@@ -25,7 +25,7 @@ data class CharacterNetwork(
 
     companion object{
         fun fromDomain(
-            characterDomain: CharacterDomain
+            characterDomain: com.example.domain_characters.domain.model.characters.CharacterDomain
         ): CharacterNetwork {
 
             characterDomain.run {

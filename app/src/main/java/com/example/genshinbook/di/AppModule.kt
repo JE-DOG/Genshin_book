@@ -1,7 +1,7 @@
 package com.example.genshinbook.di
 
 import com.example.genshinbook.data.di.DataModule
-import com.example.genshinbook.domain.di.DomainModule
+import com.example.domain_characters.domain.di.DomainModule
 import com.example.genshinbook.presentaion.di.PresentationModule
 import com.example.genshinbook.presentaion.di.veiwModelStore.ViewModelStoreComponent
 import dagger.Module
@@ -10,7 +10,7 @@ import dagger.Module
     includes = [
         DataModule::class,
         PresentationModule::class,
-        DomainModule::class,
+        com.example.domain_characters.domain.di.DomainModule::class,
     ],
     subcomponents = [
         ViewModelStoreComponent::class

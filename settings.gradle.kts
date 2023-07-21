@@ -13,5 +13,12 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Genshin book"
+
 include(":app")
+include(":core-app")
+//data
+include(":data-core")
+//domain
+include(":domain-core")
+include(":domain-characters")
 include(":core")

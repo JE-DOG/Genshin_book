@@ -10,13 +10,13 @@ import javax.inject.Inject
 import com.example.genshinbook.presentaion.model.character.Character
 
 class CharactersTabViewModel @Inject constructor(
-    private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
-    private val getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
-    private val getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase,
-    private val isCharacterInTheDatabaseUseCase: IsCharacterInTheDatabaseUseCase,
-    private val addCharacterToStorageUseCase: AddCharacterToStorageUseCase,
-    private val removeCharacterFromStorageUseCase: RemoveCharacterFromStorageUseCase,
-    private val getAllCharactersFromStorage: GetAllCharactersFromStorageUseCase
+    private val getAllInfoCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllInfoCharactersUseCase,
+    private val getAllNameCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllNameCharactersUseCase,
+    private val getCurrentInfoCharacterUseCase: com.example.domain_characters.domain.usecase.characters.GetCurrentInfoCharacterUseCase,
+    private val isCharacterInTheDatabaseUseCase: com.example.domain_characters.domain.usecase.characters.IsCharacterInTheDatabaseUseCase,
+    private val addCharacterToStorageUseCase: com.example.domain_characters.domain.usecase.characters.AddCharacterToStorageUseCase,
+    private val removeCharacterFromStorageUseCase: com.example.domain_characters.domain.usecase.characters.RemoveCharacterFromStorageUseCase,
+    private val getAllCharactersFromStorage: com.example.domain_characters.domain.usecase.characters.GetAllCharactersFromStorageUseCase
 ): com.example.core.base.vm.BaseViewModel() {
 
     private val _state = MutableLiveData(

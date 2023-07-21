@@ -10,13 +10,13 @@ class ViewModelStoreModule {
 
     @Provides
     fun provideCharacterTab(
-        getAllCharactersFromStorageUseCase: GetAllCharactersFromStorageUseCase,
-        getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
-        getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
-        getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase,
-        isCharacterInTheDatabaseUseCase: IsCharacterInTheDatabaseUseCase,
-        addCharacterToStorageUseCase: AddCharacterToStorageUseCase,
-        removeCharacterFromStorageUseCase: RemoveCharacterFromStorageUseCase
+        getAllCharactersFromStorageUseCase: com.example.domain_characters.domain.usecase.characters.GetAllCharactersFromStorageUseCase,
+        getAllInfoCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllInfoCharactersUseCase,
+        getAllNameCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllNameCharactersUseCase,
+        getCurrentInfoCharacterUseCase: com.example.domain_characters.domain.usecase.characters.GetCurrentInfoCharacterUseCase,
+        isCharacterInTheDatabaseUseCase: com.example.domain_characters.domain.usecase.characters.IsCharacterInTheDatabaseUseCase,
+        addCharacterToStorageUseCase: com.example.domain_characters.domain.usecase.characters.AddCharacterToStorageUseCase,
+        removeCharacterFromStorageUseCase: com.example.domain_characters.domain.usecase.characters.RemoveCharacterFromStorageUseCase
     ) = CharactersTabViewModel(
         getAllCharactersFromStorage = getAllCharactersFromStorageUseCase,
         getAllInfoCharactersUseCase = getAllInfoCharactersUseCase,

@@ -12,6 +12,7 @@ object Plugins {
 
         const val android = "org.jetbrains.kotlin.android"
         const val kapt = "kotlin-kapt"
+        const val jvm = "org.jetbrains.kotlin.jvm"
     }
 
     object Another {
@@ -21,6 +22,13 @@ object Plugins {
 
             const val realm = "io.realm.kotlin"
         }
+    }
+
+    object Java {
+
+        const val library = "java-library"
+
+
     }
 
 }

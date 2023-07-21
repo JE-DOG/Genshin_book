@@ -1,6 +1,6 @@
 package com.example.genshinbook.presentaion.model.character
 
-import com.example.genshinbook.domain.model.characters.CharacterDomain
+import com.example.domain_characters.domain.model.characters.CharacterDomain
 import java.io.Serializable
 
 data class Character(
@@ -26,7 +26,7 @@ data class Character(
     companion object{
 
         fun fromDomain(
-            characterDomain: CharacterDomain
+            characterDomain: com.example.domain_characters.domain.model.characters.CharacterDomain
         ): Character {
 
             characterDomain.run {

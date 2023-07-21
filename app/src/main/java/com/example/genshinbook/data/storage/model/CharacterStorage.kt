@@ -1,6 +1,6 @@
 package com.example.genshinbook.data.storage.model
 
-import com.example.genshinbook.domain.model.characters.CharacterDomain
+import com.example.domain_characters.domain.model.characters.CharacterDomain
 import com.example.genshinbook.presentaion.model.character.Constellation
 import com.example.genshinbook.presentaion.model.character.PassiveTalent
 import com.example.genshinbook.presentaion.model.character.SkillTalent
@@ -31,7 +31,7 @@ class CharacterStorage: RealmObject {
 
     companion object {
         fun fromDomain(
-            characterDomain: CharacterDomain
+            characterDomain: com.example.domain_characters.domain.model.characters.CharacterDomain
         ): CharacterStorage {
 
             return CharacterStorage().apply {

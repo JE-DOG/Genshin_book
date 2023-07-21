@@ -15,13 +15,13 @@ class CharactersTabViewModelTest{
     @get: Rule
     val rule = InstantTaskExecutorRule()
 
-    val getAllInfoCharactersUseCase = mock<GetAllInfoCharactersUseCase>()
-    val getAllNameCharactersUseCase = mock<GetAllNameCharactersUseCase>()
-    val getCurrentInfoCharacterUseCase = mock<GetCurrentInfoCharacterUseCase>()
-    val isCharacterInTheDatabaseUseCase = mock<IsCharacterInTheDatabaseUseCase>()
-    val addCharacterToStorageUseCase = mock<AddCharacterToStorageUseCase>()
-    val removeCharacterFromStorageUseCase = mock<RemoveCharacterFromStorageUseCase>()
-    val getAllCharactersFromStorage = mock<GetAllCharactersFromStorageUseCase>()
+    val getAllInfoCharactersUseCase = mock<com.example.domain_characters.domain.usecase.characters.GetAllInfoCharactersUseCase>()
+    val getAllNameCharactersUseCase = mock<com.example.domain_characters.domain.usecase.characters.GetAllNameCharactersUseCase>()
+    val getCurrentInfoCharacterUseCase = mock<com.example.domain_characters.domain.usecase.characters.GetCurrentInfoCharacterUseCase>()
+    val isCharacterInTheDatabaseUseCase = mock<com.example.domain_characters.domain.usecase.characters.IsCharacterInTheDatabaseUseCase>()
+    val addCharacterToStorageUseCase = mock<com.example.domain_characters.domain.usecase.characters.AddCharacterToStorageUseCase>()
+    val removeCharacterFromStorageUseCase = mock<com.example.domain_characters.domain.usecase.characters.RemoveCharacterFromStorageUseCase>()
+    val getAllCharactersFromStorage = mock<com.example.domain_characters.domain.usecase.characters.GetAllCharactersFromStorageUseCase>()
 
     lateinit var viewModel: CharactersTabViewModel
 
