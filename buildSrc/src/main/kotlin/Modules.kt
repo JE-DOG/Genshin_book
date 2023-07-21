@@ -13,9 +13,9 @@ object Modules {
     }
 
     object Data {
-        const val data = ":data"
+        const val core = ":data-core"
 
-        const val characters = ":data:characters"
+        const val characters = ":data-characters"
     }
 
     object Domain {

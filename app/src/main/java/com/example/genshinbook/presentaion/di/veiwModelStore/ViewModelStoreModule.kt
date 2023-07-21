@@ -1,6 +1,12 @@
 package com.example.genshinbook.presentaion.di.veiwModelStore
 
-import com.example.genshinbook.domain.usecase.characters.*
+import com.example.domain_characters.usecase.AddCharacterToStorageUseCase
+import com.example.domain_characters.usecase.GetAllCharactersFromStorageUseCase
+import com.example.domain_characters.usecase.GetAllInfoCharactersUseCase
+import com.example.domain_characters.usecase.GetAllNameCharactersUseCase
+import com.example.domain_characters.usecase.GetCurrentInfoCharacterUseCase
+import com.example.domain_characters.usecase.IsCharacterInTheDatabaseUseCase
+import com.example.domain_characters.usecase.RemoveCharacterFromStorageUseCase
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
 import dagger.Module
 import dagger.Provides
@@ -10,13 +16,13 @@ class ViewModelStoreModule {
 
     @Provides
     fun provideCharacterTab(
-        getAllCharactersFromStorageUseCase: com.example.domain_characters.domain.usecase.characters.GetAllCharactersFromStorageUseCase,
-        getAllInfoCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllInfoCharactersUseCase,
-        getAllNameCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllNameCharactersUseCase,
-        getCurrentInfoCharacterUseCase: com.example.domain_characters.domain.usecase.characters.GetCurrentInfoCharacterUseCase,
-        isCharacterInTheDatabaseUseCase: com.example.domain_characters.domain.usecase.characters.IsCharacterInTheDatabaseUseCase,
-        addCharacterToStorageUseCase: com.example.domain_characters.domain.usecase.characters.AddCharacterToStorageUseCase,
-        removeCharacterFromStorageUseCase: com.example.domain_characters.domain.usecase.characters.RemoveCharacterFromStorageUseCase
+        getAllCharactersFromStorageUseCase: GetAllCharactersFromStorageUseCase,
+        getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
+        getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
+        getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase,
+        isCharacterInTheDatabaseUseCase: IsCharacterInTheDatabaseUseCase,
+        addCharacterToStorageUseCase: AddCharacterToStorageUseCase,
+        removeCharacterFromStorageUseCase: RemoveCharacterFromStorageUseCase
     ) = CharactersTabViewModel(
         getAllCharactersFromStorage = getAllCharactersFromStorageUseCase,
         getAllInfoCharactersUseCase = getAllInfoCharactersUseCase,

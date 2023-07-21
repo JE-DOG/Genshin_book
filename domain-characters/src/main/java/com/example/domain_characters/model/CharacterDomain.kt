@@ -11,7 +11,7 @@ data class CharacterDomain(
     val nation: String,
     val passiveTalents: List<PassiveTalentDomain>,
     val rarity: Int,
-    val skillTalents: List<SkillTalent>,
+    val skillTalents: List<SkillTalentDomain>,
     val title: String?,
     val vision: String,
     val vision_key: String,

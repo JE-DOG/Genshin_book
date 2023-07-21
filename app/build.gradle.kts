@@ -52,7 +52,9 @@ android {
 dependencies {
 
     //include modules
-    implementation (project(path = Modules.App.core))
+    implementation ( project(path = Modules.App.core) )
+    implementation ( project(path = Modules.Data.characters) )
+    implementation ( project(path = Modules.Domain.characters) )
 
     //dagger compiler
     kapt (Dependencies.Another.DI.Dagger.compiler)

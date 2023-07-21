@@ -4,6 +4,6 @@ data class SkillTalentDomain(
     val description: String,
     val name: String,
     val type: String,
-    val upgrades: List<Upgrades>,
+    val upgrades: List<UpgradesDomain>,
     val unlock: String
 )
