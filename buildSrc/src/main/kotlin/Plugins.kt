@@ -18,7 +18,7 @@ object Plugins {
     object Another {
 
         object Realm {
-            const val version = "1.6.1"
+            const val version = "1.10.1"
 
             const val realm = "io.realm.kotlin"
         }
@@ -27,7 +27,6 @@ object Plugins {
     object Java {
 
         const val library = "java-library"
-
 
     }
 

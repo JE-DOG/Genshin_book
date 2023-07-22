@@ -1,7 +1,6 @@
 plugins {
     id (Plugins.Android.library)
     id (Plugins.Kotlin.android)
-    id (Plugins.Another.Realm.realm)
 }
 
 android {

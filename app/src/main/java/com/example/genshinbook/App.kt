@@ -1,15 +1,15 @@
 package com.example.genshinbook
 
 import android.app.Application
+import com.example.data_characters.di.DaggerDataCharactersComponent
+import com.example.domain_characters.di.CharactersDomainComponent
+import com.example.domain_characters.di.DaggerCharactersDomainComponent
 import com.example.genshinbook.di.AppComponent
-import com.example.genshinbook.di.DaggerAppComponent
-import com.example.genshinbook.presentaion.di.veiwModelStore.ViewModelStoreComponent
 
 class App: Application() {
 
     lateinit var appComponent: AppComponent
-    //subcomponents
-    lateinit var viewModelStoreComponent: ViewModelStoreComponent
+    lateinit var charactersDomainComponent: CharactersDomainComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -19,14 +19,16 @@ class App: Application() {
     private fun init() {
         INSTANCE = this
         //components
+        val dataCharactersComponent = DaggerDataCharactersComponent.create()
+        charactersDomainComponent = DaggerCharactersDomainComponent
+            .factory()
+            .create(dataCharactersComponent)
 
-        appComponent = DaggerAppComponent.create()
-        //subcomponents
-        viewModelStoreComponent = appComponent.viewModelStoreComponent.build()
+//        appComponent = DaggerAppComponent.create()
+
     }
 
     companion object{
-
         lateinit var INSTANCE: App
             private set
 

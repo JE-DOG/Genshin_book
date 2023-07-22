@@ -1,6 +1,6 @@
 package com.example.genshinbook.presentaion.model.character
 
-import com.example.domain_characters.domain.model.characters.CharacterDomain
+import com.example.domain_characters.model.CharacterDomain
 import java.io.Serializable
 
 data class Character(
@@ -22,11 +22,34 @@ data class Character(
     var isDownload: Boolean = false
 ): Serializable {
 
+    fun toDomain(): CharacterDomain {
+        return CharacterDomain(
+            affiliation = affiliation,
+            birthday = birthday,
+            constellation = constellation,
+            constellations = constellations.map { it.toDomain() },
+            description = description,
+            name = name,
+            nation = nation,
+            passiveTalents = passiveTalents.map {
+                it.toDomain()
+            },
+            rarity = rarity,
+            skillTalents = skillTalents.map {
+                it.toDomain()
+            },
+            title = title,
+            vision = vision,
+            vision_key = vision_key,
+            weapon = weapon,
+            weapon_type = weapon_type
+        )
+    }
 
     companion object{
 
         fun fromDomain(
-            characterDomain: com.example.domain_characters.domain.model.characters.CharacterDomain
+            characterDomain: CharacterDomain
         ): Character {
 
             characterDomain.run {
@@ -35,13 +58,19 @@ data class Character(
                     affiliation,
                     birthday,
                     constellation,
-                    constellations,
+                    constellations.map {
+                        Constellation.fromDomain(it)
+                    },
                     description,
                     name,
                     nation,
-                    passiveTalents,
+                    passiveTalents.map {
+                        PassiveTalent.fromDomain(it)
+                    },
                     rarity,
-                    skillTalents,
+                    skillTalents.map {
+                        SkillTalent.fromDomain(it)
+                    },
                     title,
                     vision,
                     vision_key,

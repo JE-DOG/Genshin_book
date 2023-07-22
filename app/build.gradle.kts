@@ -2,7 +2,6 @@ plugins {
     id (Plugins.Android.application)
     id (Plugins.Kotlin.android)
     id (Plugins.Kotlin.kapt)
-    id (Plugins.Another.Realm.realm)
 }
 
 android {

@@ -1,6 +1,10 @@
 package com.example.data_characters.storage.di
 
+import com.example.data_characters.storage.model.SkillTalentStorage
 import com.example.data_characters.storage.model.CharacterStorage
+import com.example.data_characters.storage.model.ConstellationStorage
+import com.example.data_characters.storage.model.PassiveTalentStorage
+import com.example.data_characters.storage.model.UpgradesStorage
 import com.example.data_characters.storage.repository.di.CharacterStorageRepositoryModule
 import dagger.Module
 import dagger.Provides
@@ -26,7 +30,11 @@ class StorageModule {
     fun provideRealmConfig(): RealmConfiguration{
         val realmConfig = RealmConfiguration.Builder(
             setOf(
-                CharacterStorage::class
+                CharacterStorage::class,
+                ConstellationStorage::class,
+                PassiveTalentStorage::class,
+                SkillTalentStorage::class,
+                UpgradesStorage::class
             )
         )
             .compactOnLaunch()

@@ -1,6 +1,5 @@
-package com.example.data_characters.model
+package com.example.data_characters.storage.model
 
-import com.example.data_characters.storage.model.UpgradesStorage
 import com.example.domain_characters.model.SkillTalentDomain
 import io.realm.kotlin.ext.realmListOf
 import io.realm.kotlin.ext.toRealmList
@@ -41,7 +40,7 @@ class SkillTalentStorage: RealmObject {
 
             skillTalentDomain.run { 
 
-                return SkillTalentStorage().apply { 
+                return SkillTalentStorage().apply {
                     description = this@run.description
                     name = this@run.name
                     type = this@run.type

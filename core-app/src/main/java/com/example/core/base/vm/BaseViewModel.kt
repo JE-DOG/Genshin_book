@@ -7,7 +7,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.mongodb.kbson.BuildConfig
 
 abstract class BaseViewModel: ViewModel() {
 
@@ -21,9 +20,6 @@ abstract class BaseViewModel: ViewModel() {
             try {
                 block()
             }catch (e: Exception){
-                if (!BuildConfig.DEBUG){
-                    Log.e("Error",e.toString())
-                }
                 error()
             }finally {
                 finally()

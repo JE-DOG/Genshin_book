@@ -12,7 +12,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class CharactersUseCasesModule {
+internal class CharactersUseCasesModule {
 
     @Provides
     fun provideIsCharacterInTheDataBaseUseCase(

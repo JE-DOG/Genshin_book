@@ -4,20 +4,29 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.core.base.vm.BaseViewModel
-import com.example.genshinbook.domain.usecase.characters.*
+import com.example.domain_characters.model.CharacterDomain
+import com.example.domain_characters.usecase.AddCharacterToStorageUseCase
+import com.example.domain_characters.usecase.GetAllCharactersFromStorageUseCase
+import com.example.domain_characters.usecase.GetAllInfoCharactersUseCase
+import com.example.domain_characters.usecase.GetAllNameCharactersUseCase
+import com.example.domain_characters.usecase.GetCurrentInfoCharacterUseCase
+import com.example.domain_characters.usecase.IsCharacterInTheDatabaseUseCase
+import com.example.domain_characters.usecase.RemoveCharacterFromStorageUseCase
 import kotlinx.coroutines.async
 import javax.inject.Inject
 import com.example.genshinbook.presentaion.model.character.Character
+import dagger.Lazy
 
-class CharactersTabViewModel @Inject constructor(
-    private val getAllInfoCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllInfoCharactersUseCase,
-    private val getAllNameCharactersUseCase: com.example.domain_characters.domain.usecase.characters.GetAllNameCharactersUseCase,
-    private val getCurrentInfoCharacterUseCase: com.example.domain_characters.domain.usecase.characters.GetCurrentInfoCharacterUseCase,
-    private val isCharacterInTheDatabaseUseCase: com.example.domain_characters.domain.usecase.characters.IsCharacterInTheDatabaseUseCase,
-    private val addCharacterToStorageUseCase: com.example.domain_characters.domain.usecase.characters.AddCharacterToStorageUseCase,
-    private val removeCharacterFromStorageUseCase: com.example.domain_characters.domain.usecase.characters.RemoveCharacterFromStorageUseCase,
-    private val getAllCharactersFromStorage: com.example.domain_characters.domain.usecase.characters.GetAllCharactersFromStorageUseCase
-): com.example.core.base.vm.BaseViewModel() {
+
+class CharactersTabViewModel(
+    private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
+    private val getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
+    private val getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase,
+    private val isCharacterInTheDatabaseUseCase: IsCharacterInTheDatabaseUseCase,
+    private val addCharacterToStorageUseCase: AddCharacterToStorageUseCase,
+    private val removeCharacterFromStorageUseCase: RemoveCharacterFromStorageUseCase,
+    private val getAllCharactersFromStorage: GetAllCharactersFromStorageUseCase
+): BaseViewModel() {
 
     private val _state = MutableLiveData(
         CharactersTabViewState()
@@ -45,7 +54,11 @@ class CharactersTabViewModel @Inject constructor(
                 )
                 val result = viewModelScope.async {
                     val list = getAllInfoCharactersUseCase.execute()
-                    checkingCharacterListForDownloadedElements(list.toMutableList())
+                    checkingCharacterListForDownloadedElements(
+                        list.map {
+                            Character.fromDomain(it)
+                        }.toMutableList()
+                    )
                 }
 
 
@@ -83,7 +96,10 @@ class CharactersTabViewModel @Inject constructor(
                     )
                 )
 
-                val result = getAllCharactersFromStorage.execute()
+                val result = getAllCharactersFromStorage.execute().map {
+                    Character.fromDomain(it)
+                }.toMutableList()
+
 
                 _state.postValue(
                     state.value!!.copy(
@@ -118,14 +134,14 @@ class CharactersTabViewModel @Inject constructor(
     }
     private fun removeCharacterFromStorage(character: Character){
         launchIoCoroutine {
-            removeCharacterFromStorageUseCase.execute(character = character)
+            removeCharacterFromStorageUseCase.execute(character = character.toDomain())
         }
     }
 
     private fun addCharacterToStorage(character: Character){
 
         launchIoCoroutine {
-            addCharacterToStorageUseCase.execute(character = character)
+            addCharacterToStorageUseCase.execute(character = character.toDomain())
         }
 
     }
@@ -138,7 +154,7 @@ class CharactersTabViewModel @Inject constructor(
 
             launchDefaultCoroutine {
 
-                val result = isCharacterInTheDatabaseUseCase.execute(it)
+                val result = isCharacterInTheDatabaseUseCase.execute(it.toDomain())
 
                 Log.d("checkingCharacterListForDownloadedElements", "${it.name} -> Downloaded($result)")
 
@@ -164,7 +180,7 @@ class CharactersTabViewModel @Inject constructor(
     private suspend fun checkingCharacterForDownloaded(
         character: Character
     ){
-        val result = isCharacterInTheDatabaseUseCase.execute(character)
+        val result = isCharacterInTheDatabaseUseCase.execute(character.toDomain())
         val list = state.value!!.characters
         val index = list.lastIndexOf(character)
 

@@ -7,21 +7,34 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.example.core.elements.LoadingContent
-import com.example.core.elements.OfflineModeNotification
-import com.example.genshinbook.utils.ext.ViewModelStore
 import com.example.genshinbook.presentaion.screen.detail.CharacterDetailScreen
 import com.example.genshinbook.presentaion.screen.main.elements.characters.list_chararcters.ListCharacters
 import com.example.genshinbook.presentaion.screen.main.elements.characters.vm.CharactersTabViewModel
+import com.example.genshinbook.utils.ext.characterDomainComponent
 
 @Composable
 fun CharactersTab() {
 
-    val viewModelStore = ViewModelStore()
-    val viewModel = viewModel( initializer = { viewModelStore.characterTab } )
+    //todo
+    val context = LocalContext.current
+    val viewModel = viewModel( initializer = {
+        val charactersDomainComponent = context.characterDomainComponent
+        charactersDomainComponent.run {
+            CharactersTabViewModel(
+                getAllInfoCharactersUseCase,
+                getAllNameCharactersUseCase,
+                getCurrentInfoCharacterUseCase,
+                isCharacterInTheDatabaseUseCase,
+                addCharacterToStorageUseCase,
+                removeCharacterInTheDatabaseUseCase,
+                getAllCharactersFromStorageUseCase
+            )
+        }
+    } )
     val state = viewModel.state.observeAsState().value
     val navigator = LocalNavigator.currentOrThrow
 

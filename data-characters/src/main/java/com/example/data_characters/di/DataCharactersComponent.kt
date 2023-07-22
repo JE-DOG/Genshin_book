@@ -1,18 +1,17 @@
 package com.example.data_characters.di
 
-import com.example.data_characters.network.di.NetworkModule
-import com.example.data_characters.storage.di.StorageModule
+import com.example.domain_characters.di.CharactersDomainDeps
+import com.example.domain_characters.repository.CharactersRepository
 import dagger.Component
 
+@DataCharactersScope
 @Component(
     modules = [
-        StorageModule::class,
-        NetworkModule::class,
         DataModule::class
     ]
 )
-interface DataCharactersComponent {
+interface DataCharactersComponent: CharactersDomainDeps {
 
-
+    override val characterRepository: CharactersRepository
 
 }

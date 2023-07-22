@@ -1,6 +1,5 @@
 package com.example.data_characters.storage.model
 
-import com.example.data_characters.model.SkillTalentStorage
 import com.example.domain_characters.model.CharacterDomain
 import io.realm.kotlin.ext.realmListOf
 import io.realm.kotlin.ext.toRealmList
