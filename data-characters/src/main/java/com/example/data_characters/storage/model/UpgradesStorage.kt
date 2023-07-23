@@ -8,7 +8,7 @@ import org.mongodb.kbson.ObjectId
 class UpgradesStorage: RealmObject {
 
     @PrimaryKey
-    val id: ObjectId = ObjectId()
+    var id: ObjectId = ObjectId()
     var name: String = ""
     var value: String = ""
 

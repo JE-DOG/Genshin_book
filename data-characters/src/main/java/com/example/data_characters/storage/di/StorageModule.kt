@@ -10,6 +10,8 @@ import dagger.Module
 import dagger.Provides
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.migration.AutomaticSchemaMigration
+import io.realm.kotlin.migration.RealmMigration
 
 @Module(
     includes = [
@@ -37,6 +39,7 @@ class StorageModule {
                 UpgradesStorage::class
             )
         )
+            .deleteRealmIfMigrationNeeded()
             .compactOnLaunch()
             .build()
         return realmConfig

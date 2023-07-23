@@ -11,11 +11,11 @@ import org.mongodb.kbson.ObjectId
 class SkillTalentStorage: RealmObject {
 
     @PrimaryKey
-    val id: ObjectId= ObjectId()
+    var id: ObjectId= ObjectId()
     var description: String = ""
     var name: String = ""
     var type: String = ""
-    var upgrades: RealmList<UpgradesStorage> = realmListOf()
+    var upgrades: RealmList<UpgradesStorage> = realmListOf(UpgradesStorage())
     var unlock: String = ""
     
     fun toDomain():SkillTalentDomain {

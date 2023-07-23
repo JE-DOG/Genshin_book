@@ -11,7 +11,7 @@ import org.mongodb.kbson.ObjectId
 class CharacterStorage: RealmObject {
 
     @PrimaryKey
-    val id: ObjectId = ObjectId()
+    var id: ObjectId = ObjectId()
     var name: String = ""
     var affiliation: String = ""
     var birthday: String? = null

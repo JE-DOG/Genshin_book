@@ -131,7 +131,7 @@ object Dependencies {
         object Database {
 
             object Realm {
-                const val version = "1.8.0"
+                const val version = "1.10.1"
 
                 const val base = "io.realm.kotlin:library-base:$version"
             }

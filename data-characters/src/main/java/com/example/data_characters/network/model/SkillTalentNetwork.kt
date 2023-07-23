@@ -3,11 +3,11 @@ package com.example.data_characters.network.model
 import com.example.domain_characters.model.SkillTalentDomain
 
 data class SkillTalentNetwork(
-    val description: String,
-    val name: String,
-    val type: String,
-    val upgrades: List<UpgradesNetwork>,
-    val unlock: String
+    val description: String = "",
+    val name: String = "",
+    val type: String = "",
+    val upgrades: List<UpgradesNetwork> = emptyList(),
+    val unlock: String = ""
 ){
     fun toDomain(): SkillTalentDomain {
 

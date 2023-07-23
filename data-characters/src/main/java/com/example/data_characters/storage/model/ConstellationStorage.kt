@@ -8,7 +8,7 @@ import org.mongodb.kbson.ObjectId
 class ConstellationStorage: RealmObject {
 
     @PrimaryKey
-    val id: ObjectId = ObjectId()
+    var id: ObjectId = ObjectId()
     var description: String = ""
     var level: Int = 0
     var name: String = ""
