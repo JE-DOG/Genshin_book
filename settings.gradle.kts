@@ -17,9 +17,10 @@ rootProject.name = "Genshin book"
 include(":app")
 include(":core-app")
 //data
-include(":data-core")
+include(":core-data")
 //domain
-include(":domain-core")
+include(":core-domain")
 include(":domain-characters")
 include(":core")
 include(":data-characters")
+include(":core-feature")
