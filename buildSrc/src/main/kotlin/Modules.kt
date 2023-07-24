@@ -8,7 +8,9 @@ object Modules {
         const val core = ":core-app"
     }
 
-    object Presentation {
+    object Feature {
+        const val core = ":core-feature"
+
 
     }
 
