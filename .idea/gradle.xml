@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/data-characters" />
             <option value="$PROJECT_DIR$/domain-characters" />
             <option value="$PROJECT_DIR$/feature-characters" />
+            <option value="$PROJECT_DIR$/feature-characters-detail" />
             <option value="$PROJECT_DIR$/feature-main" />
           </set>
         </option>

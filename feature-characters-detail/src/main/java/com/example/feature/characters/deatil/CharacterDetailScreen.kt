@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.screen.detail
+package com.example.feature.characters.deatil
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
