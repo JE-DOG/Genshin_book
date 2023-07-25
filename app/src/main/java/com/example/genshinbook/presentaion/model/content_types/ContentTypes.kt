@@ -2,16 +2,39 @@ package com.example.genshinbook.presentaion.model.content_types
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import com.example.core.R
 import com.example.genshinbook.presentaion.screen.empty.EmptyScreen
-import com.example.genshinbook.presentaion.screen.main.elements.characters.CharactersTab
+import com.example.feature.characters.CharactersTab
+import com.example.feature.characters.composition.LocalFeatureCharactersViewModel
+import com.example.feature.characters.vm.CharactersTabViewModel
+import com.example.genshinbook.utils.ext.characterDomainComponent
 
 enum class ContentTypes(@StringRes val res: Int, val screen: @Composable () -> Unit) {
 
     CHARACTERS(
         res = R.string.ct_characters,
         {
-            CharactersTab()
+            val context = LocalContext.current
+            val viewModel = androidx.lifecycle.viewmodel.compose.viewModel(initializer = {
+                val useCasesCharacters = context.characterDomainComponent
+                useCasesCharacters.run {
+                    CharactersTabViewModel(
+                        getAllInfoCharactersUseCase,
+                        getAllNameCharactersUseCase,
+                        getCurrentInfoCharacterUseCase,
+                        isCharacterInTheDatabaseUseCase,
+                        addCharacterToStorageUseCase,
+                        removeCharacterInTheDatabaseUseCase,
+                        getAllCharactersFromStorageUseCase
+                    )
+                }
+            })
+            androidx.compose.runtime.CompositionLocalProvider(
+                LocalFeatureCharactersViewModel provides viewModel
+            ) {
+                CharactersTab()
+            }
         }
     ),
     WEAPONS(

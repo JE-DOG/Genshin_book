@@ -11,7 +11,7 @@ object Modules {
     object Feature {
         const val core = ":core-feature"
 
-
+        const val characters = ":feature-characters"
     }
 
     object Data {

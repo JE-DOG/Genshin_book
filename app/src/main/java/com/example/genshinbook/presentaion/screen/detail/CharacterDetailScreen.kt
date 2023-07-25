@@ -23,17 +23,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
-import com.example.core.ui.theme.BottomSheetBackground
-import com.example.core.ui.theme.BottomSheetScrimColor
-import com.example.core.ui.theme.BottomSheetShape
-import com.example.core.ui.theme.ButtonTextColor
-import com.example.core.ui.theme.DetailBackground
-import com.example.genshinbook.R
-import com.example.genshinbook.presentaion.model.character.Character
-import com.example.genshinbook.presentaion.model.character.Constellation
-import com.example.genshinbook.presentaion.model.character.PassiveTalent
-import com.example.genshinbook.presentaion.model.character.SkillTalent
-import com.example.genshinbook.presentaion.model.vision.Vision
+import com.example.core.app.elements.Expandable
+import com.example.core.app.ui.theme.BottomSheetBackground
+import com.example.core.app.ui.theme.BottomSheetScrimColor
+import com.example.core.app.ui.theme.BottomSheetShape
+import com.example.core.app.ui.theme.ButtonTextColor
+import com.example.core.app.ui.theme.DetailBackground
+import com.example.core.R
+import com.example.feature.characters.model.Character
+import com.example.feature.characters.model.Constellation
+import com.example.feature.characters.model.PassiveTalent
+import com.example.feature.characters.model.SkillTalent
+import com.example.core.app.model.vision.Vision
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.ConstellationsDetail
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.PassiveTalentDetail
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.SkillTalentDetail
@@ -138,7 +139,7 @@ data class CharacterDetailScreen(
                 Text(text = "Affiliation: ${character.affiliation}", color = Color.White, fontSize = 20.sp)
                 Text(text = "Birthday: ${character.birthday}", color = Color.White, fontSize = 20.sp)
 
-                com.example.core.elements.Expandable(headerText = "Skill talents") {
+                Expandable(headerText = "Skill talents") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {
@@ -162,7 +163,7 @@ data class CharacterDetailScreen(
                     }
                 }
 
-                com.example.core.elements.Expandable(headerText = "Passive talents") {
+                Expandable(headerText = "Passive talents") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {
@@ -186,7 +187,7 @@ data class CharacterDetailScreen(
                     }
                 }
 
-                com.example.core.elements.Expandable(headerText = "Constellations") {
+                Expandable(headerText = "Constellations") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {

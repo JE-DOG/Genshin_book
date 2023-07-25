@@ -1,8 +1,10 @@
 package com.example.genshinbook.presentaion.screen.main.elements.characters.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.feature.characters.vm.CharactersTabViewModel
+import com.example.feature.characters.vm.CharactersTabViewState
 import com.example.genshinbook.domain.usecase.characters.*
-import com.example.genshinbook.presentaion.model.character.Character
+import com.example.feature.characters.model.Character
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
@@ -15,13 +17,13 @@ class CharactersTabViewModelTest{
     @get: Rule
     val rule = InstantTaskExecutorRule()
 
-    val getAllInfoCharactersUseCase = mock<com.example.domain_characters.domain.usecase.characters.GetAllInfoCharactersUseCase>()
-    val getAllNameCharactersUseCase = mock<com.example.domain_characters.domain.usecase.characters.GetAllNameCharactersUseCase>()
-    val getCurrentInfoCharacterUseCase = mock<com.example.domain_characters.domain.usecase.characters.GetCurrentInfoCharacterUseCase>()
-    val isCharacterInTheDatabaseUseCase = mock<com.example.domain_characters.domain.usecase.characters.IsCharacterInTheDatabaseUseCase>()
-    val addCharacterToStorageUseCase = mock<com.example.domain_characters.domain.usecase.characters.AddCharacterToStorageUseCase>()
-    val removeCharacterFromStorageUseCase = mock<com.example.domain_characters.domain.usecase.characters.RemoveCharacterFromStorageUseCase>()
-    val getAllCharactersFromStorage = mock<com.example.domain_characters.domain.usecase.characters.GetAllCharactersFromStorageUseCase>()
+    val getAllInfoCharactersUseCase = mock<com.example.domain.domain.usecase.characters.GetAllInfoCharactersUseCase>()
+    val getAllNameCharactersUseCase = mock<com.example.domain.domain.usecase.characters.GetAllNameCharactersUseCase>()
+    val getCurrentInfoCharacterUseCase = mock<com.example.domain.domain.usecase.characters.GetCurrentInfoCharacterUseCase>()
+    val isCharacterInTheDatabaseUseCase = mock<com.example.domain.domain.usecase.characters.IsCharacterInTheDatabaseUseCase>()
+    val addCharacterToStorageUseCase = mock<com.example.domain.domain.usecase.characters.AddCharacterToStorageUseCase>()
+    val removeCharacterFromStorageUseCase = mock<com.example.domain.domain.usecase.characters.RemoveCharacterFromStorageUseCase>()
+    val getAllCharactersFromStorage = mock<com.example.domain.domain.usecase.characters.GetAllCharactersFromStorageUseCase>()
 
     lateinit var viewModel: CharactersTabViewModel
 

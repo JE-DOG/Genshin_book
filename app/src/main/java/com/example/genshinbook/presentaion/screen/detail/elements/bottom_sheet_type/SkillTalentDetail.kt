@@ -11,7 +11,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.genshinbook.presentaion.model.character.SkillTalent
+import com.example.feature.characters.model.SkillTalent
 
 @Composable
 fun SkillTalentDetail(skillTalent: SkillTalent) {

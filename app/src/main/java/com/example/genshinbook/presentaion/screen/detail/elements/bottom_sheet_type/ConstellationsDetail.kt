@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.genshinbook.presentaion.model.character.Constellation
+import com.example.feature.characters.model.Constellation
 
 @Composable
 fun ConstellationsDetail(

@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
 import com.example.genshinbook.databinding.ActivityMainBinding
 import com.example.genshinbook.presentaion.screen.main.MainScreen
-import com.example.core.ui.theme.GenshinBookTheme
+import com.example.core.app.ui.theme.GenshinBookTheme
 
 
 class MainActivity : ComponentActivity() {

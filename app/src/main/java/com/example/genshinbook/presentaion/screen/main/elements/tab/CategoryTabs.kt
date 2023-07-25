@@ -10,8 +10,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.genshinbook.presentaion.screen.main.elements.tab.elements.CategoryTab
-import com.example.core.ui.theme.CardBackground
-import com.example.core.ui.theme.TabSelectedColor
+import com.example.core.app.ui.theme.CardBackground
+import com.example.core.app.ui.theme.TabSelectedColor
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)

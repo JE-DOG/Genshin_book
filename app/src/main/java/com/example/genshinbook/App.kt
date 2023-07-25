@@ -1,9 +1,9 @@
 package com.example.genshinbook
 
 import android.app.Application
-import com.example.data_characters.di.DaggerDataCharactersComponent
-import com.example.domain_characters.di.CharactersDomainComponent
-import com.example.domain_characters.di.DaggerCharactersDomainComponent
+import com.example.data.characters.di.DaggerDataCharactersComponent
+import com.example.domain.characters.di.CharactersDomainComponent
+import com.example.domain.characters.di.DaggerCharactersDomainComponent
 import com.example.genshinbook.di.AppComponent
 
 class App: Application() {
