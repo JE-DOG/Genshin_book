@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.screen.main.elements.tab
+package com.example.feature.main.elements.tab
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.pager.PagerState
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.genshinbook.presentaion.screen.main.elements.tab.elements.CategoryTab
+import com.example.feature.main.elements.tab.elements.CategoryTab
 import com.example.core.app.ui.theme.CardBackground
 import com.example.core.app.ui.theme.TabSelectedColor
 import kotlinx.coroutines.launch

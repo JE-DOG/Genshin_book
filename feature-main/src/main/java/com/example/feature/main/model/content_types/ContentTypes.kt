@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.model.content_types
+package com.example.feature.main.model.content_types
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable

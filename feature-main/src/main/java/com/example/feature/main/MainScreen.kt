@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.screen.main
+package com.example.feature.main
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import cafe.adriel.voyager.core.screen.Screen
 import com.example.core.feature.compositions.LocalScreensNavigation
-import com.example.genshinbook.presentaion.model.content_types.ContentTypes
-import com.example.genshinbook.presentaion.screen.ComposeMainScreensNavigationImpl
-import com.example.genshinbook.presentaion.screen.main.elements.tab.CategoryTabs
+import com.example.feature.main.elements.tab.CategoryTabs
+import com.example.feature.main.model.content_types.ContentTypes
+import com.example.feature.main.navigation.ComposeMainScreensNavigationImpl
 
 class MainScreen : Screen{
 

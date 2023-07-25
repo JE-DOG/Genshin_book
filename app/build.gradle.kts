@@ -53,9 +53,7 @@ dependencies {
     //include modules
     implementation ( project(path = Modules.App.core) )
 
-    implementation ( project(path = Modules.Feature.characters) )
-    implementation ( project(path = Modules.Domain.characters) )
-    implementation ( project(path = Modules.Data.characters) )
+    implementation ( project(Modules.Feature.main) )
 
 
     //dagger compiler

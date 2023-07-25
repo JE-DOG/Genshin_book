@@ -11,6 +11,7 @@ object Modules {
     object Feature {
         const val core = ":core-feature"
 
+        const val main = ":feature-main"
         const val characters = ":feature-characters"
     }
 
