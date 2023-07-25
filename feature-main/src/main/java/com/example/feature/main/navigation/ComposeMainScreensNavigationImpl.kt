@@ -6,7 +6,8 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.example.core.feature.screen.ComposeMainScreensNavigation
-import com.example.genshinbook.presentaion.screen.detail.CharacterDetailScreen
+import com.example.feature.characters.deatil.CharacterDetailScreen
+import com.example.feature.characters.model.Character
 
 class ComposeMainScreensNavigationImpl: ComposeMainScreensNavigation {
 

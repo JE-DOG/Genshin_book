@@ -13,6 +13,7 @@ object Modules {
 
         const val main = ":feature-main"
         const val characters = ":feature-characters"
+        const val characters_detail = ":feature-characters-detail"
     }
 
     object Data {

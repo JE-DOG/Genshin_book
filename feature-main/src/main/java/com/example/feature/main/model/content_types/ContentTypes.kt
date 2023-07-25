@@ -2,23 +2,26 @@ package com.example.feature.main.model.content_types
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import com.example.core.R
-import com.example.genshinbook.presentaion.screen.empty.EmptyScreen
+import com.example.data.characters.di.DaggerDataCharactersComponent
 import com.example.feature.characters.CharactersTab
 import com.example.feature.characters.composition.LocalFeatureCharactersViewModel
 import com.example.feature.characters.vm.CharactersTabViewModel
-import com.example.genshinbook.utils.ext.characterDomainComponent
+import com.example.feature.main.empty.EmptyScreen
+import androidx.compose.runtime.CompositionLocalProvider
 
 enum class ContentTypes(@StringRes val res: Int, val screen: @Composable () -> Unit) {
 
     CHARACTERS(
         res = R.string.ct_characters,
         {
-            val context = LocalContext.current
             val viewModel = androidx.lifecycle.viewmodel.compose.viewModel(initializer = {
-                val useCasesCharacters = context.characterDomainComponent
-                useCasesCharacters.run {
+                val dataCharactersComponent = DaggerDataCharactersComponent.create()
+                val charactersDomainComponent = com.example.domain.characters.di.DaggerCharactersDomainComponent
+                    .factory()
+                    .create(dataCharactersComponent)
+
+                charactersDomainComponent.run {
                     CharactersTabViewModel(
                         getAllInfoCharactersUseCase,
                         getAllNameCharactersUseCase,
@@ -30,7 +33,7 @@ enum class ContentTypes(@StringRes val res: Int, val screen: @Composable () -> U
                     )
                 }
             })
-            androidx.compose.runtime.CompositionLocalProvider(
+            CompositionLocalProvider(
                 LocalFeatureCharactersViewModel provides viewModel
             ) {
                 CharactersTab()

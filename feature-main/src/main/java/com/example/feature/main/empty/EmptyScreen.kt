@@ -1,4 +1,4 @@
-package com.example.genshinbook.presentaion.screen.empty
+package com.example.feature.main.empty
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

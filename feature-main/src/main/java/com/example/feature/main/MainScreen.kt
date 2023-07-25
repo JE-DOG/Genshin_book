@@ -7,6 +7,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import cafe.adriel.voyager.core.screen.Screen
@@ -16,6 +17,8 @@ import com.example.feature.main.model.content_types.ContentTypes
 import com.example.feature.main.navigation.ComposeMainScreensNavigationImpl
 
 class MainScreen : Screen{
+
+
 
     @OptIn(ExperimentalFoundationApi::class)
     @Composable
@@ -44,6 +47,10 @@ class MainScreen : Screen{
                     contentTypes[it].screen()
                 }
             }
+        }
+
+        LaunchedEffect(key1 = Unit){
+
         }
     }
 }

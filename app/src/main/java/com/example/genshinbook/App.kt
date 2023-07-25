@@ -1,15 +1,11 @@
 package com.example.genshinbook
 
 import android.app.Application
-import com.example.data.characters.di.DaggerDataCharactersComponent
-import com.example.domain.characters.di.CharactersDomainComponent
-import com.example.domain.characters.di.DaggerCharactersDomainComponent
 import com.example.genshinbook.di.AppComponent
 
 class App: Application() {
 
     lateinit var appComponent: AppComponent
-    lateinit var charactersDomainComponent: CharactersDomainComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -19,10 +15,6 @@ class App: Application() {
     private fun init() {
         INSTANCE = this
         //components
-        val dataCharactersComponent = DaggerDataCharactersComponent.create()
-        charactersDomainComponent = DaggerCharactersDomainComponent
-            .factory()
-            .create(dataCharactersComponent)
 
 //        appComponent = DaggerAppComponent.create()
 

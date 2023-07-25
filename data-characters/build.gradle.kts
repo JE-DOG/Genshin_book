@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.data_characters"
+    namespace = "com.example.data.characters"
     compileSdk = 34
 
     defaultConfig {
@@ -36,7 +36,6 @@ dependencies {
 
     implementation ( project(Modules.Data.core) )
     implementation ( project(Modules.Domain.characters) )
-    implementation (Dependencies.AndroidX.Core.ktx)
 
     kapt ( Dependencies.Another.DI.Dagger.compiler )
 

@@ -46,6 +46,7 @@ dependencies {
 
     //characters
     implementation ( project(path = Modules.Feature.characters) )
+    implementation ( project(path = Modules.Feature.characters_detail) )
     implementation ( project(path = Modules.Domain.characters) )
     implementation ( project(path = Modules.Data.characters) )
 
