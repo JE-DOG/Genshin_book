@@ -1,9 +1,10 @@
-package com.example.genshinbook.presentaion.screen.main.elements.characters.vm
+package com.example.feature.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.domain.characters.model.CharacterDomain
+import com.example.domain.characters.usecase.*
 import com.example.feature.characters.vm.CharactersTabViewModel
 import com.example.feature.characters.vm.CharactersTabViewState
-import com.example.genshinbook.domain.usecase.characters.*
 import com.example.feature.characters.model.Character
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
@@ -17,13 +18,13 @@ class CharactersTabViewModelTest{
     @get: Rule
     val rule = InstantTaskExecutorRule()
 
-    val getAllInfoCharactersUseCase = mock<com.example.domain.domain.usecase.characters.GetAllInfoCharactersUseCase>()
-    val getAllNameCharactersUseCase = mock<com.example.domain.domain.usecase.characters.GetAllNameCharactersUseCase>()
-    val getCurrentInfoCharacterUseCase = mock<com.example.domain.domain.usecase.characters.GetCurrentInfoCharacterUseCase>()
-    val isCharacterInTheDatabaseUseCase = mock<com.example.domain.domain.usecase.characters.IsCharacterInTheDatabaseUseCase>()
-    val addCharacterToStorageUseCase = mock<com.example.domain.domain.usecase.characters.AddCharacterToStorageUseCase>()
-    val removeCharacterFromStorageUseCase = mock<com.example.domain.domain.usecase.characters.RemoveCharacterFromStorageUseCase>()
-    val getAllCharactersFromStorage = mock<com.example.domain.domain.usecase.characters.GetAllCharactersFromStorageUseCase>()
+    val getAllInfoCharactersUseCase = mock<GetAllInfoCharactersUseCase>()
+    val getAllNameCharactersUseCase = mock<GetAllNameCharactersUseCase>()
+    val getCurrentInfoCharacterUseCase = mock<GetCurrentInfoCharacterUseCase>()
+    val isCharacterInTheDatabaseUseCase = mock<IsCharacterInTheDatabaseUseCase>()
+    val addCharacterToStorageUseCase = mock<AddCharacterToStorageUseCase>()
+    val removeCharacterFromStorageUseCase = mock<RemoveCharacterFromStorageUseCase>()
+    val getAllCharactersFromStorage = mock<GetAllCharactersFromStorageUseCase>()
 
     lateinit var viewModel: CharactersTabViewModel
 
@@ -77,7 +78,7 @@ class CharactersTabViewModelTest{
     @Test
     fun `get characters with normal internet`() = runBlocking{
         //get ready
-        val character = mock<Character>()
+        val character = CharacterDomain()
         val list = listOf(
             character,
             character,
@@ -89,7 +90,9 @@ class CharactersTabViewModelTest{
         viewModel.getAllCharacters()
         //assert
         val expanded = CharactersTabViewState(
-            characters = list.toMutableList(),
+            characters = list.map{
+                Character.fromDomain(it)
+            }.toMutableList(),
             isLoading = false,
             isError = false,
             isOffline = false
@@ -102,7 +105,7 @@ class CharactersTabViewModelTest{
     @Test
     fun `get characters without normal internet`() = runBlocking{
         //get ready
-        val character = mock<Character>()
+        val character = CharacterDomain()
         val list = listOf(
             character.apply { isDownload = true },
             character.apply { isDownload = true },
@@ -116,7 +119,9 @@ class CharactersTabViewModelTest{
         viewModel.getAllCharacters()
         //assert
         val expanded = CharactersTabViewState(
-            characters = list,
+            characters = list.map {
+                Character.fromDomain(it)
+            }.toMutableList(),
             isLoading = false,
             isError = true,
             isOffline = true

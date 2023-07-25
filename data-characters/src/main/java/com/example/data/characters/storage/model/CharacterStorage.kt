@@ -27,6 +27,7 @@ class CharacterStorage: RealmObject {
     var vision_key: String = ""
     var weapon: String = ""
     var weapon_type: String = ""
+    var isDownload: Boolean = true
 
     fun toDomain(): CharacterDomain {
 
@@ -51,7 +52,8 @@ class CharacterStorage: RealmObject {
             vision = vision,
             vision_key = vision_key,
             weapon = weapon,
-            weapon_type = weapon_type
+            weapon_type = weapon_type,
+            isDownload = isDownload
         )
 
     }

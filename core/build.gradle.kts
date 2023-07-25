@@ -14,12 +14,4 @@ dependencies {
     //dagger
     api (Dependencies.Another.DI.Dagger.dagger)
 
-    //Tests
-    //mockito
-    testApi (Dependencies.Test.Mockito.core)
-    testApi (Dependencies.Test.Mockito.kotlin)
-    testApi (Dependencies.Test.Mockito.inline)
-    //j-unit
-    testApi (Dependencies.Test.Junit.junit)
-    
 }

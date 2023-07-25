@@ -81,15 +81,4 @@ dependencies {
     // ViewModel
     api (Dependencies.Compose.LiveData.runtime)
 
-    //j-unit
-    androidTestApi (Dependencies.Test.Junit.ext_junit)
-    //ui
-    debugApi (Dependencies.Compose.ui_tooling)
-    androidTestApi (Dependencies.Compose.ui_test_junit4)
-    debugApi (Dependencies.Compose.ui_test_manifest)
-    //android
-    testApi (Dependencies.Test.AndroidX.Core.core_testing)
-    androidTestApi (Dependencies.Test.AndroidX.Espresso.core)
-
-
 }

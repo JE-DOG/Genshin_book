@@ -42,7 +42,8 @@ data class Character(
             vision = vision,
             vision_key = vision_key,
             weapon = weapon,
-            weapon_type = weapon_type
+            weapon_type = weapon_type,
+            isDownload = isDownload
         )
     }
 
@@ -75,7 +76,8 @@ data class Character(
                     vision,
                     vision_key,
                     weapon,
-                    weapon_type
+                    weapon_type,
+                    isDownload
                 )
 
             }

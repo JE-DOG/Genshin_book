@@ -17,7 +17,8 @@ data class CharacterNetwork(
     val vision: String,
     val vision_key: String,
     val weapon: String,
-    val weapon_type: String
+    val weapon_type: String,
+    val isDownload: Boolean = false
 ){
     fun toDomain(): CharacterDomain {
 
@@ -42,7 +43,8 @@ data class CharacterNetwork(
             vision = vision,
             vision_key = vision_key,
             weapon = weapon,
-            weapon_type = weapon_type
+            weapon_type = weapon_type,
+            isDownload = isDownload
         )
 
     }
@@ -76,6 +78,7 @@ data class CharacterNetwork(
                     vision_key = vision_key,
                     weapon = weapon,
                     weapon_type = weapon_type,
+                    isDownload = isDownload
                 )
                 
             }

@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 //        binding = ActivityMainBinding.inflate(layoutInflater)
 //        setContentView(binding.root)
-//        binding.text.text = "SOmething my from Main activity"
+//        binding.text.text = "Something my from Main activity"
         //todo put this setContent into fragment
         setContent {
             GenshinBookTheme {
