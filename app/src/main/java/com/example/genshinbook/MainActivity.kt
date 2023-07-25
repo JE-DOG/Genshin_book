@@ -8,14 +8,22 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
-import com.example.genshinbook.presentaion.screen.main.MainScreen
-import com.example.genshinbook.presentaion.ui.theme.GenshinBookTheme
+import com.example.genshinbook.databinding.ActivityMainBinding
+import com.example.feature.main.MainScreen
+import com.example.core.app.ui.theme.GenshinBookTheme
 
 
 class MainActivity : ComponentActivity() {
+
+    lateinit var binding: ActivityMainBinding
+
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+//        binding.text.text = "Something my from Main activity"
+        //todo put this setContent into fragment
         setContent {
             GenshinBookTheme {
                 // A surface container using the 'background' color from the theme
@@ -28,4 +36,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+
 }

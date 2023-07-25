@@ -1,9 +1,8 @@
 package com.example.genshinbook.di
 
-import com.example.genshinbook.presentaion.di.veiwModelStore.ViewModelStoreComponent
 import dagger.Component
-import io.realm.kotlin.Realm
 
+@AppScope
 @Component(
     modules = [
         AppModule::class
@@ -11,9 +10,5 @@ import io.realm.kotlin.Realm
 )
 interface AppComponent {
 
-    //subcomponent
-    val viewModelStoreComponent:ViewModelStoreComponent.Builder
-
-    val realm: Realm
 
 }
