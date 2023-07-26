@@ -1,4 +1,4 @@
-package com.example.demo_feature_chat
+package com.example.demo
 
 import org.junit.Test
 
