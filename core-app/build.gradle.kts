@@ -54,7 +54,7 @@ dependencies {
     api (Dependencies.AndroidX.LifeCycle.runtime_ktx)
     api (Dependencies.AndroidX.Core.ktx)
     api (Dependencies.AndroidX.Activity.compose)
-    api (Dependencies.Test.Coroutine.coroutine)
+    api (Dependencies.Test.Coroutine.coroutine_test)
 
     //compose
     api (Dependencies.Compose.ui)

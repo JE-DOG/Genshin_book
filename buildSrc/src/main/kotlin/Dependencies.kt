@@ -86,6 +86,12 @@ object Dependencies {
 
     }
 
+    object Kotlin {
+        const val version = "1.7.1"
+
+        const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
+    }
+
     object Test {
         object AndroidX {
             object Espresso {
@@ -101,11 +107,11 @@ object Dependencies {
             }
             
         }
-        
+
         object Coroutine {
             const val version = "1.7.1"
 
-            const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
+            const val coroutine_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
         }
         
         object Mockito {
