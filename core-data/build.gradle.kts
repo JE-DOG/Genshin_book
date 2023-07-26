@@ -29,4 +29,7 @@ dependencies {
     api ( Dependencies.Another.Network.Supabase.postgrest )
     api ( Dependencies.Another.Network.Supabase.realtime )
 
+    //ktor
+    api ( Dependencies.Another.Network.Ktor.ktor )
+
 }

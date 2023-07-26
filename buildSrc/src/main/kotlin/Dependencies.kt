@@ -166,6 +166,13 @@ object Dependencies {
                 const val postgrest = "io.github.jan-tennert.supabase:postgrest-kt"
                 const val realtime = "io.github.jan-tennert.supabase:realtime-kt"
             }
+
+            object Ktor {
+                const val version = "2.3.2"
+                const val engine = "android"
+
+                const val ktor = "io.ktor:ktor-client-$engine:$version"
+            }
         }
         
         object DI {
