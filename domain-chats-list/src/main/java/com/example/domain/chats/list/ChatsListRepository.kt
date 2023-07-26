@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ChatsListRepository {
 
-    fun getUserChats(userId: String): Flow<ChatDomain>
+    fun getUserChats(userId: String): List<ChatDomain>
 
 }
