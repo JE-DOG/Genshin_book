@@ -26,6 +26,7 @@ object Modules {
         const val core = ":core-domain"
 
         const val characters = ":domain-characters"
+        const val chats_list = ":domain-chats-list"
     }
 
 }
