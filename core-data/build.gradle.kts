@@ -23,5 +23,10 @@ dependencies {
     //OkHttp
     api (Dependencies.Another.Network.OkHttp.okhttp)
     api (Dependencies.Another.Network.OkHttp.interceptor)
-    
+
+    //supabase
+    api ( platform(Dependencies.Another.Network.Supabase.bom) )
+    api ( Dependencies.Another.Network.Supabase.postgrest )
+    api ( Dependencies.Another.Network.Supabase.realtime )
+
 }

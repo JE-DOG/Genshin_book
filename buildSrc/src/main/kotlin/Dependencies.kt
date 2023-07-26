@@ -158,6 +158,14 @@ object Dependencies {
                 const val okhttp = "com.squareup.okhttp3:okhttp:$version"
                 const val interceptor = "com.squareup.okhttp3:logging-interceptor:$version"
             }
+
+            object Supabase {
+                private const val version = "1.2.0"
+                const val bom = "io.github.jan-tennert.supabase:bom:$version"
+
+                const val postgrest = "io.github.jan-tennert.supabase:postgrest-kt"
+                const val realtime = "io.github.jan-tennert.supabase:realtime-kt"
+            }
         }
         
         object DI {
