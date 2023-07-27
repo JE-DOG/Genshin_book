@@ -5,11 +5,11 @@ object Modules {
     object App {
         const val app = ":app"
 
-        const val core = ":core-app"
+        const val core = ":core:core-app"
     }
 
     object Feature {
-        const val core = ":core-feature"
+        const val core = ":core:core-feature"
 
         const val main = ":feature-main"
         const val characters = ":feature-characters"
@@ -17,16 +17,16 @@ object Modules {
     }
 
     object Data {
-        const val core = ":core-data"
+        const val core = ":core:core-data"
 
-        const val characters = ":data-characters"
+        const val characters = ":feature-characters:data-characters"
     }
 
     object Domain {
-        const val core = ":core-domain"
+        const val core = ":core:core-domain"
 
-        const val characters = ":domain-characters"
-        const val chats_list = ":domain-chats-list"
+        const val characters = ":feature-characters:domain-characters"
+        const val chats_list = ":feature-chats-list:domain-chats-list"
     }
 
 }

@@ -14,16 +14,17 @@
             <option value="$PROJECT_DIR$/app-demo-feature-chat" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core-app" />
-            <option value="$PROJECT_DIR$/core-data" />
-            <option value="$PROJECT_DIR$/core-domain" />
-            <option value="$PROJECT_DIR$/core-feature" />
-            <option value="$PROJECT_DIR$/data-characters" />
-            <option value="$PROJECT_DIR$/data-chats-list" />
-            <option value="$PROJECT_DIR$/domain-characters" />
-            <option value="$PROJECT_DIR$/domain-chats-list" />
+            <option value="$PROJECT_DIR$/core/core-app" />
+            <option value="$PROJECT_DIR$/core/core-data" />
+            <option value="$PROJECT_DIR$/core/core-domain" />
+            <option value="$PROJECT_DIR$/core/core-feature" />
             <option value="$PROJECT_DIR$/feature-characters" />
             <option value="$PROJECT_DIR$/feature-characters-detail" />
+            <option value="$PROJECT_DIR$/feature-characters/data-characters" />
+            <option value="$PROJECT_DIR$/feature-characters/domain-characters" />
+            <option value="$PROJECT_DIR$/feature-chats-list" />
+            <option value="$PROJECT_DIR$/feature-chats-list/data-chats-list" />
+            <option value="$PROJECT_DIR$/feature-chats-list/domain-chats-list" />
             <option value="$PROJECT_DIR$/feature-main" />
           </set>
         </option>

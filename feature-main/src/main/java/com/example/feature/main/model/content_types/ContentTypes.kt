@@ -16,6 +16,7 @@ enum class ContentTypes(@StringRes val res: Int, val screen: @Composable () -> U
         res = R.string.ct_characters,
         {
             val viewModel = androidx.lifecycle.viewmodel.compose.viewModel(initializer = {
+
                 val dataCharactersComponent = DaggerDataCharactersComponent.create()
                 val charactersDomainComponent = com.example.domain.characters.di.DaggerCharactersDomainComponent
                     .factory()
