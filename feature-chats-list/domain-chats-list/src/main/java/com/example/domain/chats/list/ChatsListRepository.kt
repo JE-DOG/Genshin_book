@@ -7,4 +7,6 @@ interface ChatsListRepository {
 
     fun getUserChats(userId: String): Flow<List<ChatDomain>>
 
+    fun broadcastUserChats(userId: String): Flow<ChatDomain>
+
 }
