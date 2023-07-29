@@ -6,6 +6,7 @@ import com.example.data.chats.list.network.model.MessageJson
 import com.example.data.chats.list.network.model.ProfileJson
 import com.example.data.core.supabase.Schema
 import com.example.data.core.supabase.Tables
+import com.example.domain.chats.list.model.ChatDomain
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
@@ -30,10 +31,10 @@ class ChatListNetworkServiceImpl(
 
     override fun getUserChats(userId: String): Flow<List<ChatNetwork>> = callbackFlow {
 
-        val userChats = supabaseClient.postgrest["chats"].select {
+        val userChats = supabaseClient.postgrest[Tables.CHATS.tableName].select {
             or {
-                eq("first_user_id",userId)
-                eq("second_user_id",userId)
+                eq(Tables.CHATS.first_user_id,userId)
+                eq(Tables.CHATS.second_user_id,userId)
             }
 
         }.decodeList<ChatJson>()
@@ -55,7 +56,7 @@ class ChatListNetworkServiceImpl(
                         if ( userId == chat.first_user_id )
                             chat.second_user_id
                         else
-                            userId
+                            chat.first_user_id
                     )
                 }.decodeAs<ProfileJson>()
             }
@@ -72,6 +73,52 @@ class ChatListNetworkServiceImpl(
                 avatar = user.await().avatar
             )
         }
+
+        send(result)
+
+        close()
+    }
+
+    override fun getUserChat(userId: String, chatId: String): Flow<ChatNetwork> = callbackFlow {
+
+        val chat = async {
+            supabaseClient.postgrest[Tables.CHATS.tableName].select {
+                eq(Tables.CHATS.id, chatId)
+                limit(1)
+            }.decodeAs<ChatJson>()
+        }
+
+        val lastMessage = async {
+            supabaseClient.postgrest[Tables.MESSAGES.tableName].select {
+                eq(Tables.MESSAGES.chat_id, chatId)
+                limit(1)
+            }.decodeAs<MessageJson>()
+        }
+
+        val user = async {
+            supabaseClient.postgrest[Tables.PROFILES.tableName].select {
+                eq(
+                    Tables.PROFILES.id,
+                    if ( userId == chat.await().first_user_id )
+                        chat.await().second_user_id
+                    else
+                        chat.await().first_user_id
+                )
+            }.decodeAs<ProfileJson>()
+        }
+
+
+
+        val result = ChatNetwork(
+            id = chat.await().id,
+            first_user_id = chat.await().first_user_id,
+            second_user_id = chat.await().second_user_id,
+            created_at = chat.await().created_at,
+            lastMessage = lastMessage.await().message,
+            fullName = user.await().fullname,
+            avatar = user.await().avatar
+        )
+
 
         send(result)
 
