@@ -1,5 +1,6 @@
 package com.example.core.app.base.vm
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
@@ -20,6 +21,7 @@ abstract class BaseViewModel: ViewModel() {
                 block()
             }catch (e: Exception){
                 error()
+                Log.e("ErrorTag",e.localizedMessage)
             }finally {
                 finally()
             }

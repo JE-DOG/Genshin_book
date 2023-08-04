@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.Flow
 
 interface ChatsListRepository {
 
-    fun getUserChats(userId: String): Flow<List<ChatDomain>>
+    fun getUserChats(): Flow<List<ChatDomain>>
 
-    fun getUserChat(chatId: String,userId: String): Flow<ChatDomain>
+    fun getUserChat(chatJson: Any): Flow<ChatDomain>
 
-    suspend fun broadcastUserChats(userId: String): Flow<PostgresAction>
+    suspend fun broadcastUserChats(): Flow<PostgresAction>
 
 }

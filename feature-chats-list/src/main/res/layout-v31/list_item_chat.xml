@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    
+    android:orientation="horizontal">
+    
+    <ImageView
+        android:id="@+id/user_avatar_img"
+        
+        android:layout_width="@dimen/list_item_chat_avatar_size"
+        android:layout_height="@dimen/list_item_chat_avatar_size"
+        
+        android:clipToOutline="true"
+        
+
+        android:src="@drawable/ic_default_user_avatar"/>
+
+    <Space
+        android:layout_width="@dimen/list_item_chat_space_avatar_and_text"
+        android:layout_height="wrap_content"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+
+            android:layout_weight="1"/>
+        
+        <TextView
+            android:id="@+id/user_fullname_tv"
+
+            android:text="test user name"
+            android:textSize="@dimen/list_item_chat_text_size_fullname"
+            android:textColor="@color/list_item_chat_fullname"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/list_item_chat_space_fullname_and_last_message"/>
+
+        <TextView
+            android:id="@+id/user_last_message_tv"
+
+            android:text="test message"
+            android:textSize="@dimen/list_item_chat_text_size_last_message"
+            android:textColor="@color/list_item_chat_last_message"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+
+            android:layout_weight="1"/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    </LinearLayout>
+    
+</LinearLayout>

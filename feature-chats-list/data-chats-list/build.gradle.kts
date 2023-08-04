@@ -2,6 +2,7 @@ plugins {
     id (Plugins.Android.library)
     id (Plugins.Kotlin.android)
     kotlin (Plugins.Kotlin.serialization)
+    id (Plugins.Kotlin.kapt)
 }
 
 android {
@@ -36,7 +37,9 @@ android {
 
 dependencies {
 
-    implementation ( project(Modules.Data.core) )
-    implementation ( project(Modules.Domain.chats_list) )
+    api ( project(Modules.Data.core) )
+    api ( project(Modules.Domain.chats_list) )
+
+    kapt (Dependencies.Another.DI.Dagger.compiler)
 
 }

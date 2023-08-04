@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Java.library)
     id(Plugins.Kotlin.jvm)
+    id(Plugins.Kotlin.kapt)
 }
 
 java {
@@ -11,6 +12,8 @@ java {
 dependencies {
 
     api ( project(Modules.Domain.core) )
+
+    kapt (Dependencies.Another.DI.Dagger.compiler)
 
     implementation( platform(Dependencies.Another.Network.Supabase.bom) )
     implementation(Dependencies.Another.Network.Supabase.realtime)

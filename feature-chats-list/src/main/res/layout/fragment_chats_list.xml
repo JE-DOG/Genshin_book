@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_chats_list_rcv"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/list_item_chat"/>
+
+    <ImageButton
+        android:id="@+id/add_chat_but"
+
+        android:layout_width="@dimen/fragment_chats_list_size_add_but"
+        android:layout_height="@dimen/fragment_chats_list_size_add_but"
+
+        android:layout_gravity="bottom|end"
+
+        android:background="@drawable/bg_circle_primary"
+        android:src="@drawable/ic_add"
+
+        android:layout_marginBottom="@dimen/fragment_chats_list_margin_add_but"
+        android:layout_marginEnd="@dimen/fragment_chats_list_margin_add_but"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+
+        android:indeterminateTint="@color/primary_app"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+
+</FrameLayout>

@@ -23,7 +23,9 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.supervisorScope
 
 class ChatListNetworkServiceImpl(
     private val supabaseClient: SupabaseClient
@@ -39,39 +41,10 @@ class ChatListNetworkServiceImpl(
 
         }.decodeList<ChatJson>()
 
+        println(userChats)
+
         val result = userChats.map { chat ->
-
-            val lastMessage = async {
-                supabaseClient.postgrest[Tables.MESSAGES.tableName].select {
-                    eq(Tables.MESSAGES.chat_id, chat.id)
-                    order(Tables.MESSAGES.message, Order.DESCENDING)
-                    limit(1)
-                }.decodeAs<MessageJson>()
-            }
-
-            val user = async {
-                supabaseClient.postgrest[Tables.PROFILES.tableName].select {
-                    eq(
-                        Tables.PROFILES.id,
-                        if ( userId == chat.first_user_id )
-                            chat.second_user_id
-                        else
-                            chat.first_user_id
-                    )
-                }.decodeAs<ProfileJson>()
-            }
-
-
-
-            ChatNetwork(
-                id = chat.id,
-                first_user_id = chat.first_user_id,
-                second_user_id = chat.second_user_id,
-                created_at = chat.created_at,
-                lastMessage = lastMessage.await().message,
-                fullName = user.await().fullname,
-                avatar = user.await().avatar
-            )
+            getUserChat(userId,chat).single()
         }
 
         send(result)
@@ -79,45 +52,57 @@ class ChatListNetworkServiceImpl(
         close()
     }
 
-    override fun getUserChat(userId: String, chatId: String): Flow<ChatNetwork> = callbackFlow {
+    override fun getUserChat(userId: String, chat: ChatJson): Flow<ChatNetwork> = callbackFlow {
 
-        val chat = async {
-            supabaseClient.postgrest[Tables.CHATS.tableName].select {
-                eq(Tables.CHATS.id, chatId)
-                limit(1)
-            }.decodeAs<ChatJson>()
-        }
+        val chatId = chat.id
 
         val lastMessage = async {
             supabaseClient.postgrest[Tables.MESSAGES.tableName].select {
                 eq(Tables.MESSAGES.chat_id, chatId)
                 limit(1)
-            }.decodeAs<MessageJson>()
+            }.decodeList<MessageJson>()
         }
 
         val user = async {
             supabaseClient.postgrest[Tables.PROFILES.tableName].select {
                 eq(
                     Tables.PROFILES.id,
-                    if ( userId == chat.await().first_user_id )
-                        chat.await().second_user_id
+                    if ( userId == chat.first_user_id )
+                        chat.second_user_id
                     else
-                        chat.await().first_user_id
+                        chat.first_user_id
                 )
-            }.decodeAs<ProfileJson>()
+                limit(1)
+            }.decodeList<ProfileJson>()
         }
 
+        println(user.await())
 
+        val result = try {
 
-        val result = ChatNetwork(
-            id = chat.await().id,
-            first_user_id = chat.await().first_user_id,
-            second_user_id = chat.await().second_user_id,
-            created_at = chat.await().created_at,
-            lastMessage = lastMessage.await().message,
-            fullName = user.await().fullname,
-            avatar = user.await().avatar
-        )
+            ChatNetwork(
+                id = chat.id,
+                first_user_id = chat.first_user_id,
+                second_user_id = chat.second_user_id,
+                created_at = chat.created_at,
+                lastMessage = lastMessage.await()[0].message,
+                fullName = user.await()[0].fullname,
+                avatar = user.await()[0].avatar
+            )
+
+        }catch (e: Exception){
+
+            ChatNetwork(
+                id = chat.id,
+                first_user_id = chat.first_user_id,
+                second_user_id = chat.second_user_id,
+                created_at = chat.created_at,
+                lastMessage = null,
+                fullName = user.await()[0].fullname,
+                avatar = user.await()[0].avatar
+            )
+
+        }
 
 
         send(result)

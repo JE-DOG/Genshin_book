@@ -81,7 +81,13 @@ object Dependencies {
             const val version = "1.7.2"
 
             const val compose = "androidx.activity:activity-compose:$version"
+            const val xml ="androidx.activity:activity-ktx:$version"
+        }
 
+        object Fragment {
+            const val version = "1.6.1"
+
+            const val xml = "androidx.fragment:fragment-ktx:$version"
         }
 
     }
@@ -131,8 +137,7 @@ object Dependencies {
         }
 
     }
-    
-    
+
     object Another {
         object Database {
 
@@ -153,7 +158,7 @@ object Dependencies {
             }
             
             object OkHttp {
-                const val version = "5.0.0-alpha.9"
+                const val version = "4.10.0"
                 
                 const val okhttp = "com.squareup.okhttp3:okhttp:$version"
                 const val interceptor = "com.squareup.okhttp3:logging-interceptor:$version"
@@ -169,7 +174,7 @@ object Dependencies {
 
             object Ktor {
                 const val version = "2.3.2"
-                const val engine = "android"
+                const val engine = "okhttp"
 
                 const val ktor = "io.ktor:ktor-client-$engine:$version"
             }
@@ -185,6 +190,18 @@ object Dependencies {
             }
             
         }
+
+        object PictureLoader {
+
+            object Coil {
+                const val version_coil = "2.4.0"
+
+                const val coil_xml = "io.coil-kt:coil:$version_coil"
+                const val coil_compose = "io.coil-kt:coil-compose:$version_coil"
+            }
+
+        }
+
     }
 
 }

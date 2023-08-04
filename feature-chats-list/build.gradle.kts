@@ -2,6 +2,7 @@ plugins {
     id(Plugins.Android.library)
     id(Plugins.Kotlin.android)
     kotlin (Plugins.Kotlin.serialization)
+    id (Plugins.Kotlin.kapt)
 }
 
 android {
@@ -32,10 +33,17 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
 
     api ( project(Modules.Feature.core) )
+    api ( project(Modules.Data.chats_list) )
+    api ( project(Modules.Domain.chats_list) )
+
+    kapt (Dependencies.Another.DI.Dagger.compiler)
 
 }

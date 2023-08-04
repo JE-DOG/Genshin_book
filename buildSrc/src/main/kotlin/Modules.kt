@@ -14,12 +14,15 @@ object Modules {
         const val main = ":feature-main"
         const val characters = ":feature-characters"
         const val characters_detail = ":feature-characters-detail"
+        const val chats_list = ":feature-chats-list"
     }
 
     object Data {
         const val core = ":core:core-data"
 
         const val characters = ":feature-characters:data-characters"
+        const val chats_list = ":feature-chats-list:data-chats-list"
+
     }
 
     object Domain {

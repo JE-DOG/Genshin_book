@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.application)
     id(Plugins.Kotlin.android)
+    id (Plugins.Kotlin.kapt)
 }
 
 android {
@@ -27,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures{
         viewBinding = true
@@ -42,5 +43,8 @@ dependencies {
 
     implementation( project(Modules.App.core) )
     implementation( project(Modules.core) )
+    implementation( project(Modules.Feature.chats_list) )
+
+    kapt (Dependencies.Another.DI.Dagger.compiler)
 
 }

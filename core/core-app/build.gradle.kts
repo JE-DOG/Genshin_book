@@ -61,6 +61,8 @@ dependencies {
     api (Dependencies.Compose.Material2.material2)
     api (Dependencies.Compose.Material3.material3)
     api (Dependencies.Compose.ui_tooling_preview)
+    api (Dependencies.Another.PictureLoader.Coil.coil_compose)
+
 
     //xml
     //material 2
@@ -69,6 +71,11 @@ dependencies {
     api (Dependencies.XML.AppCompat.app_compat)
     //navigation
     api (Dependencies.XML.Navigation.Cicerone.cicerone)
+    //Jetpack
+    api (Dependencies.AndroidX.Activity.xml)
+    api (Dependencies.AndroidX.Fragment.xml)
+    //Coil
+    api (Dependencies.Another.PictureLoader.Coil.coil_xml)
 
     //lifecycle
     api (Dependencies.AndroidX.LifeCycle.viewmodel_compose)

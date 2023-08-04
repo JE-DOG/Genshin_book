@@ -3,6 +3,7 @@ package com.example.demo.feature.chat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.demo.feature.chat.databinding.ActivityDemoChatBinding
+import com.example.feature.chats.list.ChatsListFragment
 
 class DemoChatActivity : AppCompatActivity() {
 
@@ -14,8 +15,7 @@ class DemoChatActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-                // todo add chat container
-//            .replace(R.id.demo_chat_container,)
+            .replace(R.id.demo_chat_container, ChatsListFragment())
             .commit()
 
     }
