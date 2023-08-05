@@ -11,4 +11,5 @@ plugins {
     kotlin (Plugins.Kotlin.serialization) version Plugins.Kotlin.version apply false
     //realm
     id (Plugins.Another.Realm.realm) version Plugins.Another.Realm.version apply false
+    id("org.jetbrains.kotlin.jvm") version "1.8.0" apply false
 }

@@ -1,0 +1,4 @@
+/Users/JE_DOG/StudioProjects/Genshin_book/model/data/chat/src/main/java/com/example/model/data/chat/network/ChatJson.kt
+/Users/JE_DOG/StudioProjects/Genshin_book/model/data/chat/src/main/java/com/example/model/data/chat/network/MessageJson.kt
+/Users/JE_DOG/StudioProjects/Genshin_book/model/data/chat/src/main/java/com/example/model/data/chat/network/ProfileJson.kt
+/Users/JE_DOG/StudioProjects/Genshin_book/model/data/chat/src/main/java/com/example/model/data/chat/network/ChatNetwork.kt
