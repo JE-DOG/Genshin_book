@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/core/core-domain" />
             <option value="$PROJECT_DIR$/core/core-feature" />
             <option value="$PROJECT_DIR$/feature-add-chat" />
+            <option value="$PROJECT_DIR$/feature-add-chat/data" />
             <option value="$PROJECT_DIR$/feature-add-chat/domain" />
             <option value="$PROJECT_DIR$/feature-characters" />
             <option value="$PROJECT_DIR$/feature-characters-detail" />
