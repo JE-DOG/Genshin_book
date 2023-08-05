@@ -6,7 +6,7 @@ class AddChatUseCase(
     private val addChatRepository: AddChatRepository
 ) {
 
-    fun execute(userId: String): Boolean{
+    suspend fun execute(userId: String): Any { //return ChatJson
         val result = addChatRepository.addChat(userId)
         return result
     }

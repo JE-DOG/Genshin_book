@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface AddChatRepository {
 
-    fun addChat( userId: String ): Boolean
+    suspend fun addChat(userId: String): Any //ChatJson
 
     fun findUser(userNick: String): Flow<List<ProfileDomain>>
 
