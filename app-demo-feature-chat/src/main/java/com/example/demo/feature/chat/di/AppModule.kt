@@ -1,8 +1,11 @@
 package com.example.demo.feature.chat.di
 
+import com.example.core.app.navigation.ScreenProvider
+import com.example.demo.feature.chat.presentation.navigation.ScreenProviderImpl
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Screen
 import dagger.Module
 import dagger.Provides
 import io.github.jan.supabase.SupabaseClient
@@ -40,6 +43,11 @@ class AppModule {
     @Provides
     fun provideNavigatorHolder(): NavigatorHolder {
         return cicerone.getNavigatorHolder()
+    }
+
+    @Provides
+    fun provideScreenProvider(): ScreenProvider {
+        return ScreenProviderImpl()
     }
 
 }

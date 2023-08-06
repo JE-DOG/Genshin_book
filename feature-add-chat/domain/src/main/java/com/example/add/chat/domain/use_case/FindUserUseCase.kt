@@ -8,7 +8,7 @@ class FindUserUseCase(
     private val addChatRepository: AddChatRepository
 ) {
 
-    fun execute(userNick: String): Flow<List<ProfileDomain>> {
+    fun execute(userNick: String): Flow<List<Any>> {
         val result = addChatRepository.findUser(userNick = userNick)
         return result
     }

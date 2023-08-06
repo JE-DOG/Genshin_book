@@ -35,6 +35,7 @@ android {
 dependencies {
 
     api ( project(Modules.Data.core) )
-    api( project(Modules.Data.chats_list) )
+    api ( project(Modules.Data.chats_list) )
+    api ( project(Modules.Domain.add_chat) )
 
 }

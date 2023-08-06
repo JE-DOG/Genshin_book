@@ -23,6 +23,7 @@ object Modules {
 
         const val characters = "${Feature.characters}:data-characters"
         const val chats_list = "${Feature.chats_list}:data-chats-list"
+        const val add_chat = "${Feature.add_chat}:data"
 
     }
 

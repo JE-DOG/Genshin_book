@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.core.app.base.BaseFragment
 import com.example.core.app.delegate.viewBinding
 import com.example.core.app.elements.xml.BaseErrorAlertDialog
+import com.example.core.app.navigation.ScreenProvider
 import com.example.feature.chats.list.adapter.ChatsListAdapter
 import com.example.feature.chats.list.vm.ChatsListViewModel
 import com.example.feature.chats.list.vm.ChatsListViewState
@@ -21,7 +22,9 @@ import javax.inject.Inject
 class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
 
     @Inject
-    lateinit var route: Router
+    lateinit var router: Router
+    @Inject
+    lateinit var screenProvider: ScreenProvider
     @Inject
     lateinit var viewModel: ChatsListViewModel
 
@@ -48,6 +51,16 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
 
                 adapter.items = it.chats.toMutableList()
 
+            }
+
+        }
+
+        addChatBut.apply {
+
+            setOnClickListener {
+                router.navigateTo(
+                    screenProvider.addChat()
+                )
             }
 
         }

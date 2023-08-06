@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.example.core.app.navigation.RouterProvider
-import com.github.terrakok.cicerone.Router
 
 abstract class BaseFragment(
     @LayoutRes
@@ -29,8 +27,5 @@ abstract class BaseFragment(
         super.onDestroy()
         clear()
     }
-
-    val router: Router
-        get() = (parentFragment as? RouterProvider)?.router ?: (requireActivity() as RouterProvider).router
 
 }

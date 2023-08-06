@@ -1,9 +1,15 @@
 package com.example.core.app.navigation
 
-import com.github.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Screen
 
-interface RouterProvider {
+interface ScreenProvider {
 
-    val router: Router
+    fun chatsList(): Screen
+
+    fun addChat(): Screen
+
+    fun chat(
+        chatId: String
+    ): Screen
 
 }

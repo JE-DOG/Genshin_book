@@ -7,6 +7,6 @@ interface AddChatRepository {
 
     suspend fun addChat(userId: String): Any //ChatJson
 
-    fun findUser(userNick: String): Flow<List<ProfileDomain>>
+    fun findUser(userNick: String): Flow<List<Any>> //ProfileJson
 
 }

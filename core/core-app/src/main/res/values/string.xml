@@ -28,4 +28,7 @@
         Something went wrong
     </string>
 
+    <!--Bundle keys-->
+    <string name="chat_id">id</string>
+
 </resources>

@@ -13,6 +13,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class BaseErrorAlertDialog(
     private val onPositiveButtonClickListener: () -> Unit = {},
     private val onNegativeButtonClickListener: () -> Unit = {},
+    private val hasOneAction: Boolean = false
 ) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -25,10 +26,12 @@ class BaseErrorAlertDialog(
                     onPositiveButtonClickListener()
                     dialog.cancel()
                 }
-                .setNegativeButton(R.string.alert_dismiss_but){ dialog,_ ->
+            if (!hasOneAction){
+                builder.setNegativeButton(R.string.alert_dismiss_but){ dialog,_ ->
                     onNegativeButtonClickListener()
                     dialog.cancel()
                 }
+            }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }

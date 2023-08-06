@@ -44,6 +44,7 @@ dependencies {
     implementation( project(Modules.App.core) )
     implementation( project(Modules.core) )
     implementation( project(Modules.Feature.chats_list) )
+    implementation( project(Modules.Feature.add_chat) )
 
     kapt (Dependencies.Another.DI.Dagger.compiler)
 
