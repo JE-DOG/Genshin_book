@@ -13,7 +13,9 @@ import com.example.feature.chats.list.adapter.diff.ChatsListDiffCallback
 import com.example.feature.chats.list.model.Chat
 import com.example.feature_chats_list.databinding.ListItemChatBinding
 
-class ChatsListAdapter: BaseRecyclerAdapter<ListItemChatBinding, Chat>() {
+class ChatsListAdapter: BaseRecyclerAdapter<ListItemChatBinding, Chat>(
+    ListItemChatBinding::inflate
+) {
 
     override var items: MutableList<Chat> = mutableListOf()
         set(value) {
@@ -25,12 +27,6 @@ class ChatsListAdapter: BaseRecyclerAdapter<ListItemChatBinding, Chat>() {
             field = value
             diffResult.dispatchUpdatesTo(this)
         }
-
-    override val viewBindingInflater: (
-        inflater: LayoutInflater,
-        parent: ViewGroup,
-        attachToParent: Boolean
-    ) -> ListItemChatBinding = ListItemChatBinding::inflate
 
     override fun BaseRecyclerHolder<ListItemChatBinding>.onBind(item: Chat): Unit = with(binding){
 

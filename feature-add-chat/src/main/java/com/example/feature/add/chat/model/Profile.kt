@@ -1,6 +1,7 @@
 package com.example.feature.add.chat.model
 
 import com.example.add.chat.domain.model.ProfileDomain
+import com.example.core.app.base.rcv.RecyclerItem
 import com.example.feature.add.chat.data.network.model.ProfileJson
 
 data class Profile(
@@ -8,7 +9,7 @@ data class Profile(
     val createdAt: String,
     val fullName: String,
     val avatar: String
-) {
+): RecyclerItem {
 
 
     companion object {

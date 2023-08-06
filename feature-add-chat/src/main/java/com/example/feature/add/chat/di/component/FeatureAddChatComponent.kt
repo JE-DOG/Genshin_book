@@ -19,4 +19,13 @@ interface FeatureAddChatComponent {
 
     fun inject(fragmentAddChat: FragmentAddChat)
 
+    @Component.Factory
+    interface Factory {
+
+        fun create(
+            featureAddChatDeps: FeatureAddChatDeps
+        ): FeatureAddChatComponent
+
+    }
+
 }

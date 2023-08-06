@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/input_user_nick"
+
+        style="@style/ThemeOverlay.Material3.TextInputEditText"
+
+        android:hint="@string/find_user_et"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/space_top_find_but"/>
+
+    <Button
+        android:id="@+id/search_users_by_nick_but"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        style="@style/Widget.Material3.Button"
+
+        android:text="@string/find_user_but"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/space_bottom_find_but"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/find_users_rcv"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
