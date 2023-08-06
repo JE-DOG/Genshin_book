@@ -13,22 +13,11 @@ class ScreenProviderImpl: ScreenProvider {
         ChatsListFragment()
     }
 
-    override fun addChat(): Screen {
-        TODO("Not yet implemented")
+    override fun addChat() = FragmentScreen {
+        FragmentAddChat()
     }
 
     override fun chat(chatId: String) = FragmentScreen {
-        FragmentAddChat().apply {
-
-            arguments?.apply {
-
-                val chatIdKey = resources.getString(com.example.core.R.string.chat_id)
-                putString(
-                    chatIdKey,chatId
-                )
-
-            }
-
-        }
+        TODO("Not yet implemented")
     }
 }
