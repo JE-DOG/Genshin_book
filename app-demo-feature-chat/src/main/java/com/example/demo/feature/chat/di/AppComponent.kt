@@ -1,6 +1,7 @@
 package com.example.demo.feature.chat.di
 
 import com.example.core.app.navigation.ScreenProvider
+import com.example.demo.feature.chat.DemoChatActivity
 import com.example.feature.add.chat.di.component.FeatureAddChatDeps
 import com.example.feature.chats.list.di.component.FeatureChatsListDeps
 import com.github.terrakok.cicerone.Router
@@ -21,5 +22,7 @@ interface AppComponent: FeatureChatsListDeps,FeatureAddChatDeps {
     override val supabaseClient: SupabaseClient
 
     override val screenProvider: ScreenProvider
+
+    fun inject(demoChatActivity: DemoChatActivity)
 
 }
