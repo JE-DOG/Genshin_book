@@ -5,6 +5,7 @@ import com.example.data.core.supabase.Tables
 import com.example.feature.add.chat.data.network.model.ProfileJson
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.TextSearchType
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -76,10 +77,9 @@ class AddChatNetworkServiceImpl(
 
         val result = async {
             supabaseClient.postgrest[Tables.PROFILES.tableName].select {
-                textSearch(
+                ilike(
                     column = Tables.PROFILES.fullName,
-                    query = "'$userNick'",
-                    textSearchType = TextSearchType.PHRASETO
+                    pattern = "%$userNick%",
                 )
             }.decodeList<ProfileJson>()
 

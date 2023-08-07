@@ -1,5 +1,6 @@
 package com.example.feature.add.chat.vm
 
+import android.util.Log
 import com.example.add.chat.domain.use_case.AddChatUseCase
 import com.example.add.chat.domain.use_case.FindUserUseCase
 import com.example.core.app.base.vm.BaseViewModel
@@ -49,6 +50,8 @@ class AddChatViewModel @Inject constructor(
             val profiles = findUserUseCase.execute(userNick).single().map { profileJson ->
                 Profile.fromJson(profileJson as ProfileJson)
             }
+
+            Log.d("AddChatViewModelTag",profiles.toString())
 
             _state.update {
 

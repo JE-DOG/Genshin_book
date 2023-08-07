@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="space_top_find_but">10dp</dimen>
-    <dimen name="space_bottom_find_but">50dp</dimen>
+    <dimen name="add_chat_space_top_find_but">10dp</dimen>
+    <dimen name="add_chat_space_bottom_find_but">50dp</dimen>
+    <dimen name="add_chat_padding_horizontal">20dp</dimen>
 
 </resources>

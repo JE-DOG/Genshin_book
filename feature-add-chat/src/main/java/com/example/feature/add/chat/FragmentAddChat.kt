@@ -35,13 +35,13 @@ class FragmentAddChat: BaseFragment(R.layout.fragment_add_chat) {
 
         lifecycleScope.launch(Dispatchers.Main) {
 
-            viewModel.state.collect {
+            viewModel.state.collect { state ->
 
-                if (it.isError){
+                if (state.isError){
                     showErrorDialog()
                 }
 
-                it.chatId?.let { chatId ->
+                state.chatId?.let { chatId ->
                     router.replaceScreen(
                         screenProvider.chat(
                             chatId
@@ -49,12 +49,43 @@ class FragmentAddChat: BaseFragment(R.layout.fragment_add_chat) {
                     )
                 }
 
+                adapter.items = state.users.toMutableList()
+
+                showLoading(state.isLoading)
 
             }
 
         }
 
+        findUsersRcv.apply {
 
+            adapter = this@FragmentAddChat.adapter
+
+        }
+
+        searchUsersByNickBut.apply {
+
+            setOnClickListener {
+                val userNick = inputUserNick.text.toString()
+
+                viewModel.getUsersByNick(userNick)
+            }
+
+        }
+
+    }
+
+    private fun showLoading(show: Boolean): Unit = with(binding) {
+
+        if (show){
+            progressBar.visibility = View.VISIBLE
+
+            findUsersRcv.visibility = View.GONE
+        }else {
+            findUsersRcv.visibility = View.VISIBLE
+
+            progressBar.visibility = View.GONE
+        }
 
     }
 
