@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.core.app.navigation.ScreenProvider
 import com.example.demo.feature.chat.databinding.ActivityDemoChatBinding
-import com.example.feature.chats.list.ChatsListFragment
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
