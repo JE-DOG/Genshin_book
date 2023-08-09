@@ -114,9 +114,9 @@ class ChatListNetworkServiceImpl(
 
         val realtime = supabaseClient.realtime
 
-        supabaseClient.realtime.connect()
+        realtime.connect()
 
-        val channel = realtime.createChannel(Tables.MESSAGES.tableName)
+        val channel = realtime.createChannel(Tables.CHATS.tableName)
 
         val broadcastFlow = channel.postgresChangeFlow<PostgresAction>(schema = Schema.PUBLIC.schema){
             table = Tables.CHATS.tableName
