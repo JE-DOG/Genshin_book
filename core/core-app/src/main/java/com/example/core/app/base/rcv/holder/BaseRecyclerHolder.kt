@@ -1,4 +1,4 @@
-package com.example.core.app.base.rcv
+package com.example.core.app.base.rcv.holder
 
 import android.content.Context
 import android.content.res.Resources

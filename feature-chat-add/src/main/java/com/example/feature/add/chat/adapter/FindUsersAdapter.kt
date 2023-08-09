@@ -1,18 +1,15 @@
 package com.example.feature.add.chat.adapter
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import coil.load
-import com.example.core.app.base.rcv.BaseRecyclerAdapter
-import com.example.core.app.base.rcv.BaseRecyclerHolder
-import com.example.feature.add.chat.R
+import com.example.core.app.base.rcv.adapter.BaseRecyclerAdapter
+import com.example.core.app.base.rcv.holder.BaseRecyclerHolder
 import com.example.feature.add.chat.databinding.ListItemFindUserBinding
 import com.example.feature.add.chat.model.Profile
 
 class FindUsersAdapter(
     private val onItemClickListener: (userId: String) -> Unit
-): BaseRecyclerAdapter<ListItemFindUserBinding,Profile>(
+): BaseRecyclerAdapter<ListItemFindUserBinding, Profile>(
     viewBindingInflater = ListItemFindUserBinding::inflate
 ) {
 

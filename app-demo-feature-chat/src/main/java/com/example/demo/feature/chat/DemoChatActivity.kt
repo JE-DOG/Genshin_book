@@ -1,5 +1,6 @@
 package com.example.demo.feature.chat
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.core.app.navigation.ScreenProvider
@@ -31,6 +32,7 @@ class DemoChatActivity : AppCompatActivity() {
         router.newRootScreen(
             screenProvider.chatsList()
         )
+
 
     }
 

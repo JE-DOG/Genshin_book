@@ -1,14 +1,11 @@
 package com.example.feature.chats.list.adapter
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import coil.load
-import com.example.core.app.base.rcv.BaseRecyclerAdapter
-import com.example.core.app.base.rcv.BaseRecyclerHolder
+import com.example.core.app.base.rcv.adapter.BaseRecyclerAdapter
+import com.example.core.app.base.rcv.holder.BaseRecyclerHolder
 import com.example.core.R
 import com.example.core.ext.isNotNull
-import com.example.core.ext.isNull
 import com.example.feature.chats.list.adapter.diff.ChatsListDiffCallback
 import com.example.feature.chats.list.model.Chat
 import com.example.feature_chats_list.databinding.ListItemChatBinding

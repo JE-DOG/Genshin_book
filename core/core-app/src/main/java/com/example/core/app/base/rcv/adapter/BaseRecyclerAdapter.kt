@@ -1,16 +1,15 @@
-package com.example.core.app.base.rcv
+package com.example.core.app.base.rcv.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.example.core.app.base.rcv.Inflater
+import com.example.core.app.base.rcv.RecyclerItem
+import com.example.core.app.base.rcv.holder.BaseRecyclerHolder
 
 abstract class BaseRecyclerAdapter<VB: ViewBinding,RI: RecyclerItem>(
-    private val viewBindingInflater: (
-        inflater: LayoutInflater,
-        parent: ViewGroup,
-        attachToParent: Boolean
-    ) -> VB
+    private val viewBindingInflater: Inflater<VB>
 ): RecyclerView.Adapter<BaseRecyclerHolder<VB>>() {
 
     private var _binding: VB? = null
