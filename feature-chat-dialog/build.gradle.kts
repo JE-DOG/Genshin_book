@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.library)
     id(Plugins.Kotlin.android)
+    id(Plugins.Kotlin.kapt)
 }
 
 android {
@@ -30,11 +31,19 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
     api ( project(Modules.core) )
     api ( project(Modules.Feature.core) )
+    api ( project(Modules.Feature.add_chat) )
+    api ( project(Modules.Domain.chat_dialog) )
+    api ( project(Modules.Data.chat_dialog) )
+
+    kapt ( Dependencies.Another.DI.Dagger.compiler )
 
 }

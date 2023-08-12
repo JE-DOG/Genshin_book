@@ -94,10 +94,16 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
 
     override fun initDependencies() {
 
-        adapter = ChatsListAdapter()
-
         val component = ViewModelProvider(this)[FeatureChatsListComponentViewModel::class.java].component
         component.inject(this)
+
+        adapter = ChatsListAdapter (
+            onItemClickListener = { chatId ->
+                router.navigateTo(
+                    screenProvider.chat(chatId)
+                )
+            }
+        )
 
     }
 

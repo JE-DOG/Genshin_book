@@ -10,7 +10,9 @@ import com.example.feature.chats.list.adapter.diff.ChatsListDiffCallback
 import com.example.feature.chats.list.model.Chat
 import com.example.feature_chats_list.databinding.ListItemChatBinding
 
-class ChatsListAdapter: BaseRecyclerAdapter<ListItemChatBinding, Chat>(
+class ChatsListAdapter(
+    private val onItemClickListener: (chatId: String) -> Unit
+): BaseRecyclerAdapter<ListItemChatBinding, Chat>(
     ListItemChatBinding::inflate
 ) {
 
@@ -39,6 +41,10 @@ class ChatsListAdapter: BaseRecyclerAdapter<ListItemChatBinding, Chat>(
         }
 
         userFullnameTv.text = item.fullName
+
+        root.setOnClickListener {
+            onItemClickListener(item.id)
+        }
 
     }
 

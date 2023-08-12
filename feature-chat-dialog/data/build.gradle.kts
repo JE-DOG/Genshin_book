@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.library)
     id(Plugins.Kotlin.android)
+    kotlin (Plugins.Kotlin.serialization)
 }
 
 android {
@@ -36,6 +37,8 @@ dependencies {
 
     api ( project(Modules.core) )
     api ( project(Modules.Data.core) )
+    api ( project(Modules.Data.add_chat) )
+    api ( project(Modules.Data.chats_list) )
     api ( project(Modules.Domain.chat_dialog) )
 
 }

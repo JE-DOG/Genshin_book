@@ -1,5 +1,6 @@
 package com.example.core.app.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
@@ -14,8 +15,8 @@ abstract class BaseFragment(
     open fun initDependencies() = Unit
     open fun clear() = Unit
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
         initDependencies()
     }
 

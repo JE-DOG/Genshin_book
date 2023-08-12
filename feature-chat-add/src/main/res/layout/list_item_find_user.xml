@@ -15,7 +15,7 @@
 
 
     <Space
-        android:layout_width="@dimen/list_item_chat_space_avatar_and_text"
+        android:layout_width="@dimen/space_avatar_and_text"
         android:layout_height="wrap_content"/>
 
     <LinearLayout
@@ -34,7 +34,7 @@
             android:id="@+id/user_fullname_tv"
 
             android:text="test user name"
-            android:textSize="@dimen/list_item_chat_text_size_fullname"
+            android:textSize="@dimen/text_size_fullname"
             android:textColor="@color/list_item_chat_fullname"
 
             android:layout_width="wrap_content"

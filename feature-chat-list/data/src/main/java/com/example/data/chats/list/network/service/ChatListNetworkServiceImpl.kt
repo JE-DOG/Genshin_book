@@ -59,6 +59,10 @@ class ChatListNetworkServiceImpl(
         val lastMessage = async {
             supabaseClient.postgrest[Tables.MESSAGES.tableName].select {
                 eq(Tables.MESSAGES.chat_id, chatId)
+                order(
+                    Tables.MESSAGES.message,
+                    order = Order.DESCENDING
+                )
                 limit(1)
             }.decodeList<MessageJson>()
         }

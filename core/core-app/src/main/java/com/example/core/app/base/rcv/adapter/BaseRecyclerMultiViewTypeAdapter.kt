@@ -6,6 +6,8 @@ import androidx.viewbinding.ViewBinding
 import com.example.core.app.base.rcv.RecyclerItem
 import com.example.core.app.base.rcv.ViewType
 import com.example.core.app.base.rcv.holder.BaseRecyclerHolder
+import com.example.core.ext.isNotNull
+import com.example.core.ext.isNull
 
 abstract class BaseRecyclerMultiViewTypeAdapter: RecyclerView.Adapter<BaseRecyclerHolder<ViewBinding>?>() {
 
@@ -57,15 +59,12 @@ abstract class BaseRecyclerMultiViewTypeAdapter: RecyclerView.Adapter<BaseRecycl
      *
      * Plan:
      *
-     * 1.Bind view holder by implementation function "onBindViewHolder"(when we are call bindViewHolder he is call onBindViewHolder) inside ViewType
-     *
-     * 2.To avoid memory leak set variable "currentViewType" to null
+     * Bind view holder by implementation function "onBindViewHolder"(when we are call bindViewHolder he is call onBindViewHolder) inside ViewType
      *
      * @param viewType This is item position
      */
     override fun onBindViewHolder(holder: BaseRecyclerHolder<ViewBinding>, position: Int) {
         currentViewType!!.bindViewHolder()
-        currentViewType = null
     }
 
     /**

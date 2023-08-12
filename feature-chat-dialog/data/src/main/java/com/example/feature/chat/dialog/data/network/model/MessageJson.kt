@@ -1,13 +1,15 @@
 package com.example.feature.chat.dialog.data.network.model
 
 import com.example.faeture.chat.dialog.domain.model.MessageDomain
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class MessageJson(
-    val id: String,
-    val id_chat: String,
-    val message: String,
-    val created_at: String,
-    val id_user: String
+    val id: String? = null,
+    val id_chat: String = "",
+    val message: String = "",
+    val created_at: String = "",
+    val id_user: String = ""
 ){
 
     fun toDomain(): MessageDomain {

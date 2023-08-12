@@ -3,8 +3,6 @@
     <!--list_item_chat-->
     <dimen name="list_item_chat_avatar_size">70dp</dimen>
     <dimen name="list_item_chat_space_fullname_and_last_message">5dp</dimen>
-    <dimen name="list_item_chat_space_avatar_and_text">10dp</dimen>
-    <dimen name="list_item_chat_text_size_fullname">17sp</dimen>
     <dimen name="list_item_chat_text_size_last_message">12sp</dimen>
 
     <!--  fragment_chats_list  -->

@@ -12,4 +12,9 @@ interface ScreenProvider {
         chatId: String
     ): Screen
 
+    companion object {
+
+        const val CHAT_ID_KEY = "ChatIdKey"
+
+    }
 }
