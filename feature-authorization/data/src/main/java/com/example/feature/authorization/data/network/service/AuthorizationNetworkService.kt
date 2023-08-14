@@ -1,19 +1,17 @@
-package com.example.feature.authorization.domain
+package com.example.feature.authorization.data.network.service
 
-interface AuthorizationRepository {
-
-    suspend fun saveUserId(userId: String)
+interface AuthorizationNetworkService {
 
     suspend fun signIn(
         email: String,
         password: String
-    )
+    ): String
 
     suspend fun signUp(
         email: String,
         password: String,
         fullname: String,
         avatar: String
-    )
+    ): String
 
 }
