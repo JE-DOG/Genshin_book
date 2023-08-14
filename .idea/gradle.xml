@@ -20,6 +20,9 @@
             <option value="$PROJECT_DIR$/core/core-data" />
             <option value="$PROJECT_DIR$/core/core-domain" />
             <option value="$PROJECT_DIR$/core/core-feature" />
+            <option value="$PROJECT_DIR$/feature-authorization" />
+            <option value="$PROJECT_DIR$/feature-authorization/data" />
+            <option value="$PROJECT_DIR$/feature-authorization/domain" />
             <option value="$PROJECT_DIR$/feature-characters" />
             <option value="$PROJECT_DIR$/feature-characters-detail" />
             <option value="$PROJECT_DIR$/feature-characters/data" />

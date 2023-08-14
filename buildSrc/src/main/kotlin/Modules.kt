@@ -17,6 +17,7 @@ object Modules {
         const val chats_list = ":feature-chat-list"
         const val add_chat = ":feature-chat-add"
         const val chat_dialog = ":feature-chat-dialog"
+        const val authorization = ":feature-authorization"
     }
 
     object Data {
@@ -26,7 +27,7 @@ object Modules {
         const val chats_list = "${Feature.chats_list}:data"
         const val add_chat = "${Feature.add_chat}:data"
         const val chat_dialog = "${Feature.chat_dialog}:data"
-
+        const val authorization = "${Feature.authorization}:data"
     }
 
     object Domain {
@@ -36,6 +37,8 @@ object Modules {
         const val chats_list = "${Feature.chats_list}:domain"
         const val add_chat = "${Feature.add_chat}:domain"
         const val chat_dialog = "${Feature.chat_dialog}:domain"
+        const val authorization = "${Feature.authorization}:domain"
+
     }
 
 }
