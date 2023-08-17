@@ -61,6 +61,7 @@ class SignInFragment: BaseFragment(R.layout.fragment_sign_in) {
 
             if (state.isSignIn){
                 router.newRootScreen(
+                    //if you want launch app-demo-authorization instead of screenProvider.main() set screenProvider.profile()
                     screenProvider.main()
                 )
             }

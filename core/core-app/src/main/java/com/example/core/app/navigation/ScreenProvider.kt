@@ -18,6 +18,8 @@ interface ScreenProvider {
 
     fun signUp(): Screen
 
+    fun profile(): Screen
+
     companion object {
 
         const val CHAT_ID_KEY = "ChatIdKey"

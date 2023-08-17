@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.app.demo.authorization.di.AppComponent
 import com.example.app.demo.authorization.di.DaggerAppComponent
 import com.example.feature.authorization.di.deps.FeatureAuthorizationDepsStore
+import com.example.feature.profile.di.deps.FeatureProfileDepsStore
 
 class App: Application() {
 
@@ -19,6 +20,7 @@ class App: Application() {
 
     private fun init() {
         FeatureAuthorizationDepsStore.featureAuthorizationComponentDeps = appComponent
+        FeatureProfileDepsStore.deps = appComponent
     }
 
     companion object {

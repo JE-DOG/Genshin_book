@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.library)
     id(Plugins.Kotlin.android)
+    id(Plugins.Kotlin.kapt)
 }
 
 android {
@@ -30,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -41,5 +45,6 @@ dependencies {
     api ( project(Modules.Data.profile) )
     api ( project(Modules.Domain.profile) )
 
+    kapt ( Dependencies.Another.DI.Dagger.compiler )
 
 }

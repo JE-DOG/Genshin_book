@@ -3,6 +3,7 @@ package com.example.app.demo.authorization.presentation.navigation
 import com.example.core.app.navigation.ScreenProvider
 import com.example.feature.authorization.screen.sign_in.SignInFragment
 import com.example.feature.authorization.screen.sign_up.SignUpFragment
+import com.example.feature.profile.ProfileFragment
 import com.github.terrakok.cicerone.Screen
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
@@ -30,5 +31,9 @@ class ScreenProviderImpl: ScreenProvider {
 
     override fun main(): Screen {
         TODO("Not yet implemented")
+    }
+
+    override fun profile() = FragmentScreen {
+        ProfileFragment()
     }
 }
