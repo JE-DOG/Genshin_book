@@ -45,6 +45,12 @@ object Dependencies {
             const val material2 = "com.google.android.material:material:$version"
         }
 
+        object Material3 {
+            const val version = "1.1.1"
+
+            const val material3 = "androidx.compose.material3:material3:$version"
+        }
+
         object Navigation {
 
             object Cicerone {

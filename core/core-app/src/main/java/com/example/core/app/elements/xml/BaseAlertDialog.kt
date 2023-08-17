@@ -1,27 +1,26 @@
 package com.example.core.app.elements.xml
 
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import com.example.core.R
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
+import com.example.core.app.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
-class BaseErrorAlertDialog(
+class BaseAlertDialog(
     private val onPositiveButtonClickListener: () -> Unit = {},
     private val onNegativeButtonClickListener: () -> Unit = {},
-    private val hasOneAction: Boolean = false
+    private val hasOneAction: Boolean = false,
+    private val message: String? = null,
+    private val title: String? = null
 ) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = MaterialAlertDialogBuilder(it)
             builder
-                .setTitle(R.string.alert_error_internet_title)
-                .setMessage(R.string.alert_error_internet_text)
+                .setTitle(title ?: resources.getString(R.string.alert_error_internet_title))
+                .setMessage(message ?: resources.getString(R.string.alert_error_internet_text))
                 .setPositiveButton(R.string.alert_confirm_but){ dialog,_ ->
                     onPositiveButtonClickListener()
                     dialog.cancel()

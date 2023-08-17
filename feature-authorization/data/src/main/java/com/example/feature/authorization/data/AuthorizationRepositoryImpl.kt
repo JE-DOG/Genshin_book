@@ -1,12 +1,12 @@
 package com.example.feature.authorization.data
 
-import com.example.feature.authorization.data.network.service.AuthorizationNetworkServiceImpl
+import com.example.feature.authorization.data.network.service.AuthorizationNetworkService
 import com.example.feature.authorization.data.storage.service.AuthorizationStorageService
 import com.example.feature.authorization.domain.AuthorizationRepository
 
 class AuthorizationRepositoryImpl(
     private val storageService: AuthorizationStorageService,
-    private val networkService: AuthorizationNetworkServiceImpl
+    private val networkService: AuthorizationNetworkService
 ): AuthorizationRepository {
 
     override suspend fun saveUserId(userId: String) {
@@ -23,13 +23,11 @@ class AuthorizationRepositoryImpl(
     }
 
     override suspend fun signUp(email: String, password: String, fullname: String, avatar: String) {
-        val userId = networkService.signUp(
+        networkService.signUp(
             email = email,
             password = password,
             fullname = fullname,
             avatar = avatar
         )
-
-        saveUserId(userId)
     }
 }

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.core"
+    namespace = "com.example.core.app"
     compileSdk = 34
 
     defaultConfig {
@@ -65,8 +65,9 @@ dependencies {
 
 
     //xml
-    //material 2
+    //materials
     api (Dependencies.XML.Material2.material2)
+    api (Dependencies.XML.Material3.material3)
     //app compat
     api (Dependencies.XML.AppCompat.app_compat)
     //navigation

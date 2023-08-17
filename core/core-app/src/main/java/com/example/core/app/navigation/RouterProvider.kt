@@ -4,6 +4,8 @@ import com.github.terrakok.cicerone.Screen
 
 interface ScreenProvider {
 
+    fun main(): Screen
+
     fun chatsList(): Screen
 
     fun addChat(): Screen
@@ -11,6 +13,10 @@ interface ScreenProvider {
     fun chat(
         chatId: String
     ): Screen
+
+    fun signIn(): Screen
+
+    fun signUp(): Screen
 
     companion object {
 

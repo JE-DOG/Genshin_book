@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 abstract class BaseViewModel: ViewModel() {
 
     private fun launchCoroutine(
-        error: () -> Unit = {},
+        error: (e: Exception) -> Unit = {},
         finally: () -> Unit = {},
         block: suspend CoroutineScope.() -> Unit
     ){
@@ -20,7 +20,7 @@ abstract class BaseViewModel: ViewModel() {
             try {
                 block()
             }catch (e: Exception){
-                error()
+                error(e)
                 Log.e("ErrorTag",e.localizedMessage)
             }finally {
                 finally()
@@ -30,7 +30,7 @@ abstract class BaseViewModel: ViewModel() {
     }
 
     protected fun launchIoCoroutine(
-        error: () -> Unit = {},
+        error: (e: Exception) -> Unit = {},
         finally: () -> Unit = {},
         block: suspend CoroutineScope.() -> Unit
     ){
@@ -42,7 +42,7 @@ abstract class BaseViewModel: ViewModel() {
     }
 
     protected fun launchDefaultCoroutine(
-        error: () -> Unit = {},
+        error: (e: Exception) -> Unit = {},
         finally: () -> Unit = {},
         block: suspend CoroutineScope.() -> Unit
     ){

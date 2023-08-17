@@ -12,6 +12,6 @@ interface AuthorizationNetworkService {
         password: String,
         fullname: String,
         avatar: String
-    ): String
+    )
 
 }

@@ -7,7 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.core.R
+import com.example.core.app.R
 import com.example.core.ext.isNull
 import com.example.core.app.ui.theme.AlertBackground
 import com.example.core.app.ui.theme.AlertShape

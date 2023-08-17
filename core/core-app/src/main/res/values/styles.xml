@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Inputs-->
+    <style name="edit_text_layout_filled" parent="ThemeOverlay.Material3.TextInputEditText.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="edit_text_filled" parent="ThemeOverlay.Material3.TextInputEditText.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--Buttons-->
+    <style name="default_button_filled" parent="Widget.Material3.Button">
+
+    </style>
+
+    <style name="default_button_outlined" parent="Widget.Material3.Button.OutlinedButton">
+
+    </style>
+
+    <style name="default_button_icon_filled" parent="Widget.Material3.Button.IconButton.Filled">
+
+    </style>
+
+    <!--Text-->
+    <style name="default_header_text" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">@dimen/space_header_text_bottom</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+</resources>

@@ -20,7 +20,7 @@ import com.example.core.app.ui.theme.CardBackground
 import com.example.core.app.ui.theme.CardShape
 import kotlin.concurrent.thread
 import com.example.feature.characters.model.Character
-import com.example.core.R
+import com.example.core.app.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,6 +1,7 @@
 package com.example.feature.authorization.data.storage.service
 
 import android.content.SharedPreferences
+import android.util.Log
 import com.example.core.keys.SharedPreferencesKeys
 
 class AuthorizationStorageServiceImpl(
@@ -11,5 +12,6 @@ class AuthorizationStorageServiceImpl(
         sharedPreferences.edit()
             .putString(SharedPreferencesKeys.USER_ID_KEY,userId)
             .apply()
+
     }
 }

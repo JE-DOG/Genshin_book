@@ -43,6 +43,7 @@ dependencies {
 
     implementation ( project(Modules.core) )
     implementation ( project(Modules.App.core) )
+    implementation ( project(Modules.Feature.authorization) )
 
     kapt(Dependencies.Another.DI.Dagger.compiler)
 

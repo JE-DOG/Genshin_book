@@ -27,8 +27,38 @@
     <string name="alert_error_internet_title">
         Something went wrong
     </string>
+    <string name="alert_dialog_error_message_incorrect_data_profile" >
+        Email or password incorrect
+    </string>
+    <string name="alert_dialog_title_success_sign_up">
+        Success sign up
+    </string>
+    <string name="alert_dialog_message_success_sign_up">
+        Welcome to the Genshin book community new traveler
+    </string>
 
-    <!--Bundle keys-->
-    <string name="chat_id">id</string>
+    <!--Some words-->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="full_name">Full name</string>
+    <string name="avatar_url">Avatar URL (Optional)</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+
+    <!--Text-->
+    <string name="presentation_text_sign_in">Sign in to the Genshine book community 😁</string>
+    <string name="presentation_text_sign_up">Welcome to the Genshine book community 😁</string>
+    <string name="presentation_text_error_password_input">Minimal length is 8</string>
+    <string name="presentation_text_error_confirm_password_input">Password does not match</string>
+    <string name="presentation_text_error_email_input">Input correct email address</string>
+    <string name="presentation_text_error_full_name_input">Minimal length is 4</string>
+    <string name="presentation_text_error_url_input">Input correct URL</string>
+
+    <!--Button text-->
+    <string name="presentation_button_text_sign_up_in_sign_in">Create new traveler</string>
+    <string name="presentation_button_text_sign_up">Start the journey</string>
+    <string name="presentation_button_text_sign_in">Continue travel</string>
+
 
 </resources>

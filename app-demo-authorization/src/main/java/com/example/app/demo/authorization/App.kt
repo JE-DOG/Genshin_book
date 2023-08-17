@@ -3,10 +3,13 @@ package com.example.app.demo.authorization
 import android.app.Application
 import com.example.app.demo.authorization.di.AppComponent
 import com.example.app.demo.authorization.di.DaggerAppComponent
+import com.example.feature.authorization.di.deps.FeatureAuthorizationDepsStore
 
 class App: Application() {
 
-    lateinit var appComponent: AppComponent
+    val appComponent: AppComponent by lazy {
+        DaggerAppComponent.factory().create(this)
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -15,7 +18,7 @@ class App: Application() {
     }
 
     private fun init() {
-        appComponent = DaggerAppComponent.factory().create(this)
+        FeatureAuthorizationDepsStore.featureAuthorizationComponentDeps = appComponent
     }
 
     companion object {

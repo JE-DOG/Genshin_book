@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.core.app.base.BaseFragment
 import com.example.core.app.delegate.viewBinding
-import com.example.core.app.elements.xml.BaseErrorAlertDialog
+import com.example.core.app.elements.xml.BaseAlertDialog
 import com.example.core.app.navigation.ScreenProvider
 import com.example.feature.chats.list.adapter.ChatsListAdapter
 import com.example.feature.chats.list.vm.ChatsListViewModel
@@ -68,7 +68,7 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
     }
 
     private fun showErrorAlertDialog(){
-        BaseErrorAlertDialog(
+        BaseAlertDialog(
             onPositiveButtonClickListener = {
                 viewModel.getChats()
             },

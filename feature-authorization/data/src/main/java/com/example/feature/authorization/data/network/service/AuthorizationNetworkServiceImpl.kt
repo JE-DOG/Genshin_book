@@ -1,5 +1,7 @@
 package com.example.feature.authorization.data.network.service
 
+import android.util.Log
+import com.example.core.ext.isNotNull
 import com.example.data.core.supabase.Tables
 import com.example.feature.authorization.data.network.model.AuthorizationProfileJson
 import io.github.jan.supabase.SupabaseClient
@@ -28,24 +30,22 @@ class AuthorizationNetworkServiceImpl(
         password: String,
         fullname: String,
         avatar: String
-    ): String {
-        val result = supabaseClient.gotrue.signUpWith(Email){
+    ) {
+        supabaseClient.gotrue.signUpWith(Email){
             this.email = email
             this.password = password
         }
 
-        result?.let { result ->
-            val id = result.id
-            val profile = AuthorizationProfileJson(
-                id = id,
-                fullname = fullname,
-                avatar = avatar
-            )
-            supabaseClient.postgrest[Tables.PROFILES.tableName].insert(profile)
+        val user = supabaseClient.gotrue.currentUserOrNull()
 
-            return id
-        }
+        val profileJson = AuthorizationProfileJson(
+            id = user!!.id,
+            fullname = fullname,
+            avatar = avatar ?: ""
+        )
 
-        throw IllegalArgumentException("Sign in return null")
+
+        supabaseClient.postgrest[Tables.PROFILES.tableName].insert(profileJson)
+
     }
 }

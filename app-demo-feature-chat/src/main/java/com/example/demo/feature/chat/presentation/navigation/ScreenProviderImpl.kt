@@ -10,6 +10,9 @@ import com.github.terrakok.cicerone.Screen
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 class ScreenProviderImpl: ScreenProvider {
+    override fun main(): Screen {
+        TODO("Not yet implemented")
+    }
 
     override fun chatsList() = FragmentScreen {
         ChatsListFragment()
@@ -31,5 +34,13 @@ class ScreenProviderImpl: ScreenProvider {
             arguments = bundle
 
         }
+    }
+
+    override fun signIn(): Screen {
+        TODO("Not yet implemented")
+    }
+
+    override fun signUp(): Screen {
+        TODO("Not yet implemented")
     }
 }

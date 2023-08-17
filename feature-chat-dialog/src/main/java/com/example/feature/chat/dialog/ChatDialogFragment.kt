@@ -8,16 +8,14 @@ import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.example.core.app.base.BaseFragment
 import com.example.core.app.delegate.viewBinding
-import com.example.core.app.elements.xml.BaseErrorAlertDialog
+import com.example.core.app.elements.xml.BaseAlertDialog
 import com.example.core.app.navigation.ScreenProvider
 import com.example.feature.chat.dialog.adapter.DialogAdapter
 import com.example.feature.chat.dialog.databinding.FragmentChatDialogBinding
 import com.example.feature.chat.dialog.di.component.FeatureChatDialogViewModel
-import com.example.feature.chat.dialog.model.Message
 import com.example.feature.chat.dialog.vm.ChatDialogViewModel
 import com.github.terrakok.cicerone.Router
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -65,7 +63,7 @@ class ChatDialogFragment: BaseFragment(R.layout.fragment_chat_dialog) {
                 state.profile?.let {  profile ->
 
                     userAvatarImg.load(profile.avatar) {
-                        this.placeholder(com.example.core.R.drawable.ic_default_user_avatar)
+                        this.placeholder(com.example.core.app.R.drawable.ic_default_user_avatar)
                     }
 
                     userFullNameText.text = profile.fullName
@@ -96,7 +94,7 @@ class ChatDialogFragment: BaseFragment(R.layout.fragment_chat_dialog) {
     }
 
     private fun showError(){
-        BaseErrorAlertDialog(
+        BaseAlertDialog(
             onPositiveButtonClickListener = {
                 viewModel.getChatMessages()
             },

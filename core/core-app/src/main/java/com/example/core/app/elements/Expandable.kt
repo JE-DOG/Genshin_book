@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.core.R
+import com.example.core.app.R
 import com.example.core.app.ui.theme.ButtonTextColor
 import com.example.core.app.ui.theme.Shapes
 

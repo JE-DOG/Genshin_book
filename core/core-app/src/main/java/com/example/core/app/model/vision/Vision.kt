@@ -1,7 +1,7 @@
 package com.example.core.app.model.vision
 
 import androidx.annotation.DrawableRes
-import com.example.core.R
+import com.example.core.app.R
 
 enum class Vision(val visionName: String, @DrawableRes val icon: Int) {
 

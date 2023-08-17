@@ -2,7 +2,7 @@ package com.example.feature.main.model.content_types
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
-import com.example.core.R
+import com.example.core.app.R
 import com.example.data.characters.di.DaggerDataCharactersComponent
 import com.example.feature.characters.CharactersTab
 import com.example.feature.characters.composition.LocalFeatureCharactersViewModel
