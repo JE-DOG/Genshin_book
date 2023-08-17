@@ -1,7 +1,7 @@
 package com.example.feature.chat.dialog.model
 
 import com.example.core.app.base.rcv.RecyclerItem
-import com.example.faeture.chat.dialog.domain.model.MessageDomain
+import com.example.feature.chat.dialog.domain.model.MessageDomain
 import com.example.feature.chat.dialog.data.network.model.MessageJson
 
 data class Message(

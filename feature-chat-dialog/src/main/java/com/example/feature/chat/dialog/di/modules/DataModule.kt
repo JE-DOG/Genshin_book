@@ -1,6 +1,6 @@
 package com.example.feature.chat.dialog.di.modules
 
-import com.example.faeture.chat.dialog.domain.ChatDialogRepository
+import com.example.feature.chat.dialog.domain.ChatDialogRepository
 import com.example.feature.chat.dialog.data.ChatDialogRepositoryImpl
 import com.example.feature.chat.dialog.data.network.service.ChatDialogNetworkService
 import com.example.feature.chat.dialog.data.network.service.ChatDialogNetworkServiceImpl

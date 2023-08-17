@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.core.app.base.vm.BaseViewModel
 import com.example.core.ext.replaceItem
-import com.example.faeture.chat.dialog.domain.use_cases.*
+import com.example.feature.chat.dialog.domain.use_cases.*
 import com.example.feature.add.chat.model.Profile
 import com.example.feature.chat.dialog.data.network.model.MessageJson
 import com.example.feature.chat.dialog.model.Message

@@ -1,4 +1,4 @@
-package com.example.faeture.chat.dialog.domain.model
+package com.example.feature.chat.dialog.domain.model
 
 data class MessageDomain(
     val id: String? = null,

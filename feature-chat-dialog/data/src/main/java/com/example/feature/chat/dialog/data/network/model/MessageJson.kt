@@ -1,6 +1,6 @@
 package com.example.feature.chat.dialog.data.network.model
 
-import com.example.faeture.chat.dialog.domain.model.MessageDomain
+import com.example.feature.chat.dialog.domain.model.MessageDomain
 import kotlinx.serialization.Serializable
 
 @Serializable

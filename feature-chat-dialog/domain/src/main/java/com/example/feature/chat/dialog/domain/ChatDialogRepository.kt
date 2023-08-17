@@ -1,7 +1,7 @@
-package com.example.faeture.chat.dialog.domain
+package com.example.feature.chat.dialog.domain
 
 import com.example.add.chat.domain.model.ProfileDomain
-import com.example.faeture.chat.dialog.domain.model.MessageDomain
+import com.example.feature.chat.dialog.domain.model.MessageDomain
 import io.github.jan.supabase.realtime.PostgresAction
 import kotlinx.coroutines.flow.Flow
 

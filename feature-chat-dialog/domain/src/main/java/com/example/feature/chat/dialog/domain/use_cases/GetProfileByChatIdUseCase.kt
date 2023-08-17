@@ -1,7 +1,7 @@
-package com.example.faeture.chat.dialog.domain.use_cases
+package com.example.feature.chat.dialog.domain.use_cases
 
 import com.example.add.chat.domain.model.ProfileDomain
-import com.example.faeture.chat.dialog.domain.ChatDialogRepository
+import com.example.feature.chat.dialog.domain.ChatDialogRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetProfileByChatIdUseCase(
