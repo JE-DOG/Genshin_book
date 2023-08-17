@@ -36,7 +36,8 @@ dependencies {
 
     api ( project(Modules.core) )
     api ( project(Modules.Data.core) )
+    api ( project(Modules.Data.add_chat) )
 
-    api ( project(Modules.Data.profile) )
+    api ( project(Modules.Domain.profile) )
 
 }
