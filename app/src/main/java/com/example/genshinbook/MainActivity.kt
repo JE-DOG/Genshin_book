@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userId: String
 
-
     private lateinit var binding: ActivityMainBinding
 
     private val appNavigator = AppNavigator(this,R.id.app_container)

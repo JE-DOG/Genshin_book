@@ -1,6 +1,7 @@
 package com.example.feature.add.chat
 
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.core.app.base.BaseFragment
@@ -21,11 +22,14 @@ class FragmentAddChat: BaseFragment(R.layout.fragment_add_chat) {
     @Inject
     lateinit var router: Router
     @Inject
-    lateinit var viewModel: AddChatViewModel
+    lateinit var viewModelFactory: AddChatViewModel.Factory
     @Inject
     lateinit var screenProvider: ScreenProvider
 
     private val binding by viewBinding(FragmentAddChatBinding::bind)
+    private val viewModel: AddChatViewModel by viewModels {
+        viewModelFactory
+    }
     lateinit var adapter: FindUsersAdapter
 
     override fun initUi(): Unit = with(binding) {
