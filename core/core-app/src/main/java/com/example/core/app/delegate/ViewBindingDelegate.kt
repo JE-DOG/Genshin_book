@@ -25,12 +25,11 @@ class ViewBindingDelegate<VB: ViewBinding>(
     @Volatile
     private var viewBinding: VB? = null
     @Volatile
-    private var view: View? = null
+    private var fragmentId: Int? = null
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): VB{
-        if (view != thisRef.requireView()){
-            view = thisRef.requireView()
-            return binder(view!!).also {
+        if (fragmentId != thisRef.id){
+            return binder(thisRef.requireView()).also {
                 viewBinding = it
             }
         }

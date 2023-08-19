@@ -33,6 +33,9 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
 
     override fun initUi(): Unit = with(binding) {
 
+        Log.d("ChatListFragmentTag","onViewCreated")
+
+
         userChatsListRcv.apply {
             adapter = this@ChatsListFragment.adapter
         }
@@ -95,6 +98,8 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
 
     override fun initDependencies() {
 
+        Log.d("ChatListFragmentTag","OnAttach")
+
         val component = ViewModelProvider(this)[FeatureChatsListComponentViewModel::class.java].component
         component.inject(this)
 
@@ -105,6 +110,7 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
                 )
             }
         )
+
 
     }
 

@@ -8,6 +8,10 @@ import com.example.feature.chats.list.di.component.FeatureChatsListDepsStore
 import com.example.feature.profile.di.deps.FeatureProfileDepsStore
 import com.example.genshinbook.di.AppComponent
 import com.example.genshinbook.di.DaggerAppComponent
+import io.github.jan.supabase.realtime.realtime
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class App: Application() {
 
@@ -30,13 +34,19 @@ class App: Application() {
             FeatureChatDialogDepsStore.deps = this
             FeatureChatsListDepsStore.deps = this
             FeatureProfileDepsStore.deps = this
+
+            CoroutineScope(Dispatchers.Main).launch {
+                supabaseClient.realtime.connect()
+            }
         }
     }
 
     companion object{
+
         lateinit var INSTANCE: App
             private set
 
         const val SHARED_PREFERENCES_NAME = "Genshin_book"
+
     }
 }

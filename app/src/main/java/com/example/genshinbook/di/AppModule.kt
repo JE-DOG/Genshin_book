@@ -2,7 +2,6 @@ package com.example.genshinbook.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import com.example.core.app.navigation.ScreenProvider
 import com.example.core.keys.SharedPreferencesKeys
 import com.example.genshinbook.App
@@ -59,11 +58,13 @@ class AppModule {
     private val cicerone = Cicerone.create()
 
     @Provides
+    @AppScope
     fun provideRouter(): Router {
         return cicerone.router
     }
 
     @Provides
+    @AppScope
     fun provideNavigatorHolder(): NavigatorHolder {
         return cicerone.getNavigatorHolder()
     }
