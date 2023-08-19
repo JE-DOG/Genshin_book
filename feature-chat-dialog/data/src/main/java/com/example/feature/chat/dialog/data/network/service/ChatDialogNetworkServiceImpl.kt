@@ -67,8 +67,6 @@ class ChatDialogNetworkServiceImpl(
 
         val realtime = supabaseClient.realtime
 
-        realtime.connect()
-
         val channel = realtime.createChannel(Tables.MESSAGES.tableName)
 
         val broadcastFlow = channel.postgresChangeFlow<PostgresAction>(schema = Schema.PUBLIC.schema){

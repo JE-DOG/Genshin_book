@@ -9,6 +9,7 @@ import com.github.terrakok.cicerone.Router
 import dagger.Component
 import io.github.jan.supabase.SupabaseClient
 
+@DemoDIalogAppScope
 @Component(
     modules = [
         AppModule::class

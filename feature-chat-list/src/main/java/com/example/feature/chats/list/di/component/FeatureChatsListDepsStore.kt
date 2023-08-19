@@ -4,6 +4,6 @@ import kotlin.properties.Delegates.notNull
 
 object FeatureChatsListDepsStore: FeatureChatsListDepsProvider {
 
-    override var featureChatsListDeps: FeatureChatsListDeps by notNull()
+    override var deps: FeatureChatsListDeps by notNull()
 
 }

@@ -19,7 +19,7 @@ class App: Application() {
     }
 
     private fun init() {
-        FeatureAuthorizationDepsStore.featureAuthorizationComponentDeps = appComponent
+        FeatureAuthorizationDepsStore.deps = appComponent
         FeatureProfileDepsStore.deps = appComponent
     }
 

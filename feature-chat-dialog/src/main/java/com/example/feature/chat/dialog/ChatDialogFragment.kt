@@ -63,7 +63,7 @@ class ChatDialogFragment: BaseFragment(R.layout.fragment_chat_dialog) {
                 state.profile?.let {  profile ->
 
                     userAvatarImg.load(profile.avatar) {
-                        this.placeholder(com.example.core.app.R.drawable.ic_default_user_avatar)
+                        this.placeholder(com.example.core.app.R.drawable.ic_profile)
                     }
 
                     userFullNameText.text = profile.fullName

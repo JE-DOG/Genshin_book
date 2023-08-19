@@ -75,11 +75,12 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
             onNegativeButtonClickListener = {
                 viewModel.setState(
                     ChatsListViewState(
-                        isError = true
+                        isError = false
                     )
                 )
             }
-        ).show(requireActivity().supportFragmentManager,"")
+        )
+            .show(requireActivity().supportFragmentManager,"")
     }
 
     private fun setLoadingVisible(show: Boolean): Unit = with(binding){

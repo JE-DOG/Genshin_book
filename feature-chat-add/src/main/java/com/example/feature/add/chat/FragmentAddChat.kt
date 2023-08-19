@@ -93,17 +93,16 @@ class FragmentAddChat: BaseFragment(R.layout.fragment_add_chat) {
                 viewModel.setErrorState(false)
             },
             hasOneAction = true
-        ).show(parentFragmentManager,"")
+        )
+            .show(parentFragmentManager,"")
 
     }
 
     override fun initDependencies() {
 
         adapter = FindUsersAdapter(
-            onItemClickListener = { chatId ->
-                router.navigateTo(
-                    screenProvider.chat(chatId)
-                )
+            onItemClickListener = { userId ->
+                viewModel.addChatAndGetChatId(userId)
             }
         )
 

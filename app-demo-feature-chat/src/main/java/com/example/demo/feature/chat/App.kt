@@ -19,9 +19,9 @@ class App: Application() {
     }
 
     private fun initModulesComponent() {
-        FeatureChatsListDepsStore.featureChatsListDeps = appComponent
-        FeatureAddChatDepsStore.featureAddChatDeps = appComponent
-        FeatureChatDialogDepsStore.featureChatDialogDeps = appComponent
+        FeatureChatsListDepsStore.deps = appComponent
+        FeatureAddChatDepsStore.deps = appComponent
+        FeatureChatDialogDepsStore.deps = appComponent
     }
 
     companion object {

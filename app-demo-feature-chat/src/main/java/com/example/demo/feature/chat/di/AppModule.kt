@@ -18,6 +18,7 @@ import javax.inject.Singleton
 class AppModule {
 
     @Provides
+    @DemoDIalogAppScope
     fun provideSupabaseClient(): SupabaseClient {
         return createSupabaseClient(
             supabaseUrl = "https://ykjjabiybawaxcaxcuua.supabase.co",

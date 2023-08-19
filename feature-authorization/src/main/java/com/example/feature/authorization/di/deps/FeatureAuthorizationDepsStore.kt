@@ -4,6 +4,6 @@ import kotlin.properties.Delegates.notNull
 
 object FeatureAuthorizationDepsStore: FeatureAuthorizationComponentDepsProvider {
 
-    override var featureAuthorizationComponentDeps: FeatureAuthorizationComponentDeps by notNull()
+    override var deps: FeatureAuthorizationDeps by notNull()
 
 }

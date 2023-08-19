@@ -28,7 +28,7 @@ class FindUsersAdapter(
     override fun BaseRecyclerHolder<ListItemFindUserBinding>.onBind(item: Profile): Unit = with(binding) {
 
         userAvatarImg.load(item.avatar) {
-            placeholder(com.example.core.app.R.drawable.ic_default_user_avatar)
+            placeholder(com.example.core.app.R.drawable.ic_profile)
         }
 
         userFullnameTv.apply {

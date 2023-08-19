@@ -30,7 +30,7 @@ class ChatsListAdapter(
     override fun BaseRecyclerHolder<ListItemChatBinding>.onBind(item: Chat): Unit = with(binding){
 
         userAvatarImg.load(item.avatar) {
-            placeholder(resource.getDrawable(R.drawable.ic_default_user_avatar))
+            placeholder(resource.getDrawable(R.drawable.ic_profile))
 
         }
         if (item.lastMessage.isNotNull()){

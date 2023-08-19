@@ -8,7 +8,6 @@ import com.example.core.app.base.BaseFragment
 import com.example.core.app.delegate.viewBinding
 import com.example.core.app.elements.xml.BaseAlertDialog
 import com.example.core.app.navigation.ScreenProvider
-import com.example.core.ext.isNotNull
 import com.example.feature.profile.databinding.FragmentProfileBinding
 import com.example.feature.profile.di.vm.FeatureProfileDepsViewModel
 import com.example.feature.profile.vm.ProfileViewModel
@@ -45,6 +44,7 @@ class ProfileFragment: BaseFragment(R.layout.fragment_profile) {
                 setOnClickListener {
 
                     errorLayout.root.visibility = View.GONE
+                    progressBar.visibility = View.VISIBLE
                     viewModel.getProfile()
 
                 }
@@ -70,7 +70,7 @@ class ProfileFragment: BaseFragment(R.layout.fragment_profile) {
 
                 userFullNameTv.text = profile.fullName
                 userAvatarImg.load(profile.avatar) {
-                    placeholder(com.example.core.app.R.drawable.ic_default_user_avatar)
+                    placeholder(com.example.core.app.R.drawable.ic_profile)
                 }
 
             }
@@ -96,6 +96,7 @@ class ProfileFragment: BaseFragment(R.layout.fragment_profile) {
         BaseAlertDialog(
             onNegativeButtonClickListener = {
                 errorLayout.root.visibility = View.VISIBLE
+                progressBar.visibility = View.GONE
             },
             onPositiveButtonClickListener = {
                 viewModel.getProfile()

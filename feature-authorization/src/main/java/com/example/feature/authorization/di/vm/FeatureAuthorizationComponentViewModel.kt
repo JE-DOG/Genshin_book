@@ -6,6 +6,6 @@ import com.example.feature.authorization.di.deps.FeatureAuthorizationDepsStore
 
 class FeatureAuthorizationComponentViewModel: ViewModel() {
 
-    val component = DaggerFeatureAuthorizationComponent.factory().create(FeatureAuthorizationDepsStore.featureAuthorizationComponentDeps)
+    val component = DaggerFeatureAuthorizationComponent.factory().create(FeatureAuthorizationDepsStore.deps)
 
 }

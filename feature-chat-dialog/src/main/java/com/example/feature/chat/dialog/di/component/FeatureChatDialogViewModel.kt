@@ -5,6 +5,6 @@ import com.example.feature.chat.dialog.di.component.deps.FeatureChatDialogDepsSt
 
 class FeatureChatDialogViewModel: ViewModel() {
 
-    val component = DaggerFeatureChatDialogComponent.factory().create(FeatureChatDialogDepsStore.featureChatDialogDeps)
+    val component = DaggerFeatureChatDialogComponent.factory().create(FeatureChatDialogDepsStore.deps)
 
 }

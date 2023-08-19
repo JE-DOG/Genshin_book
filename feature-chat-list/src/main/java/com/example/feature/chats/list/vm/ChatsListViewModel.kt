@@ -49,7 +49,8 @@ class ChatsListViewModel @Inject constructor(
         ) {
 
             _state.value = state.value.copy(
-                isLoading = true
+                isLoading = true,
+                isError = false
             )
 
             getUserChatsUseCase.execute().collect {
@@ -57,7 +58,6 @@ class ChatsListViewModel @Inject constructor(
                     chats = it.map {
                         Chat.fromDomain(it)
                     }.toMutableList(),
-                    isError = false,
                     isLoading = false
                 )
             }

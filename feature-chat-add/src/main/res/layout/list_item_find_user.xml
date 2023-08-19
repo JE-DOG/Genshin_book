@@ -11,7 +11,7 @@
         android:layout_width="@dimen/list_item_chat_avatar_size"
         android:layout_height="@dimen/list_item_chat_avatar_size"
 
-        android:src="@drawable/ic_default_user_avatar"/>
+        android:src="@drawable/ic_profile"/>
 
 
     <Space

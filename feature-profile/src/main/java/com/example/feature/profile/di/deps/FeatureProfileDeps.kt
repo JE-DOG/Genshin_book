@@ -12,6 +12,6 @@ interface FeatureProfileDeps {
 
     val router: Router
 
-    val screenProcess: ScreenProvider
+    val screenProvider: ScreenProvider
 
 }

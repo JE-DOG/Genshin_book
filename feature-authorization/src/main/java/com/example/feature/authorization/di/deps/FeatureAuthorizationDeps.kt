@@ -5,7 +5,7 @@ import com.example.core.app.navigation.ScreenProvider
 import com.github.terrakok.cicerone.Router
 import io.github.jan.supabase.SupabaseClient
 
-interface FeatureAuthorizationComponentDeps {
+interface FeatureAuthorizationDeps {
 
     val router: Router
 

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--Bottom navigation-->
+    <string name="bn_nav_home_text">Home</string>
+    <string name="bn_nav_chats_text">Chats</string>
+    <string name="bn_nav_profile_text">Profile</string>
+
     <!--offline-->
     <string name="offline">This is offline mode</string>
     <string name="error_repeat">Repeat</string>
