@@ -29,7 +29,7 @@ import com.example.core.app.ui.theme.BottomSheetScrimColor
 import com.example.core.app.ui.theme.BottomSheetShape
 import com.example.core.app.ui.theme.ButtonTextColor
 import com.example.core.app.ui.theme.DetailBackground
-import com.example.core.R
+import com.example.core.app.R
 import com.example.feature.characters.model.Character
 import com.example.feature.characters.model.Constellation
 import com.example.feature.characters.model.PassiveTalent

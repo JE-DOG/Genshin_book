@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="space_default_root_horizontal">20dp</dimen>
+    <dimen name="space_vertical_between_input_text">10dp</dimen>
+    <dimen name="space_vertical_between_buttons">15dp</dimen>
+    <dimen name="space_header_text_bottom">30dp</dimen>
+    <dimen name="space_avatar_and_text">10dp</dimen>
+    <dimen name="space_default_root_vertical">20dp</dimen>
+
+
+</resources>

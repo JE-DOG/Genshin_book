@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="space_send_message_button">10dp</dimen>
+    <dimen name="space_input_message">10dp</dimen>
+    <dimen name="height_input_message">58dp</dimen>
+
+    <dimen name="margin_end_message_item">10dp</dimen>
+    <dimen name="margin_start_message_item">60dp</dimen>
+    <dimen name="margin_top_message_item">5dp</dimen>
+    <dimen name="padding_message_item">10dp</dimen>
+    <dimen name="message_radius">12dp</dimen>
+
+</resources>

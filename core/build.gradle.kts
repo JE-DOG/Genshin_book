@@ -10,6 +10,8 @@ java {
 
 dependencies {
 
+    api (Dependencies.Kotlin.coroutines_core)
+
     //di
     //dagger
     api (Dependencies.Another.DI.Dagger.dagger)

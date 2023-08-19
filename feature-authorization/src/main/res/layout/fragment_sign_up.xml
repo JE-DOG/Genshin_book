@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/space_default_root_horizontal"
+
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        style="@style/default_header_text"
+
+        android:text="@string/presentation_text_sign_in"/>
+
+    <!--Inputs-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edit_text_layout_filled"
+
+        app:startIconDrawable="@drawable/ic_email"
+        app:endIconMode="clear_text"
+        android:hint="@string/email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_email"
+
+            style="@style/edit_text_filled"
+            android:inputType="textEmailAddress"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_vertical_between_input_text"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edit_text_layout_filled"
+
+        app:startIconDrawable="@drawable/ic_person"
+        app:endIconMode="clear_text"
+        android:hint="@string/full_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_full_name"
+
+            style="@style/edit_text_filled"
+            android:inputType="textPersonName"
+            android:maxLength="@integer/max_full_name_length"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_vertical_between_input_text"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edit_text_layout_filled"
+
+        app:startIconDrawable="@drawable/ic_image"
+        app:endIconMode="clear_text"
+        android:hint="@string/avatar_url">
+
+       <com.google.android.material.textfield.TextInputEditText
+           android:id="@+id/text_input_avatar_url"
+
+           style="@style/edit_text_filled"
+           android:inputType="textUri"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_vertical_between_input_text"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edit_text_layout_filled"
+
+        app:startIconDrawable="@drawable/ic_password"
+        app:endIconMode="password_toggle"
+        android:hint="@string/password">
+
+       <com.google.android.material.textfield.TextInputEditText
+           android:id="@+id/text_input_password"
+
+           style="@style/edit_text_filled"
+           android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_vertical_between_input_text"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/edit_text_layout_filled"
+
+        app:startIconDrawable="@drawable/ic_password"
+        app:endIconMode="password_toggle"
+        android:hint="@string/confirm_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_password_confirm"
+
+            style="@style/edit_text_filled"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--Inputs end-->
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_between_input_and_button"/>
+
+    <Button
+        android:id="@+id/sign_up_button"
+        style="@style/default_button_filled"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="@string/presentation_button_text_sign_up"
+        android:enabled="false"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:visibility="gone"/>
+
+
+</LinearLayout>

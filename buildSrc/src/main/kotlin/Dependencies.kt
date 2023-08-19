@@ -45,6 +45,12 @@ object Dependencies {
             const val material2 = "com.google.android.material:material:$version"
         }
 
+        object Material3 {
+            const val version = "1.1.1"
+
+            const val material3 = "androidx.compose.material3:material3:$version"
+        }
+
         object Navigation {
 
             object Cicerone {
@@ -81,9 +87,21 @@ object Dependencies {
             const val version = "1.7.2"
 
             const val compose = "androidx.activity:activity-compose:$version"
-
+            const val xml ="androidx.activity:activity-ktx:$version"
         }
 
+        object Fragment {
+            const val version = "1.6.1"
+
+            const val xml = "androidx.fragment:fragment-ktx:$version"
+        }
+
+    }
+
+    object Kotlin {
+        const val version = "1.7.1"
+
+        const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
     }
 
     object Test {
@@ -101,11 +119,11 @@ object Dependencies {
             }
             
         }
-        
+
         object Coroutine {
             const val version = "1.7.1"
 
-            const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
+            const val coroutine_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
         }
         
         object Mockito {
@@ -125,8 +143,7 @@ object Dependencies {
         }
 
     }
-    
-    
+
     object Another {
         object Database {
 
@@ -147,10 +164,25 @@ object Dependencies {
             }
             
             object OkHttp {
-                const val version = "5.0.0-alpha.9"
+                const val version = "4.10.0"
                 
                 const val okhttp = "com.squareup.okhttp3:okhttp:$version"
                 const val interceptor = "com.squareup.okhttp3:logging-interceptor:$version"
+            }
+
+            object Supabase {
+                private const val version = "1.2.0"
+                const val bom = "io.github.jan-tennert.supabase:bom:$version"
+
+                const val postgrest = "io.github.jan-tennert.supabase:postgrest-kt"
+                const val realtime = "io.github.jan-tennert.supabase:realtime-kt"
+            }
+
+            object Ktor {
+                const val version = "2.3.2"
+                const val engine = "okhttp"
+
+                const val ktor = "io.ktor:ktor-client-$engine:$version"
             }
         }
         
@@ -164,6 +196,18 @@ object Dependencies {
             }
             
         }
+
+        object PictureLoader {
+
+            object Coil {
+                const val version_coil = "2.4.0"
+
+                const val coil_xml = "io.coil-kt:coil:$version_coil"
+                const val coil_compose = "io.coil-kt:coil-compose:$version_coil"
+            }
+
+        }
+
     }
 
 }

@@ -54,6 +54,11 @@ dependencies {
     implementation ( project(path = Modules.App.core) )
 
     implementation ( project(Modules.Feature.main) )
+    implementation ( project(Modules.Feature.chats_list) )
+    implementation ( project(Modules.Feature.chat_dialog) )
+    implementation ( project(Modules.Feature.add_chat) )
+    implementation ( project(Modules.Feature.profile) )
+    implementation ( project(Modules.Feature.authorization) )
 
 
     //dagger compiler

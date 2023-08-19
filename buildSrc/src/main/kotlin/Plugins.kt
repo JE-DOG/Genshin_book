@@ -13,6 +13,7 @@ object Plugins {
         const val android = "org.jetbrains.kotlin.android"
         const val kapt = "kotlin-kapt"
         const val jvm = "org.jetbrains.kotlin.jvm"
+        const val serialization = "plugin.serialization"
     }
 
     object Another {
