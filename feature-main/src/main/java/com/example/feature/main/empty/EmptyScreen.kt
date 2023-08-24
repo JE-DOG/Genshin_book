@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.core.app.ui.compose.elements.base.Body1Text
 
 @Composable
 fun EmptyScreen(text: String = "Nothing") {
@@ -14,7 +15,7 @@ fun EmptyScreen(text: String = "Nothing") {
         Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ){
-        Text(text = text)
+        Body1Text(text = text)
     }
 
 }

@@ -10,6 +10,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.core.app.ui.compose.elements.base.Body1Text
+import com.example.core.app.ui.compose.elements.base.Header1Text
+import com.example.core.app.ui.compose.elements.base.Header2Text
 import com.example.feature.characters.model.Constellation
 
 @Composable
@@ -19,26 +22,20 @@ fun ConstellationsDetail(
 
     Column{
 
-        Text(
+        Header1Text(
             text = constellation.name,
-            fontSize = 30.sp,
-            color = Color.White,
             modifier = Modifier
                 .padding(bottom = 15.dp)
                 .fillMaxWidth(),
             textAlign = TextAlign.Center
         )
 
-        Text(
+        Header2Text(
             text = "Constellation level: ${constellation.level}",
-            fontSize = 20.sp,
-            color = Color.White,
             modifier = Modifier.padding(bottom = 10.dp)
         )
-        Text(
+        Body1Text(
             text = constellation.description,
-            color = Color.White,
-            fontSize = 20.sp
         )
 
     }

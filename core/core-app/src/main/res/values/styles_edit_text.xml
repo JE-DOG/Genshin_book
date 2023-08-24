@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="material3_edit_text" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="boxStrokeColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="material3_edit_text_layout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">?attr/colorOnPrimary</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="android:textColorHint">?attr/colorOnPrimary</item>
+        <item name="hintTextColor">?attr/colorOnPrimary</item>
+        <item name="colorControlActivated">#fff</item>
+    </style>
+
+
+
+    <style name="material3_edit_text_layout.filled" parent="material3_edit_text_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="material3_edit_text.filled" parent="material3_edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
+    <style name="edit_text" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="hintTextColor">@color/gray</item>
+    </style> 
+
+</resources>

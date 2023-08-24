@@ -1,8 +1,10 @@
 package com.example.feature.chats.list.vm
 
 import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.core.ext.replaceItem
 import com.example.data.chats.list.network.model.ChatJson
 import com.example.domain.chats.list.use_cases.BroadcastUserChatsUseCase
@@ -26,6 +28,23 @@ class ChatsListViewModel @Inject constructor(
     private val getUserChatsUseCase: GetUserChatsUseCase,
     private val getUserChatUseCase: GetUserChatUseCase,
 ): BaseViewModel() {
+
+    class Factory @Inject constructor(
+        private val broadcastUserChatsUseCase: BroadcastUserChatsUseCase,
+        private val getUserChatsUseCase: GetUserChatsUseCase,
+        private val getUserChatUseCase: GetUserChatUseCase,
+    ): ViewModelProvider.Factory {
+
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            require(modelClass == ChatsListViewModel::class.java)
+            return ChatsListViewModel(
+                broadcastUserChatsUseCase = broadcastUserChatsUseCase,
+                getUserChatsUseCase = getUserChatsUseCase,
+                getUserChatUseCase = getUserChatUseCase
+            ) as T
+        }
+
+    }
 
     private val _state = MutableStateFlow(ChatsListViewState())
     val state = _state

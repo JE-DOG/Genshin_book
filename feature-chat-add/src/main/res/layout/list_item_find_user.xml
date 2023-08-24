@@ -32,13 +32,12 @@
 
         <TextView
             android:id="@+id/user_fullname_tv"
-
-            android:text="test user name"
-            android:textSize="@dimen/text_size_fullname"
-            android:textColor="@color/list_item_chat_fullname"
+            style="@style/h2_text"
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+
+            android:text="test user name"/>
 
         <Space
             android:layout_width="wrap_content"

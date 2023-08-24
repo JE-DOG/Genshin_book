@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.core.app.ui.compose.elements.base.Body1Text
+import com.example.core.app.ui.compose.elements.base.Header1Text
 import com.example.feature.characters.model.PassiveTalent
 
 @Composable
@@ -19,20 +21,16 @@ fun PassiveTalentDetail(
 
     Column{
 
-        Text(
+        Header1Text(
             text = passiveTalent.name,
-            fontSize = 30.sp,
-            color = Color.White,
             modifier = Modifier
                 .padding(bottom = 15.dp)
                 .fillMaxWidth(),
             textAlign = TextAlign.Center
         )
 
-        Text(
+        Body1Text(
             text = passiveTalent.description,
-            color = Color.White,
-            fontSize = 20.sp
         )
 
     }

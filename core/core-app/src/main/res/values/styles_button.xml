@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="default_button_filled" parent="Widget.Material3.Button">
+
+    </style>
+
+    <style name="default_button_outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="strokeColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="icon_button" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/bg_circle_primary</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+</resources>

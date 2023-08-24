@@ -1,9 +1,11 @@
 package com.example.feature.add.chat.vm
 
 import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.add.chat.domain.use_case.AddChatUseCase
 import com.example.add.chat.domain.use_case.FindUserUseCase
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.data.chats.list.network.model.ChatJson
 import com.example.feature.add.chat.data.network.model.ProfileJson
 import com.example.feature.add.chat.model.Profile
@@ -12,10 +14,25 @@ import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
-class AddChatViewModel @Inject constructor(
+class AddChatViewModel (
     private val addChatUseCase: AddChatUseCase,
     private val findUserUseCase: FindUserUseCase
 ): BaseViewModel() {
+
+    class Factory @Inject constructor(
+        private val addChatUseCase: AddChatUseCase,
+        private val findUserUseCase: FindUserUseCase
+    ): ViewModelProvider.Factory {
+
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            require(modelClass == AddChatViewModel::class.java)
+            return AddChatViewModel(
+                addChatUseCase = addChatUseCase,
+                findUserUseCase = findUserUseCase
+            ) as T
+        }
+
+    }
 
     private val _state = MutableStateFlow(AddChatViewState())
     val state = _state

@@ -1,6 +1,6 @@
 package com.example.feature.chats.list.model
 
-import com.example.core.app.base.rcv.RecyclerItem
+import com.example.core.app.ui.xml.base.rcv.RecyclerItem
 import com.example.domain.chats.list.model.ChatDomain
 import kotlinx.serialization.Serializable
 

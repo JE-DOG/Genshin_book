@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/user_full_name_tv"
-            style="@style/default_user_full_name_text"
+            style="@style/h1_text"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

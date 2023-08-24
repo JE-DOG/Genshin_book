@@ -9,11 +9,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.example.core.app.elements.LoadingContent
-import com.example.core.app.elements.OfflineModeNotification
+import com.example.core.app.ui.compose.elements.GenshineBookLoadingContent
+import com.example.core.app.ui.compose.elements.GenshineBookOfflineModeNotification
 import com.example.core.feature.compositions.LocalScreensNavigation
 import com.example.feature.characters.composition.LocalFeatureCharactersViewModel
-import com.example.feature.characters.list_chararcters.ListCharacters
+import com.example.feature.characters.ui_elements.list_chararcters.ListCharacters
 
 @Composable
 fun CharactersTab() {
@@ -30,12 +30,12 @@ fun CharactersTab() {
     ) {
 
         if (state!!.isOffline) {
-            OfflineModeNotification {
+            GenshineBookOfflineModeNotification {
                 viewModel.getAllCharacters()
             }
         }
 
-        LoadingContent(
+        GenshineBookLoadingContent(
             isLoading = state.isLoading,
             isError = state.isError,
             onConfirm = {
@@ -52,7 +52,7 @@ fun CharactersTab() {
             ListCharacters(
                 viewModel = viewModel,
                 onClick = {
-                    navigator.push(screens!!.characterDetail(it))
+                    navigator.push(screens.characterDetail(it))
                 }
             )
         }

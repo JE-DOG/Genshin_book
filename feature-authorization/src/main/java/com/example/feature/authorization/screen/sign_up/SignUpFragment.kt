@@ -6,9 +6,9 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import com.example.core.app.base.BaseFragment
+import com.example.core.app.ui.xml.base.BaseFragment
 import com.example.core.app.delegate.viewBinding
-import com.example.core.app.elements.xml.BaseAlertDialog
+import com.example.core.app.ui.xml.base.BaseAlertDialog
 import com.example.core.app.ext.stringText
 import com.example.core.app.navigation.ScreenProvider
 import com.example.feature.authorization.R

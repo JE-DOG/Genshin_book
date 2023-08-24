@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature_characters"
+    namespace = "com.example.feature.characters"
     compileSdk = 34
 
     defaultConfig {
@@ -25,7 +25,6 @@ android {
     }
     buildFeatures {
         compose = true
-        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = Dependencies.Compose.version
@@ -34,9 +33,11 @@ android {
 
 dependencies {
 
-    implementation ( project(Modules.Feature.core) )
-    implementation ( project(path = Modules.Data.characters) )
-    implementation ( project(path = Modules.Domain.characters) )
+    api ( project(Modules.Feature.core) )
+    api ( project(path = Modules.Data.characters) )
+    api ( project(path = Modules.Domain.characters) )
+
+    kapt ( Dependencies.Another.DI.Dagger.compiler )
 
     //j-unit
     androidTestImplementation (Dependencies.Test.Junit.ext_junit)

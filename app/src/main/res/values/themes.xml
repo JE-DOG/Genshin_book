@@ -2,7 +2,11 @@
 <resources>
 
     <style name="Theme.GenshinBook" parent="Theme.Material3.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="colorPrimary">@color/medium_magenta</item>
+        <item name="colorOnPrimary">@color/black_blue</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorOnBackground">@color/signal_black</item>
+
         <item name="android:windowIsTranslucent">true</item>
     </style>
 

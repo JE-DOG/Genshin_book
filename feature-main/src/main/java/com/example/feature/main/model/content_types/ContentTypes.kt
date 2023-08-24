@@ -2,40 +2,32 @@ package com.example.feature.main.model.content_types
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.core.app.R
-import com.example.data.characters.di.DaggerDataCharactersComponent
 import com.example.feature.characters.CharactersTab
 import com.example.feature.characters.composition.LocalFeatureCharactersViewModel
+import com.example.feature.characters.di.component.DaggerFeatureCharactersComponent
+import com.example.feature.characters.di.deps.FeatureCharactersDepsStore
 import com.example.feature.characters.vm.CharactersTabViewModel
 import com.example.feature.main.empty.EmptyScreen
-import androidx.compose.runtime.CompositionLocalProvider
 
 enum class ContentTypes(@StringRes val res: Int, val screen: @Composable () -> Unit) {
 
     CHARACTERS(
         res = R.string.ct_characters,
         {
-            val viewModel = androidx.lifecycle.viewmodel.compose.viewModel(initializer = {
+            val charactersComponent = DaggerFeatureCharactersComponent
+                .factory()
+                .create(FeatureCharactersDepsStore.deps)
 
-                val dataCharactersComponent = DaggerDataCharactersComponent.create()
-                val charactersDomainComponent = com.example.domain.characters.di.DaggerCharactersDomainComponent
-                    .factory()
-                    .create(dataCharactersComponent)
+            val charactersTabViewModel = viewModel(
+                factory = charactersComponent.charactersTabViewModelFactory,
+                modelClass = CharactersTabViewModel::class.java
+            )
 
-                charactersDomainComponent.run {
-                    CharactersTabViewModel(
-                        getAllInfoCharactersUseCase,
-                        getAllNameCharactersUseCase,
-                        getCurrentInfoCharacterUseCase,
-                        isCharacterInTheDatabaseUseCase,
-                        addCharacterToStorageUseCase,
-                        removeCharacterInTheDatabaseUseCase,
-                        getAllCharactersFromStorageUseCase
-                    )
-                }
-            })
             CompositionLocalProvider(
-                LocalFeatureCharactersViewModel provides viewModel
+                LocalFeatureCharactersViewModel provides charactersTabViewModel
             ) {
                 CharactersTab()
             }

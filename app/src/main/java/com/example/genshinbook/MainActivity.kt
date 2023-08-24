@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import com.example.core.app.ext.currentFragmentInBackStack
 import com.example.core.app.navigation.ScreenProvider
 import com.example.genshinbook.databinding.ActivityMainBinding
@@ -15,9 +14,6 @@ import com.example.genshinbook.utils.ext.appComponent
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
-import io.github.jan.supabase.realtime.realtime
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -32,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userId: String
 
-
     private lateinit var binding: ActivityMainBinding
 
     private val appNavigator = AppNavigator(this,R.id.app_container)
@@ -45,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         appComponent.inject(this)
 
 
-        initNavigation()
+        initBottomNavigation()
     }
 
     override fun onResumeFragments() {
@@ -58,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    private fun initNavigation(){
+    private fun initBottomNavigation(){
 
         supportFragmentManager.apply {
 
@@ -115,9 +110,7 @@ class MainActivity : AppCompatActivity() {
                 screenProvider.signIn()
             )
         }else {
-            router.newRootScreen(
-                screenProvider.main()
-            )
+            binding.bottomNav.selectedItemId = R.id.bn_nav_home
         }
 
     }

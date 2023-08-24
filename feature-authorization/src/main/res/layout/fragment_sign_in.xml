@@ -14,13 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
 
-        style="@style/default_header_text"
+        style="@style/h1_text"
 
         android:text="@string/presentation_text_sign_in"/>
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/space_header_text_bottom"/>
+
     <!--Inputs-->
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/edit_text_layout_filled"
+        style="@style/material3_edit_text_layout.filled"
 
         app:startIconDrawable="@drawable/ic_email"
         app:endIconMode="clear_text"
@@ -29,7 +33,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_input_email"
 
-            style="@style/edit_text_filled"
+            style="@style/material3_edit_text.filled"
             android:inputType="textEmailAddress"
             android:focusable="true"/>
 
@@ -40,7 +44,7 @@
         android:layout_height="@dimen/space_vertical_between_input_text"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/edit_text_layout_filled"
+        style="@style/material3_edit_text_layout.filled"
 
         app:startIconDrawable="@drawable/ic_password"
         app:endIconMode="password_toggle"
@@ -49,7 +53,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_input_password"
 
-            style="@style/edit_text_filled"
+            style="@style/material3_edit_text.filled"
             android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <solid
-        android:color="@color/bg_other_message_color"/>
+        android:color="?attr/colorOnBackground"/>
 
     <corners
         android:radius="@dimen/message_radius"/>

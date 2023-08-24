@@ -2,8 +2,8 @@ package com.example.feature.chats.list.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import coil.load
-import com.example.core.app.base.rcv.adapter.BaseRecyclerAdapter
-import com.example.core.app.base.rcv.holder.BaseRecyclerHolder
+import com.example.core.app.ui.xml.base.rcv.adapter.BaseRecyclerAdapter
+import com.example.core.app.ui.xml.base.rcv.holder.BaseRecyclerHolder
 import com.example.core.app.R
 import com.example.core.ext.isNotNull
 import com.example.feature.chats.list.adapter.diff.ChatsListDiffCallback

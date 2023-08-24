@@ -2,11 +2,12 @@ package com.example.feature.chats.list
 
 import android.util.Log
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.core.app.base.BaseFragment
+import com.example.core.app.ui.xml.base.BaseFragment
 import com.example.core.app.delegate.viewBinding
-import com.example.core.app.elements.xml.BaseAlertDialog
+import com.example.core.app.ui.xml.base.BaseAlertDialog
 import com.example.core.app.navigation.ScreenProvider
 import com.example.feature.chats.list.adapter.ChatsListAdapter
 import com.example.feature.chats.list.vm.ChatsListViewModel
@@ -26,9 +27,12 @@ class ChatsListFragment: BaseFragment(R.layout.fragment_chats_list) {
     @Inject
     lateinit var screenProvider: ScreenProvider
     @Inject
-    lateinit var viewModel: ChatsListViewModel
+    lateinit var viewModelFactory: ChatsListViewModel.Factory
 
     private val binding by viewBinding(FragmentChatsListBinding::bind)
+    private val viewModel: ChatsListViewModel by viewModels {
+        viewModelFactory
+    }
     private lateinit var adapter: ChatsListAdapter
 
     override fun initUi(): Unit = with(binding) {
