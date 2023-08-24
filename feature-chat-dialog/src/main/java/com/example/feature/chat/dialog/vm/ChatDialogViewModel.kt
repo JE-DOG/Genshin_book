@@ -3,7 +3,7 @@ package com.example.feature.chat.dialog.vm
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.core.ext.replaceItem
 import com.example.feature.chat.dialog.domain.use_cases.*
 import com.example.feature.add.chat.model.Profile

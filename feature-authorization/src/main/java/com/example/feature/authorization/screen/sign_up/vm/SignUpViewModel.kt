@@ -3,7 +3,7 @@ package com.example.feature.authorization.screen.sign_up.vm
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.feature.authorization.domain.use_cases.SignInUseCase
 import com.example.feature.authorization.domain.use_cases.SignUpUseCase
 import com.example.feature.authorization.screen.sign_in.vm.SignInViewModel

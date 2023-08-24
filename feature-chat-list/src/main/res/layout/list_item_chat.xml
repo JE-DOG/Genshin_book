@@ -33,10 +33,9 @@
         
         <TextView
             android:id="@+id/user_fullname_tv"
+            style="@style/h2_text"
 
             android:text="test user name"
-            android:textSize="@dimen/text_size_fullname"
-            android:textColor="@color/list_item_chat_fullname"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -47,13 +46,12 @@
 
         <TextView
             android:id="@+id/user_last_message_tv"
-
-            android:text="test message"
-            android:textSize="@dimen/list_item_chat_text_size_last_message"
-            android:textColor="@color/list_item_chat_last_message"
+            style="@style/subtitle1_text"
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+
+            android:text="test message" />
 
         <Space
             android:layout_width="wrap_content"

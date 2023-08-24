@@ -1,22 +1,20 @@
 package com.example.feature.authorization.screen.sign_in
 
-import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import com.example.core.app.base.BaseFragment
+import com.example.core.app.ui.xml.base.BaseFragment
 import com.example.core.app.delegate.viewBinding
-import com.example.core.app.elements.xml.BaseAlertDialog
+import com.example.core.app.ui.xml.base.BaseAlertDialog
 import com.example.core.app.ext.stringText
 import com.example.core.app.navigation.ScreenProvider
 import com.example.feature.authorization.R
 import com.example.feature.authorization.databinding.FragmentSignInBinding
 import com.example.feature.authorization.di.vm.FeatureAuthorizationComponentViewModel
 import com.example.feature.authorization.screen.sign_in.vm.SignInViewModel
-import com.example.feature.authorization.screen.sign_up.SignUpFragment
 import com.github.terrakok.cicerone.Router
 import javax.inject.Inject
 

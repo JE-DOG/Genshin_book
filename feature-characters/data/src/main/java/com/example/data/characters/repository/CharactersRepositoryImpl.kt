@@ -1,14 +1,14 @@
 package com.example.data.characters.repository
 
-import com.example.data.characters.network.repository.CharactersNetwork
+import com.example.data.characters.network.repository.CharactersNetworkService
 import com.example.data.characters.storage.model.CharacterStorage
-import com.example.data.characters.storage.repository.CharacterStorageRepository
+import com.example.data.characters.storage.repository.CharacterStorageService
 import com.example.domain.characters.model.CharacterDomain
 import com.example.domain.characters.repository.CharactersRepository
 
 class CharactersRepositoryImpl(
-    private val charactersNetwork: CharactersNetwork,
-    private val characterStorageRepository: CharacterStorageRepository
+    private val charactersNetwork: CharactersNetworkService,
+    private val characterStorageRepository: CharacterStorageService
 ) : CharactersRepository {
 
     override suspend fun getAllName(): List<String> {

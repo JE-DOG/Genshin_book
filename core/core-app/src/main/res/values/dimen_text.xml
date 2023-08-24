@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="header1_text">25sp</dimen>
+    <dimen name="body1_text">17sp</dimen>
+    <dimen name="subtitle1_text">14sp</dimen>
+
+</resources>

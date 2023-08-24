@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Text-->
+    <string name="presentation_text_sign_in">Sign in to the Genshine book community 😁</string>
+    <string name="presentation_text_sign_up">Welcome to the Genshine book community 😁</string>
+    <string name="presentation_text_error_password_input">Minimal length is 8</string>
+    <string name="presentation_text_error_confirm_password_input">Password does not match</string>
+    <string name="presentation_text_error_email_input">Input correct email address</string>
+    <string name="presentation_text_error_full_name_input">Minimal length is 4</string>
+    <string name="presentation_text_error_url_input">Input correct URL</string>
+
+    <!--Button text-->
+    <string name="presentation_button_text_sign_up_in_sign_in">Create new traveler</string>
+    <string name="presentation_button_text_sign_up">Start the journey</string>
+    <string name="presentation_button_text_sign_in">Continue travel</string>
+
+</resources>

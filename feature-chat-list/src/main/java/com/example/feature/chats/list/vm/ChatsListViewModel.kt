@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.core.ext.replaceItem
 import com.example.data.chats.list.network.model.ChatJson
 import com.example.domain.chats.list.use_cases.BroadcastUserChatsUseCase

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="default_simple_text" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="h1_text" parent="default_simple_text">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="h2_text" parent="h1_text">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="body1_text" parent="default_simple_text">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="subtitle1_text" parent="default_simple_text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray </item>
+    </style>
+
+    <style name="button_text" parent="body1_text">
+
+    </style>
+
+</resources>

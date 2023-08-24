@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Text
@@ -19,22 +20,25 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
-import com.example.core.app.elements.Expandable
-import com.example.core.app.ui.theme.BottomSheetBackground
-import com.example.core.app.ui.theme.BottomSheetScrimColor
-import com.example.core.app.ui.theme.BottomSheetShape
-import com.example.core.app.ui.theme.ButtonTextColor
-import com.example.core.app.ui.theme.DetailBackground
+import com.example.core.app.ui.compose.elements.GenshineBookExpandable
+import com.example.core.app.ui.compose.theme.BottomSheetShape
 import com.example.core.app.R
 import com.example.feature.characters.model.Character
 import com.example.feature.characters.model.Constellation
 import com.example.feature.characters.model.PassiveTalent
 import com.example.feature.characters.model.SkillTalent
 import com.example.core.app.model.vision.Vision
+import com.example.core.app.ui.compose.elements.base.ButtonText
+import com.example.core.app.ui.compose.elements.base.GenshineBookOutlinedButton
+import com.example.core.app.ui.compose.elements.base.Header1Text
+import com.example.core.app.ui.compose.elements.base.Header2Text
+import com.example.core.app.ui.compose.elements.base.OutlinedButtonText
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.ConstellationsDetail
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.PassiveTalentDetail
 import com.example.genshinbook.presentaion.screen.detail.elements.bottom_sheet_type.elements.SkillTalentDetail
@@ -46,7 +50,8 @@ data class CharacterDetailScreen(
 
     private val vision = Vision.valueOf(character.vision_key)
 
-    @OptIn(ExperimentalLayoutApi::class,
+    @OptIn(
+        ExperimentalLayoutApi::class,
         ExperimentalMaterialApi::class
     )
     @Composable
@@ -63,8 +68,8 @@ data class CharacterDetailScreen(
 
         ModalBottomSheetLayout(
             sheetShape = BottomSheetShape,
-            sheetBackgroundColor = BottomSheetBackground,
-            scrimColor = BottomSheetScrimColor,
+            sheetBackgroundColor = MaterialTheme.colors.background,
+            scrimColor = colorResource(id = R.color.transparent_black),
             sheetContent = {
 
                 Column(
@@ -105,11 +110,13 @@ data class CharacterDetailScreen(
         ) {
             Column(
                 Modifier
-                    .background(DetailBackground)
+                    .background(MaterialTheme.colors.background)
                     .fillMaxSize()
-                    .padding(20.dp)
+                    .padding(horizontal = 20.dp)
                     .verticalScroll(rememberScrollState())
             ) {
+
+                Spacer(modifier = Modifier.height(20.dp))
 
                 Row(
                     Modifier
@@ -117,7 +124,7 @@ data class CharacterDetailScreen(
                         .wrapContentHeight(),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(text = character.name, fontSize = 30.sp, color = Color.White)
+                    Header1Text(text = character.name)
                     Image(painter = painterResource(vision.icon), contentDescription = "Card", Modifier.size(29.dp))
                 }
 
@@ -127,25 +134,23 @@ data class CharacterDetailScreen(
                     }
                 }
 
-                Text(
+                Header1Text(
                     text = character.description,
-                    color = Color.White,
-                    fontSize = 20.sp,
                     modifier = Modifier.padding(bottom = 10.dp)
                 )
-                Text(text = "Weapon: ${character.weapon}", color = Color.White, fontSize = 20.sp)
-                Text(text = "Nation: ${character.nation}", color = Color.White, fontSize = 20.sp)
-                Text(text = "Constellation: ${character.constellation}", color = Color.White, fontSize = 20.sp)
-                Text(text = "Affiliation: ${character.affiliation}", color = Color.White, fontSize = 20.sp)
-                Text(text = "Birthday: ${character.birthday}", color = Color.White, fontSize = 20.sp)
+                Header2Text(text = "${stringResource(id = R.string.weapon)}: ${character.weapon}")
+                Header2Text(text = "${stringResource(id = R.string.nation)}: ${character.nation}")
+                Header2Text(text = "${stringResource(id = R.string.constellation)}: ${character.constellation}")
+                Header2Text(text = "${stringResource(id = R.string.affiliation)}: ${character.affiliation}")
+                Header2Text(text = "${stringResource(id = R.string.birthday)}: ${character.birthday}")
 
-                Expandable(headerText = "Skill talents") {
+                GenshineBookExpandable(headerText = "Skill talents") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {
 
                         character.skillTalents.forEach {
-                            OutlinedButton(
+                            GenshineBookOutlinedButton(
                                 onClick = {
                                     bottomSheetType.value = it
                                     scope.launch {
@@ -154,22 +159,21 @@ data class CharacterDetailScreen(
                                 },
                                 modifier = Modifier.padding(end = 10.dp)
                             ) {
-                                Text(
+                                OutlinedButtonText(
                                     text = it.name,
-                                    color = ButtonTextColor
                                 )
                             }
                         }
                     }
                 }
 
-                Expandable(headerText = "Passive talents") {
+                GenshineBookExpandable(headerText = "Passive talents") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {
 
                         character.passiveTalents.forEach {
-                            OutlinedButton(
+                            GenshineBookOutlinedButton(
                                 onClick = {
                                     bottomSheetType.value = it
                                     scope.launch {
@@ -178,22 +182,21 @@ data class CharacterDetailScreen(
                                 },
                                 modifier = Modifier.padding(end = 10.dp)
                             ) {
-                                Text(
-                                    text = it.name,
-                                    color = ButtonTextColor
+                                OutlinedButtonText(
+                                    text = it.name
                                 )
                             }
                         }
                     }
                 }
 
-                Expandable(headerText = "Constellations") {
+                GenshineBookExpandable(headerText = "Constellations") {
                     FlowRow(
                         Modifier.padding(vertical = 10.dp)
                     ) {
 
                         character.constellations.forEach {
-                            OutlinedButton(
+                            GenshineBookOutlinedButton(
                                 onClick = {
                                     bottomSheetType.value = it
                                     scope.launch {
@@ -202,9 +205,8 @@ data class CharacterDetailScreen(
                                 },
                                 modifier = Modifier.padding(end = 10.dp)
                             ) {
-                                Text(
-                                    text = it.name,
-                                    color = ButtonTextColor
+                                OutlinedButtonText(
+                                    text = it.name
                                 )
                             }
                         }

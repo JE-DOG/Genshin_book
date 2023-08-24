@@ -21,4 +21,5 @@ class ComposeMainScreensNavigationImpl: ComposeMainScreensNavigation {
     override fun <T : Any> characterDetail(value: T): Screen {
         return CharacterDetailScreen(value as Character)
     }
+    
 }

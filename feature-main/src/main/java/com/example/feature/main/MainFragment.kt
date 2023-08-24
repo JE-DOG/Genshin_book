@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import cafe.adriel.voyager.navigator.Navigator
+import com.example.core.app.ui.compose.theme.GenshinBookTheme
 
 class MainFragment: Fragment() {
 
@@ -17,7 +18,9 @@ class MainFragment: Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                Navigator(MainScreen())
+                GenshinBookTheme {
+                    Navigator(MainScreen())
+                }
             }
         }
     }

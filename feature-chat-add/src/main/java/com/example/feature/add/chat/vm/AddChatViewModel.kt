@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.add.chat.domain.use_case.AddChatUseCase
 import com.example.add.chat.domain.use_case.FindUserUseCase
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.data.chats.list.network.model.ChatJson
 import com.example.feature.add.chat.data.network.model.ProfileJson
 import com.example.feature.add.chat.model.Profile

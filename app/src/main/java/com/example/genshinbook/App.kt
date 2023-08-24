@@ -3,6 +3,7 @@ package com.example.genshinbook
 import android.app.Application
 import com.example.feature.add.chat.di.component.FeatureAddChatDepsStore
 import com.example.feature.authorization.di.deps.FeatureAuthorizationDepsStore
+import com.example.feature.characters.di.deps.FeatureCharactersDepsStore
 import com.example.feature.chat.dialog.di.component.deps.FeatureChatDialogDepsStore
 import com.example.feature.chats.list.di.component.FeatureChatsListDepsStore
 import com.example.feature.profile.di.deps.FeatureProfileDepsStore
@@ -34,6 +35,7 @@ class App: Application() {
             FeatureChatDialogDepsStore.deps = this
             FeatureChatsListDepsStore.deps = this
             FeatureProfileDepsStore.deps = this
+            FeatureCharactersDepsStore.deps = this
 
             CoroutineScope(Dispatchers.Main).launch {
                 supabaseClient.realtime.connect()

@@ -7,7 +7,7 @@
 
     android:orientation="vertical"
 
-    android:background="@color/primary_app">
+    android:background="?android:colorBackground">
 
     <LinearLayout
         android:id="@+id/progress_bar"
@@ -42,13 +42,12 @@
 
         <TextView
             android:id="@+id/user_full_name_text"
+            style="@style/h2_text"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="Test user name"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/text_size_fullname"/>
+            android:text="Test user name"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -62,10 +61,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginVertical="@dimen/margin_top_message_item"
+        android:paddingVertical="@dimen/padding_vertical_message_item"
+        android:clipToPadding="false"
 
+        app:stackFromEnd="true"
         tools:listitem="@layout/list_item_own_message"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
@@ -74,29 +75,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_input_message"
+        android:paddingHorizontal="@dimen/space_input_message"
 
         android:orientation="horizontal"
         android:gravity="center">
 
-
-
-        <Space
-            android:layout_width="@dimen/space_input_message"
-            android:layout_height="wrap_content"/>
-
         <EditText
             android:id="@+id/input_message"
+            style="@style/edit_text"
 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:background="@color/primary_app"
+            android:background="@android:color/transparent"
 
             android:maxLines="@integer/input_message_max_lines"
-            android:hint="@string/hint_input_message"
-            android:textColorHint="#898989"
-            android:textColor="#FFFFFF"/>
+            android:hint="@string/hint_input_message"/>
 
         <Space
             android:layout_width="@dimen/space_send_message_button"
@@ -104,17 +99,10 @@
 
         <ImageButton
             android:id="@+id/send_message_but"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            style="@style/Widget.Material3.MaterialTimePicker.ImageButton"
+            style="@style/icon_button"
+            android:clickable="true"
 
             android:src="@drawable/ic_send"/>
-
-        <Space
-            android:layout_width="@dimen/space_send_message_button"
-            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

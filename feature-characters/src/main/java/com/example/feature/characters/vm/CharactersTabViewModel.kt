@@ -2,8 +2,10 @@ package com.example.feature.characters.vm
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.domain.characters.usecase.AddCharacterToStorageUseCase
 import com.example.domain.characters.usecase.GetAllCharactersFromStorageUseCase
 import com.example.domain.characters.usecase.GetAllInfoCharactersUseCase
@@ -13,17 +15,43 @@ import com.example.domain.characters.usecase.IsCharacterInTheDatabaseUseCase
 import com.example.domain.characters.usecase.RemoveCharacterFromStorageUseCase
 import kotlinx.coroutines.async
 import com.example.feature.characters.model.Character
+import dagger.Lazy
+import javax.inject.Inject
 
 
-class CharactersTabViewModel(
+class CharactersTabViewModel (
     private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
-    private val getAllNameCharactersUseCase: GetAllNameCharactersUseCase,
-    private val getCurrentInfoCharacterUseCase: GetCurrentInfoCharacterUseCase,
+    private val getAllNameCharactersUseCase: Lazy<GetAllNameCharactersUseCase>,
+    private val getCurrentInfoCharacterUseCase: Lazy<GetCurrentInfoCharacterUseCase>,
     private val isCharacterInTheDatabaseUseCase: IsCharacterInTheDatabaseUseCase,
     private val addCharacterToStorageUseCase: AddCharacterToStorageUseCase,
     private val removeCharacterFromStorageUseCase: RemoveCharacterFromStorageUseCase,
     private val getAllCharactersFromStorage: GetAllCharactersFromStorageUseCase
 ): BaseViewModel() {
+
+    class Factory @Inject constructor(
+        private val getAllInfoCharactersUseCase: GetAllInfoCharactersUseCase,
+        private val getAllNameCharactersUseCase: Lazy<GetAllNameCharactersUseCase>,
+        private val getCurrentInfoCharacterUseCase: Lazy<GetCurrentInfoCharacterUseCase>,
+        private val isCharacterInTheDatabaseUseCase: IsCharacterInTheDatabaseUseCase,
+        private val addCharacterToStorageUseCase: AddCharacterToStorageUseCase,
+        private val removeCharacterFromStorageUseCase: RemoveCharacterFromStorageUseCase,
+        private val getAllCharactersFromStorage: GetAllCharactersFromStorageUseCase
+    ): ViewModelProvider.Factory {
+
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return CharactersTabViewModel(
+                getAllInfoCharactersUseCase = getAllInfoCharactersUseCase,
+                getAllNameCharactersUseCase = getAllNameCharactersUseCase,
+                getCurrentInfoCharacterUseCase = getCurrentInfoCharacterUseCase,
+                isCharacterInTheDatabaseUseCase = isCharacterInTheDatabaseUseCase,
+                addCharacterToStorageUseCase = addCharacterToStorageUseCase,
+                removeCharacterFromStorageUseCase = removeCharacterFromStorageUseCase,
+                getAllCharactersFromStorage = getAllCharactersFromStorage
+            ) as T
+        }
+
+    }
 
     private val _state = MutableLiveData(
         CharactersTabViewState()

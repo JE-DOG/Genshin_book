@@ -3,9 +3,9 @@ package com.example.feature.chat.dialog.adapter
 import android.util.Log
 import androidx.recyclerview.widget.DiffUtil
 import androidx.viewbinding.ViewBinding
-import com.example.core.app.base.rcv.RecyclerItem
-import com.example.core.app.base.rcv.ViewType
-import com.example.core.app.base.rcv.adapter.BaseRecyclerMultiViewTypeAdapter
+import com.example.core.app.ui.xml.base.rcv.RecyclerItem
+import com.example.core.app.ui.xml.base.rcv.ViewType
+import com.example.core.app.ui.xml.base.rcv.adapter.BaseRecyclerMultiViewTypeAdapter
 import com.example.feature.chat.dialog.adapter.view_types.OtherMessageViewType
 import com.example.feature.chat.dialog.adapter.view_types.OwnMessageViewType
 import com.example.feature.chat.dialog.model.Message

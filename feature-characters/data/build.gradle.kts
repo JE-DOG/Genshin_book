@@ -34,8 +34,8 @@ android {
 
 dependencies {
 
-    implementation ( project(Modules.Data.core) )
-    implementation ( project(Modules.Domain.characters) )
+    api ( project(Modules.Data.core) )
+    api ( project(Modules.Domain.characters) )
 
     kapt ( Dependencies.Another.DI.Dagger.compiler )
 

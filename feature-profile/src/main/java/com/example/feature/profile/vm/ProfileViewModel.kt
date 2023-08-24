@@ -2,7 +2,7 @@ package com.example.feature.profile.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.core.app.base.vm.BaseViewModel
+import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.feature.add.chat.model.Profile
 import com.example.feature.profile.domain.use_cases.GetProfileUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
