@@ -19,6 +19,7 @@ object Modules {
         const val chat_dialog = ":feature-chat-dialog"
         const val authorization = ":feature-authorization"
         const val profile = ":feature-profile"
+        const val main_weapon = ":feature-main-weapons"
     }
 
     object Data {
@@ -30,6 +31,7 @@ object Modules {
         const val chat_dialog = "${Feature.chat_dialog}:data"
         const val authorization = "${Feature.authorization}:data"
         const val profile = "${Feature.profile}:data"
+        const val main_weapon = "${Feature.main_weapon}:data"
     }
 
     object Domain {
@@ -41,6 +43,7 @@ object Modules {
         const val chat_dialog = "${Feature.chat_dialog}:domain"
         const val authorization = "${Feature.authorization}:domain"
         const val profile = "${Feature.profile}:domain"
+        const val main_weapon = "${Feature.main_weapon}:domain"
     }
 
 }
