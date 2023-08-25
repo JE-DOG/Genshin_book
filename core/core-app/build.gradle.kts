@@ -89,4 +89,7 @@ dependencies {
     // ViewModel
     api (Dependencies.Compose.LiveData.runtime)
 
+    //RxJava
+    api (Dependencies.Another.MultiThreading.RxJava2.android)
+
 }

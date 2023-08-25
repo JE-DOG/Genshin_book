@@ -13,4 +13,12 @@ dependencies {
     api ( project(Modules.core) )
     api ( project(Modules.Domain.core) )
 
+    //Tests
+    //mockito
+    testImplementation (Dependencies.Test.Mockito.core)
+    testImplementation (Dependencies.Test.Mockito.kotlin)
+    testImplementation (Dependencies.Test.Mockito.inline)
+    //j-unit
+    testImplementation (Dependencies.Test.Junit.junit)
+    
 }

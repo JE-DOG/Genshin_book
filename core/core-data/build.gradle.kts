@@ -20,6 +20,7 @@ dependencies {
     //Retrofit
     api (Dependencies.Another.Network.Retrofit.gson)
     api (Dependencies.Another.Network.Retrofit.retrofit)
+    api (Dependencies.Another.Network.Retrofit.rx_java_adapter)
     //OkHttp
     api (Dependencies.Another.Network.OkHttp.okhttp)
     api (Dependencies.Another.Network.OkHttp.interceptor)

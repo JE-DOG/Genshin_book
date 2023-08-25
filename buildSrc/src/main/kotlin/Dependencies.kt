@@ -154,6 +154,18 @@ object Dependencies {
             }
 
         }
+
+        object MultiThreading {
+
+            object RxJava2 {
+
+                const val version = "2.2.9"
+
+                const val android= "io.reactivex.rxjava2:rxandroid:$version"
+                const val rxJava= "io.reactivex.rxjava2:rxjava:$version"
+
+            }
+        }
         
         object Network {
             object Retrofit {
@@ -161,6 +173,7 @@ object Dependencies {
                 
                 const val gson = "com.squareup.retrofit2:converter-gson:$version"
                 const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+                const val rx_java_adapter = "com.squareup.retrofit2:adapter-rxjava2:$version"
             }
             
             object OkHttp {
