@@ -1,11 +1,35 @@
 plugins {
-    id(Plugins.Java.library)
-    id(Plugins.Kotlin.jvm)
+    id(Plugins.Android.library)
+    id(Plugins.Kotlin.android)
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+android {
+    namespace = "com.example.data.core"
+    compileSdk = 34
+
+    defaultConfig {
+        minSdk = 29
+
+        testInstrumentationRunner = "androidx.test.ext.junit.runners.AndroidJUnit4"
+        consumerProguardFiles("consumer-rules.pro")
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies { 

@@ -3,7 +3,11 @@ package com.example.core.app.model.vision
 import androidx.annotation.DrawableRes
 import com.example.core.app.R
 
-enum class Vision(val visionName: String, @DrawableRes val icon: Int) {
+enum class Vision(
+    val visionName: String,
+    @DrawableRes
+    val icon: Int
+) {
 
     ANEMO("Anemo", R.drawable.ic_element_anemo),
     ELECTRO("Electro",R.drawable.ic_element_electro),

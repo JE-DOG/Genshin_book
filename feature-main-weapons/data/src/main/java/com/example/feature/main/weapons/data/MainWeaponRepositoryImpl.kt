@@ -27,7 +27,8 @@ class MainWeaponRepositoryImpl(
         val result = storageService.getAllWeapons()
             .map {  weapons ->
                 weapons.map {
-                    it.toDomain()
+                    it
+                        .toDomain()
                 }
             }
         return result

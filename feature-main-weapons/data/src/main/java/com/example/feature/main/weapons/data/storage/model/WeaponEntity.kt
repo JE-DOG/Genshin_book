@@ -31,7 +31,8 @@ data class WeaponEntity(
     val passiveName: String,
     val rarity: Int,
     val subStat: String,
-    val type: String
+    val type: String,
+    val isDownloaded: Boolean
 ) {
 
     fun toDomain() = WeaponDomain(
@@ -43,7 +44,8 @@ data class WeaponEntity(
         passiveName = passiveName,
         rarity = rarity,
         subStat = subStat,
-        type = type
+        type = type,
+        isDownloaded = true
     )
 
     companion object {
@@ -65,7 +67,8 @@ data class WeaponEntity(
                     passiveName = passiveName,
                     rarity = rarity,
                     subStat = subStat,
-                    type = type
+                    type = type,
+                    isDownloaded = isDownloaded
                 )
 
             }

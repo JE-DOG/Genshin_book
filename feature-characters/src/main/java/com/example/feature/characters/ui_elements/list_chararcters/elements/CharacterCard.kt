@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.core.ext.isNotNull
 import com.example.core.app.model.vision.Vision
@@ -98,9 +99,9 @@ fun CharacterCard(
                 }
             }
             
-            Subtitle1Text(text = "Weapon: ${character.weapon}")
-            Subtitle1Text(text = "Nation: ${character.nation}")
-            Subtitle1Text(text = "Constellation: ${character.constellation}")
+            Subtitle1Text(text = "${stringResource(id = R.string.presentation_text_card_character_weapon)}: ${character.weapon}")
+            Subtitle1Text(text = "${stringResource(id = R.string.presentation_text_card_character_nation)}: ${character.nation}")
+            Subtitle1Text(text = "${stringResource(id = R.string.presentation_text_card_character_constellation)}: ${character.constellation}")
 
         }
 

@@ -17,12 +17,13 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.kotlin.mock
 
+//@RunWith(AndroidJUnit4::class)
 class MainWeaponDaoTest {
 // TODO:Make test for room some day
 
 //    @get:Rule
 //    var instantTaskExecutorRule = InstantTaskExecutorRule()
-
+//
 //    lateinit var dataBase: MainWeaponRoomDataBase
 //    lateinit var dao: MainWeaponDao
 //    val mockWeapon = mock<WeaponEntity>()
@@ -46,7 +47,7 @@ class MainWeaponDaoTest {
 
     @Test
     fun saveWeapon()= runBlocking {
-        //call
+//        call
 //        dao.saveWeapon(mockWeapon)
 //        //assert
 //        val actual = dao.getAllWeapons()
@@ -55,7 +56,8 @@ class MainWeaponDaoTest {
 //        val expected = mockWeapon
 //
 //        delay(3000)
-
+//
+//        Assert.assertEquals(actual,expected)
         Assert.assertEquals(true,true)
     }
 

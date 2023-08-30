@@ -23,5 +23,6 @@ data class WeaponDomain(
     val passiveName: String,
     val rarity: Int,
     val subStat: String,
-    val type: String
+    val type: String,
+    var isDownloaded: Boolean = false
 )

@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+
     <!--Text-->
     <string name="presentation_text_sign_in">Sign in to the Genshine book community 😁</string>
     <string name="presentation_text_sign_up">Welcome to the Genshine book community 😁</string>
+
+    <!--Text Card-->
+        <!--Weapon-->
+    <string name="presentation_text_card_weapon_base_atk">Base ATK</string>
+    <string name="presentation_text_card_weapon_sub_stat">Sub-Stat</string>
+    <string name="presentation_text_card_weapon_location">Location</string>
+    <string name="presentation_text_card_weapon_ascension_material">Ascension material</string>
+    <string name="presentation_text_card_weapon_passive_talent">Passive</string>
+
+        <!--Character-->
+    <string name="presentation_text_card_character_weapon">Weapon</string>
+    <string name="presentation_text_card_character_nation">Nation</string>
+    <string name="presentation_text_card_character_constellation">Constellation</string>
+    <string name="presentation_text_card_character_affiliation">Affiliation</string>
+    <string name="presentation_text_card_character_birthday">Birthday</string>
+
+    <!--Text Input Error-->
     <string name="presentation_text_error_password_input">Minimal length is 8</string>
     <string name="presentation_text_error_confirm_password_input">Password does not match</string>
     <string name="presentation_text_error_email_input">Input correct email address</string>
