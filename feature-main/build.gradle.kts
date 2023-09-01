@@ -47,5 +47,6 @@ dependencies {
     //characters
     api ( project(path = Modules.Feature.characters) )
     api ( project(path = Modules.Feature.characters_detail) )
+    api ( project(path = Modules.Feature.main_weapon) )
 
 }

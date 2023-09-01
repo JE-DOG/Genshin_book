@@ -14,19 +14,19 @@ class MainWeaponStorageServiceImpl(
 
     override fun getAllWeapons(): Single<List<WeaponEntity>> {
         val result = weaponDao.getAllWeapons()
-            .observeOn(Schedulers.io())
+            .subscribeOn(Schedulers.io())
         return result
     }
 
     override fun save(weaponEntity: WeaponEntity): Completable {
         val result = weaponDao.saveWeapon(weaponEntity)
-            .observeOn(Schedulers.io())
+            .subscribeOn(Schedulers.io())
         return result
     }
 
     override fun delete(weaponEntity: WeaponEntity): Completable {
         val result = weaponDao.deleteWeapon(weaponEntity)
-            .observeOn(Schedulers.io())
+            .subscribeOn(Schedulers.io())
         return result
     }
 

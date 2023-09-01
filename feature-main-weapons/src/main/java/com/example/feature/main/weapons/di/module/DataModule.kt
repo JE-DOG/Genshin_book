@@ -30,6 +30,7 @@ class DataModule {
                 MainWeaponRoomDataBase::class.java,
                 "MainWeaponRoomDataBase"
             )
+            .fallbackToDestructiveMigration()
             .build()
     }
 
@@ -55,7 +56,7 @@ class DataModule {
     @FeatureMainWeaponsScope
     fun provideMainWeaponNetworkApi(
         retrofit: Retrofit
-    ): MainWeaponNetworkApi{
+    ): MainWeaponNetworkApi {
         return retrofit.create(MainWeaponNetworkApi::class.java)
     }
 

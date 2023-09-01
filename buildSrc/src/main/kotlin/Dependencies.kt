@@ -168,10 +168,11 @@ object Dependencies {
 
             object RxJava2 {
 
-                const val version = "2.2.9"
+                const val version_rx_java = "2.2.9"
+                const val version_rx_java_android = "2.1.1"
 
-                const val android= "io.reactivex.rxjava2:rxandroid:$version"
-                const val rxJava= "io.reactivex.rxjava2:rxjava:$version"
+                const val android= "io.reactivex.rxjava2:rxandroid:$version_rx_java_android"
+                const val rxJava= "io.reactivex.rxjava2:rxjava:$version_rx_java"
 
             }
         }

@@ -23,7 +23,7 @@ data class WeaponPresentation(
     @Stable
     val name: String,
     @Stable
-    val ascensionMaterial: String,
+    val ascensionMaterial: String?,
     @Stable
     val baseAttack: Int,
     @Stable

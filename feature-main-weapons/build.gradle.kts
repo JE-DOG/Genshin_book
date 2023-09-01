@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.Android.library)
     id(Plugins.Kotlin.android)
+    id(Plugins.Kotlin.kapt)
 }
 
 android {
@@ -33,6 +34,9 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Dependencies.Compose.version
+    }
 }
 
 dependencies {
@@ -41,6 +45,8 @@ dependencies {
     api ( project(Modules.Feature.core) )
     api ( project(Modules.Domain.main_weapon) )
     api ( project(Modules.Data.main_weapon) )
+
+    kapt (Dependencies.Another.DI.Dagger.compiler)
 
     //j-unit
     testImplementation (Dependencies.Test.Junit.ext_junit)

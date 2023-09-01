@@ -24,7 +24,7 @@ data class WeaponEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String,
-    val ascensionMaterial: String,
+    val ascensionMaterial: String?,
     val baseAttack: Int,
     val location: String,
     val passiveDesc: String,

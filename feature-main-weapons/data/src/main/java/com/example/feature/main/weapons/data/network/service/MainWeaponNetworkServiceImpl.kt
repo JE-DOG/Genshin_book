@@ -11,7 +11,7 @@ class MainWeaponNetworkServiceImpl(
 
     override fun getAllWeapons(): Single<List<WeaponJson>> {
         val result = weaponApi.getAllWeapons()
-            .observeOn(Schedulers.io())
+            .subscribeOn(Schedulers.io())
         return result
     }
 }

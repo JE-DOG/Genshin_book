@@ -18,7 +18,7 @@ import com.example.feature.main.weapons.domain.model.WeaponDomain
 
 data class WeaponJson(
     val name: String,
-    val ascensionMaterial: String,
+    val ascensionMaterial: String?,
     val baseAttack: Int,
     val location: String,
     val passiveDesc: String,
@@ -37,7 +37,8 @@ data class WeaponJson(
         passiveName = passiveName,
         rarity = rarity,
         subStat = subStat,
-        type = type
+        type = type,
+        isDownloaded = false
     )
 
     companion object {

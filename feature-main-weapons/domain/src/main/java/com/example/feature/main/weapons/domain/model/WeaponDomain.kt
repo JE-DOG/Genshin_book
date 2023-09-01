@@ -16,7 +16,7 @@ package com.example.feature.main.weapons.domain.model
 
 data class WeaponDomain(
     val name: String,
-    val ascensionMaterial: String,
+    val ascensionMaterial: String?,
     val baseAttack: Int,
     val location: String,
     val passiveDesc: String,

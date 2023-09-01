@@ -68,7 +68,6 @@ data class CharacterDetailScreen(
 
         ModalBottomSheetLayout(
             sheetShape = BottomSheetShape,
-            sheetBackgroundColor = MaterialTheme.colors.background,
             scrimColor = colorResource(id = R.color.transparent_black),
             sheetContent = {
 

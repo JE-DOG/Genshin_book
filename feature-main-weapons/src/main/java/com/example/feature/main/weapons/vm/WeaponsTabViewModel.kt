@@ -1,8 +1,12 @@
 package com.example.feature.main.weapons.vm
 
 import android.annotation.SuppressLint
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.core.app.ext.update
+import com.example.core.app.ext.updatePostValue
 import com.example.core.app.ui.xml.base.vm.BaseViewModel
 import com.example.feature.main.weapons.domain.use_cases.DeleteWeaponFromStorageUseCase
 import com.example.feature.main.weapons.domain.use_cases.GetAllWeaponFromNetworkUseCase
@@ -37,13 +41,9 @@ class WeaponsTabViewModel(
 
     }
 
-    private val _state = PublishSubject.create<WeaponsTabViewState>()
+    private val _state = MutableLiveData(WeaponsTabViewState())
     val state = _state
 
-    init {
-        _state.onNext(WeaponsTabViewState())
-        getAllWeapons()
-    }
     @SuppressLint("CheckResult")
     fun getAllWeapons(){
 
@@ -55,13 +55,11 @@ class WeaponsTabViewModel(
                     }
                 }
                 .doOnError {
-                    state.subscribe { state ->
-                        _state.onNext(
-                            state.copy(
-                                isOffline = true,
-                                isLoading = false,
-                                isError = true,
-                            )
+                    _state.updatePostValue {
+                        it.copy(
+                            isOffline = true,
+                            isLoading = false,
+                            isError = true
                         )
                     }
                 }
@@ -79,41 +77,37 @@ class WeaponsTabViewModel(
                                     }
                                 }
 
-                                weaponPresentation
+                                return@map weaponPresentation
                             }
                         }
                         .doOnSubscribe {
-                            state.subscribe {
-                                _state.onNext(
-                                    it.copy(
-                                        isLoading = true,
-                                        isError = false
-                                    )
+                            _state.updatePostValue {
+                                it.copy(
+                                    isLoading = true,
+                                    isError = false
                                 )
                             }
                         }
                         .doOnError {
-                            state.subscribe { state ->
-                                _state.onNext(
-                                    state.copy(
-                                        isOffline = true,
-                                        isLoading = false,
-                                        isError = true,
-                                    )
+                            _state.updatePostValue { state ->
+                                state.copy(
+                                    isOffline = true,
+                                    isLoading = false,
+                                    isError = true
                                 )
                             }
                         }
                         .doOnSuccess { weapons ->
-                            state.subscribe { state ->
-                                _state.onNext(
-                                    state.copy(
-                                        isOffline = true,
-                                        isLoading = false,
-                                        isError = true,
-                                        weapons = weapons.toMutableList()
-                                    )
+                            _state.updatePostValue { state ->
+                                Log.d("WeaponsTabViewModelTag","WeaponsNetwork: ${weapons.size}")
+                                Log.d("WeaponsTabViewModelTag","WeaponsRuntime: ${state.weapons.size}")
+
+                                state.copy(
+                                    isLoading = false,
+                                    weapons = weapons.toMutableList()
                                 )
                             }
+
                         }
                         .subscribe()
                 }
@@ -159,8 +153,9 @@ class WeaponsTabViewModel(
     fun changeState(
         state: WeaponsTabViewState
     ){
-        _state
-            .onNext(state)
+        _state.update {
+                state
+        }
     }
 
 }

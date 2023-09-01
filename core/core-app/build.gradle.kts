@@ -63,7 +63,6 @@ dependencies {
     api (Dependencies.Compose.ui_tooling_preview)
     api (Dependencies.Another.PictureLoader.Coil.coil_compose)
 
-
     //xml
     //materials
     api (Dependencies.XML.Material2.material2)
