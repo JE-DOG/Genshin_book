@@ -6,6 +6,7 @@ import com.example.domain.characters.usecase.*
 import com.example.feature.characters.vm.CharactersTabViewModel
 import com.example.feature.characters.vm.CharactersTabViewState
 import com.example.feature.characters.model.Character
+import dagger.Lazy
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
@@ -19,8 +20,8 @@ class CharactersTabViewModelTest{
     val rule = InstantTaskExecutorRule()
 
     val getAllInfoCharactersUseCase = mock<GetAllInfoCharactersUseCase>()
-    val getAllNameCharactersUseCase = mock<GetAllNameCharactersUseCase>()
-    val getCurrentInfoCharacterUseCase = mock<GetCurrentInfoCharacterUseCase>()
+    val getAllNameCharactersUseCase = mock<Lazy<GetAllNameCharactersUseCase>>()
+    val getCurrentInfoCharacterUseCase = mock<Lazy<GetCurrentInfoCharacterUseCase>>()
     val isCharacterInTheDatabaseUseCase = mock<IsCharacterInTheDatabaseUseCase>()
     val addCharacterToStorageUseCase = mock<AddCharacterToStorageUseCase>()
     val removeCharacterFromStorageUseCase = mock<RemoveCharacterFromStorageUseCase>()

@@ -11,6 +11,7 @@ java {
 dependencies {
 
     api (Dependencies.Kotlin.coroutines_core)
+    api (Dependencies.Another.MultiThreading.RxJava2.rxJava)
 
     //di
     //dagger

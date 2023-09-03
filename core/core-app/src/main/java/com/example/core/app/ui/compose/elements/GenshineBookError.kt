@@ -14,6 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.core.app.R
 import com.example.core.app.ui.compose.elements.base.ButtonText
+import com.example.core.app.ui.compose.elements.base.GenshineBookButton
 import com.example.core.app.ui.compose.elements.base.Header1Text
 import com.example.core.ext.isNotNull
 
@@ -39,12 +40,13 @@ fun GenshineBookError(
             text = if (text.isNotNull()) text!! else stringResource(id = R.string.alert_error)
         )
 
-        Button(onClick = onRepeat) {
+        GenshineBookButton(onClick = onRepeat) {
             ButtonText(
                 text = if (repeatButText.isNotNull())
                     repeatButText!!
                 else
-                    stringResource(id = R.string.error_repeat) )
+                    stringResource(id = R.string.error_repeat)
+            )
         }
     }
 

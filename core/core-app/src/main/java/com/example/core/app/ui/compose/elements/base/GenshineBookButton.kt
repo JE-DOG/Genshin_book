@@ -20,25 +20,25 @@ fun GenshineBookButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    elevation: ButtonElevation? = ButtonDefaults.elevation(),
-    shape: Shape = MaterialTheme.shapes.small,
+    shape: Shape = androidx.compose.material3.ButtonDefaults.shape,
+    colors: androidx.compose.material3.ButtonColors = androidx.compose.material3.ButtonDefaults.buttonColors(),
+    elevation: androidx.compose.material3.ButtonElevation? = androidx.compose.material3.ButtonDefaults.buttonElevation(),
     border: BorderStroke? = null,
-    colors: ButtonColors = ButtonDefaults.buttonColors(),
-    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    label: @Composable RowScope.() -> Unit
+    contentPadding: PaddingValues = androidx.compose.material3.ButtonDefaults.ContentPadding,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    label: @Composable RowScope.() -> Unit,
 ) {
 
-    androidx.compose.material.Button(
+    androidx.compose.material3.Button(
         onClick = onClick,
         modifier,
         enabled,
-        interactionSource,
-        elevation,
         shape,
-        border,
         colors,
+        elevation,
+        border,
         contentPadding,
+        interactionSource,
         content = label
     )
 

@@ -6,6 +6,7 @@ import com.example.feature.authorization.di.deps.FeatureAuthorizationDepsStore
 import com.example.feature.characters.di.deps.FeatureCharactersDepsStore
 import com.example.feature.chat.dialog.di.component.deps.FeatureChatDialogDepsStore
 import com.example.feature.chats.list.di.component.FeatureChatsListDepsStore
+import com.example.feature.main.weapons.di.deps.FeatureMainWeaponsComponentDepsStore
 import com.example.feature.profile.di.deps.FeatureProfileDepsStore
 import com.example.genshinbook.di.AppComponent
 import com.example.genshinbook.di.DaggerAppComponent
@@ -36,6 +37,7 @@ class App: Application() {
             FeatureChatsListDepsStore.deps = this
             FeatureProfileDepsStore.deps = this
             FeatureCharactersDepsStore.deps = this
+            FeatureMainWeaponsComponentDepsStore.deps = this
 
             CoroutineScope(Dispatchers.Main).launch {
                 supabaseClient.realtime.connect()

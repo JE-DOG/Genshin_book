@@ -147,12 +147,34 @@ object Dependencies {
     object Another {
         object Database {
 
+            object Room {
+                const val version = "2.4.3"
+                
+                const val runtime = "androidx.room:room-runtime:${version}"
+                const val compiler = "androidx.room:room-compiler:${version}"
+                const val ktx = "androidx.room:room-ktx:${version}"
+                const val rx_java = "androidx.room:room-rxjava2:${version}"
+            }
+
             object Realm {
                 const val version = "1.10.1"
 
                 const val base = "io.realm.kotlin:library-base:$version"
             }
 
+        }
+
+        object MultiThreading {
+
+            object RxJava2 {
+
+                const val version_rx_java = "2.2.9"
+                const val version_rx_java_android = "2.1.1"
+
+                const val android= "io.reactivex.rxjava2:rxandroid:$version_rx_java_android"
+                const val rxJava= "io.reactivex.rxjava2:rxjava:$version_rx_java"
+
+            }
         }
         
         object Network {
@@ -161,6 +183,7 @@ object Dependencies {
                 
                 const val gson = "com.squareup.retrofit2:converter-gson:$version"
                 const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+                const val rx_java_adapter = "com.squareup.retrofit2:adapter-rxjava2:$version"
             }
             
             object OkHttp {

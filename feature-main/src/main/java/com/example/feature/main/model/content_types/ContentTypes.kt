@@ -11,6 +11,11 @@ import com.example.feature.characters.di.component.DaggerFeatureCharactersCompon
 import com.example.feature.characters.di.deps.FeatureCharactersDepsStore
 import com.example.feature.characters.vm.CharactersTabViewModel
 import com.example.feature.main.empty.EmptyScreen
+import com.example.feature.main.weapons.WeaponsTab
+import com.example.feature.main.weapons.composition.LocalFeatureWeaponViewModel
+import com.example.feature.main.weapons.di.component.DaggerFeatureMainWeaponsComponent
+import com.example.feature.main.weapons.di.deps.FeatureMainWeaponsComponentDepsStore
+import com.example.feature.main.weapons.vm.WeaponsTabViewModel
 
 enum class ContentTypes(@StringRes val res: Int, val screen: @Composable () -> Unit) {
 
@@ -36,7 +41,21 @@ enum class ContentTypes(@StringRes val res: Int, val screen: @Composable () -> U
     WEAPONS(
         res = R.string.ct_weapons,
         {
-            EmptyScreen()
+
+            val weaponsComponent = DaggerFeatureMainWeaponsComponent
+                .factory()
+                .create(FeatureMainWeaponsComponentDepsStore.deps)
+
+            val weaponsTabViewModel = viewModel(
+                factory = weaponsComponent.weaponsTabViewModelFactory,
+                modelClass = WeaponsTabViewModel::class.java
+            )
+
+            CompositionLocalProvider(
+                LocalFeatureWeaponViewModel provides weaponsTabViewModel
+            ) {
+                WeaponsTab()
+            }
         }
     ),
     BOSS(

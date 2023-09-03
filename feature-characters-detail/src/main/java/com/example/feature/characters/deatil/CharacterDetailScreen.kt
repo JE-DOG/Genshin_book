@@ -68,7 +68,6 @@ data class CharacterDetailScreen(
 
         ModalBottomSheetLayout(
             sheetShape = BottomSheetShape,
-            sheetBackgroundColor = MaterialTheme.colors.background,
             scrimColor = colorResource(id = R.color.transparent_black),
             sheetContent = {
 
@@ -138,11 +137,21 @@ data class CharacterDetailScreen(
                     text = character.description,
                     modifier = Modifier.padding(bottom = 10.dp)
                 )
-                Header2Text(text = "${stringResource(id = R.string.weapon)}: ${character.weapon}")
-                Header2Text(text = "${stringResource(id = R.string.nation)}: ${character.nation}")
-                Header2Text(text = "${stringResource(id = R.string.constellation)}: ${character.constellation}")
-                Header2Text(text = "${stringResource(id = R.string.affiliation)}: ${character.affiliation}")
-                Header2Text(text = "${stringResource(id = R.string.birthday)}: ${character.birthday}")
+                Header2Text(
+                    text = "${stringResource(id = R.string.presentation_text_card_character_weapon)}: ${character.weapon}"
+                )
+                Header2Text(
+                    text = "${stringResource(id = R.string.presentation_text_card_character_nation)}: ${character.nation}"
+                )
+                Header2Text(
+                    text = "${stringResource(id = R.string.presentation_text_card_character_constellation)}: ${character.constellation}"
+                )
+                Header2Text(
+                    text = "${stringResource(id = R.string.presentation_text_card_character_affiliation)}: ${character.affiliation}"
+                )
+                Header2Text(
+                    text = "${stringResource(id = R.string.presentation_text_card_character_birthday)}: ${character.birthday}"
+                )
 
                 GenshineBookExpandable(headerText = "Skill talents") {
                     FlowRow(
@@ -169,6 +178,7 @@ data class CharacterDetailScreen(
 
                 GenshineBookExpandable(headerText = "Passive talents") {
                     FlowRow(
+
                         Modifier.padding(vertical = 10.dp)
                     ) {
 

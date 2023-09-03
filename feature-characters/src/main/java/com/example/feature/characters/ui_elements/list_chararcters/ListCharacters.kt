@@ -12,7 +12,10 @@ import com.example.feature.characters.ui_elements.list_chararcters.elements.Char
 import com.example.feature.characters.model.Character
 
 @Composable
-fun ListCharacters(viewModel: CharactersTabViewModel, onClick: (Character) -> Unit,) {
+fun ListCharacters(
+    viewModel: CharactersTabViewModel,
+    onClick: (Character) -> Unit
+) {
 
     val state = viewModel.state.observeAsState().value
 

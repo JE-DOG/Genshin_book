@@ -37,6 +37,9 @@
             <option value="$PROJECT_DIR$/feature-chat-list/data" />
             <option value="$PROJECT_DIR$/feature-chat-list/domain" />
             <option value="$PROJECT_DIR$/feature-main" />
+            <option value="$PROJECT_DIR$/feature-main-weapons" />
+            <option value="$PROJECT_DIR$/feature-main-weapons/data" />
+            <option value="$PROJECT_DIR$/feature-main-weapons/domain" />
             <option value="$PROJECT_DIR$/feature-profile" />
             <option value="$PROJECT_DIR$/feature-profile/data" />
             <option value="$PROJECT_DIR$/feature-profile/domain" />

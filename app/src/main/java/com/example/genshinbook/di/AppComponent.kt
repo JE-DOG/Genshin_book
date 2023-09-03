@@ -9,6 +9,7 @@ import com.example.feature.authorization.di.deps.FeatureAuthorizationDeps
 import com.example.feature.characters.di.deps.FeatureCharactersDeps
 import com.example.feature.chat.dialog.di.component.deps.FeatureChatDialogDeps
 import com.example.feature.chats.list.di.component.FeatureChatsListDeps
+import com.example.feature.main.weapons.di.deps.FeatureMainWeaponsComponentDeps
 import com.example.feature.profile.di.deps.FeatureProfileDeps
 import com.example.genshinbook.MainActivity
 import com.example.genshinbook.di.module.DataModule
@@ -33,7 +34,8 @@ interface AppComponent:
     FeatureChatDialogDeps,
     FeatureChatsListDeps,
     FeatureProfileDeps,
-    FeatureCharactersDeps
+    FeatureCharactersDeps,
+    FeatureMainWeaponsComponentDeps
 {
     fun inject(mainActivity: MainActivity)
 
@@ -50,6 +52,8 @@ interface AppComponent:
     override val retrofit: Retrofit
 
     override val realm: Realm
+
+    override val context: Context
 
     @Component.Factory
     interface Factory {
