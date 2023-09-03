@@ -61,7 +61,9 @@ fun WeaponsTab() {
         ModalBottomSheetValue.Hidden
     )
     val viewModel = LocalFeatureWeaponViewModel.current
-    val state = viewModel.state.observeAsState().value!!
+    val state = viewModel.state
+        .observeAsState()
+        .value!!
 
     ModalBottomSheetLayout(
         sheetShape = BottomSheetShape,

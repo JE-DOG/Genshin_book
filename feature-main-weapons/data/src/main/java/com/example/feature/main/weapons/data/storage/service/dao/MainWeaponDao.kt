@@ -19,7 +19,7 @@ interface MainWeaponDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveWeapon(weaponEntity: WeaponEntity): Completable
 
-    @Delete
+    @Delete(entity = WeaponEntity::class)
     fun deleteWeapon(weaponEntity: WeaponEntity): Completable
 
 }

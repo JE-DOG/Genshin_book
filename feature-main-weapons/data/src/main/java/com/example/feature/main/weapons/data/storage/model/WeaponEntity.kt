@@ -21,8 +21,7 @@ import com.example.feature.main.weapons.domain.model.WeaponDomain
 
 @Entity(tableName = WeaponEntity.TABLE_NAME)
 data class WeaponEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    @PrimaryKey
     val name: String,
     val ascensionMaterial: String?,
     val baseAttack: Int,
@@ -32,7 +31,7 @@ data class WeaponEntity(
     val rarity: Int,
     val subStat: String,
     val type: String,
-    val isDownloaded: Boolean
+    val isDownloaded: Boolean = true
 ) {
 
     fun toDomain() = WeaponDomain(

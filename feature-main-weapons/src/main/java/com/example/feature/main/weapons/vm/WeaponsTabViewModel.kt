@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.core.app.ext.subscribe
 import com.example.core.app.ext.update
 import com.example.core.app.ext.updatePostValue
 import com.example.core.app.ui.xml.base.vm.BaseViewModel
@@ -13,6 +14,7 @@ import com.example.feature.main.weapons.domain.use_cases.GetAllWeaponFromNetwork
 import com.example.feature.main.weapons.domain.use_cases.GetAllWeaponFromStorageUseCase
 import com.example.feature.main.weapons.domain.use_cases.SaveWeaponToStorageUseCase
 import com.example.feature.main.weapons.model.WeaponPresentation
+import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
@@ -54,9 +56,17 @@ class WeaponsTabViewModel(
                         WeaponPresentation.fromDomain(weaponDomain)
                     }
                 }
-                .doOnError {
+                .doOnSubscribe {
                     _state.updatePostValue {
                         it.copy(
+                            isLoading = true,
+                            isError = false
+                        )
+                    }
+                }
+                .doOnError {
+                    _state.updatePostValue { state ->
+                        state.copy(
                             isOffline = true,
                             isLoading = false,
                             isError = true
@@ -64,6 +74,7 @@ class WeaponsTabViewModel(
                     }
                 }
                 .doOnSuccess { weaponsStorage ->
+                    Log.d("WeaponsTabViewModelErrorTag",Thread.currentThread().name)
                     getAllWeaponFromNetworkUseCase.execute()
                         .map {  listWeapons ->
                             listWeapons.map { weaponDomain ->
@@ -81,37 +92,37 @@ class WeaponsTabViewModel(
                             }
                         }
                         .doOnSubscribe {
-                            _state.updatePostValue {
-                                it.copy(
-                                    isLoading = true,
-                                    isError = false
-                                )
-                            }
+                            Log.d("WeaponsTabViewModelErrorTag",Thread.currentThread().name)
                         }
                         .doOnError {
+                            Log.d("WeaponsTabViewModelErrorTag","doOnError thread -> " + Thread.currentThread().name)
+
                             _state.updatePostValue { state ->
                                 state.copy(
                                     isOffline = true,
                                     isLoading = false,
-                                    isError = true
+                                    isError = true,
+                                    weapons = weaponsStorage.toMutableList()
                                 )
                             }
                         }
                         .doOnSuccess { weapons ->
                             _state.updatePostValue { state ->
-                                Log.d("WeaponsTabViewModelTag","WeaponsNetwork: ${weapons.size}")
-                                Log.d("WeaponsTabViewModelTag","WeaponsRuntime: ${state.weapons.size}")
-
                                 state.copy(
                                     isLoading = false,
+                                    isOffline = false,
                                     weapons = weapons.toMutableList()
                                 )
                             }
 
                         }
-                        .subscribe()
+                        .subscribe(
+                            onError = {}
+                        )
                 }
-                .subscribe()
+                .subscribe(
+                    onError = {}
+                )
         )
 
     }
@@ -154,7 +165,7 @@ class WeaponsTabViewModel(
         state: WeaponsTabViewState
     ){
         _state.update {
-                state
+            state
         }
     }
 

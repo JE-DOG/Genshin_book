@@ -43,7 +43,7 @@ class MainWeaponRepositoryImpl(
     }
 
     override fun deleteFromStorage(weaponDomain: WeaponDomain): Completable {
-        val result = storageService.save(
+        val result = storageService.delete(
             WeaponEntity
                 .fromDomain(weaponDomain)
         )

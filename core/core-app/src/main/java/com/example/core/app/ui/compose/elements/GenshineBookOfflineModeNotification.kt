@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.example.core.app.R
 import com.example.core.app.ui.compose.elements.base.ButtonText
+import com.example.core.app.ui.compose.elements.base.GenshineBookButton
 import com.example.core.app.ui.compose.elements.base.Header1Text
 
 @Composable
@@ -14,10 +15,9 @@ fun GenshineBookOfflineModeNotification(
 ) {
 
     Header1Text(
-        text = stringResource(id = R.string.offline),
-        color = Color.White
+        text = stringResource(id = R.string.offline)
     )
-    Button(onClick = onRepeat) {
+    GenshineBookButton(onClick = onRepeat) {
         ButtonText(text = stringResource(id = R.string.error_repeat))
     }
 

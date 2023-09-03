@@ -9,7 +9,7 @@ import com.example.feature.main.weapons.data.storage.service.dao.MainWeaponDao
     entities = [
         WeaponEntity::class
     ],
-    version = 2
+    version = 3
 )
 abstract class MainWeaponRoomDataBase: RoomDatabase() {
 
