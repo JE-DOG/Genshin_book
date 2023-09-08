@@ -16,6 +16,7 @@ import com.example.domain.characters.usecase.RemoveCharacterFromStorageUseCase
 import kotlinx.coroutines.async
 import com.example.feature.characters.model.Character
 import dagger.Lazy
+import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
 
 
@@ -138,7 +139,7 @@ class CharactersTabViewModel (
 
     }
 
-    fun characterDownload(character: Character){
+    fun characterDownload(character: Character) = callbackFlow {
         if (character.isDownload){
             removeCharacterFromStorage(character)
         }else{
@@ -152,6 +153,10 @@ class CharactersTabViewModel (
                 this.isDownload = !this.isDownload
             }
         }
+
+        send(character.isDownload)
+
+        close()
     }
 
     fun changeState(state: CharactersTabViewState){

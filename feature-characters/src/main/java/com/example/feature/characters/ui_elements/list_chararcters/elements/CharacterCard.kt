@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,6 +25,10 @@ import com.example.core.app.R
 import com.example.core.app.ui.compose.elements.base.GenshineBookProgressBar
 import com.example.core.app.ui.compose.elements.base.Header1Text
 import com.example.core.app.ui.compose.elements.base.Subtitle1Text
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.single
+import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -31,10 +36,11 @@ import com.example.core.app.ui.compose.elements.base.Subtitle1Text
 fun CharacterCard(
     character: Character,
     onItemClick: () -> Unit = {},
-    onDownload: (Character) -> Unit
+    onDownload: (Character) -> Flow<Boolean>
 ) {
 
     val vision = Vision.valueOf(character.vision_key)
+    val coroutineScope = rememberCoroutineScope()
 
     Card(
         shape = CardShape,
@@ -62,30 +68,30 @@ fun CharacterCard(
                 Spacer(modifier = Modifier.weight(1f))
                 if (isDownloaded.value.isNotNull()){
                     IconButton(onClick = {
-                        // TODO: Clear it trash solution
-                        isDownloaded.value = null
-                        onDownload(character)
-                        thread {
-                            Thread.sleep(2000)
-                            isDownloaded.value = character.isDownload
+                        coroutineScope.launch {
+                            onDownload(character)
+                                .onStart {
+                                    isDownloaded.value = null
+                                }
+                                .collect {
+                                    isDownloaded.value = it
+                                }
                         }
-                        Log.d("RememberTest", isDownloaded.value.toString())
                     }) {
-                        if (isDownloaded.value!!) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_delete),
-                                contentDescription = "delete card",
-                                Modifier.size(25.dp),
-                                tint = Color.Gray
-                            )
-                        } else {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_download),
-                                contentDescription = "save card",
-                                Modifier.size(25.dp),
-                                tint = Color.Gray
-                            )
-                        }
+                        Icon(
+                            painter = painterResource(
+                                id = if (isDownloaded.value!!)
+                                    R.drawable.ic_delete
+                                else
+                                    R.drawable.ic_download
+                            ),
+                            contentDescription =
+                            if (isDownloaded.value!!)
+                                "delete card"
+                            else
+                                "save card",
+                            tint = Color.Gray
+                        )
                     }
                 }else{
                     GenshineBookProgressBar()
