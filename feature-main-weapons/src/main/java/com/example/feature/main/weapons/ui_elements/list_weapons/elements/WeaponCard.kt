@@ -36,6 +36,7 @@ import com.example.core.app.ui.compose.elements.base.Subtitle1Text
 import com.example.core.app.ui.compose.theme.CardShape
 import com.example.core.ext.isNotNull
 import com.example.feature.main.weapons.model.WeaponPresentation
+import io.reactivex.Completable
 import java.util.Locale
 import kotlin.concurrent.thread
 
@@ -44,7 +45,7 @@ import kotlin.concurrent.thread
 fun WeaponCard(
     weapon: WeaponPresentation,
     onItemClick: (resIcon: Int) -> Unit = {},
-    onDownload: (WeaponPresentation) -> Unit
+    onDownload: (WeaponPresentation) -> Completable
 ) {
 
     val weaponType = WeaponType.valueOf(weapon.type.uppercase())
@@ -81,6 +82,10 @@ fun WeaponCard(
                     IconButton(onClick = {
                         isDownloaded.value = null
                         onDownload(weapon)
+                            .doOnComplete {
+                                isDownloaded.value = weapon.isDownloaded
+                            }
+                            .subscribe()
                     }) {
                         Icon(
                             painter = if (!isDownloaded.value!!) painterResource(id = R.drawable.ic_download) else painterResource(id = R.drawable.ic_delete),

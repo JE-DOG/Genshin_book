@@ -14,8 +14,20 @@ import com.example.feature.main.weapons.domain.use_cases.GetAllWeaponFromNetwork
 import com.example.feature.main.weapons.domain.use_cases.GetAllWeaponFromStorageUseCase
 import com.example.feature.main.weapons.domain.use_cases.SaveWeaponToStorageUseCase
 import com.example.feature.main.weapons.model.WeaponPresentation
+import io.reactivex.Completable
+import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
+import io.realm.kotlin.internal.platform.runBlocking
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.single
+import kotlinx.coroutines.flow.zip
+import okhttp3.internal.concurrent.Task
 import javax.inject.Inject
 
 class WeaponsTabViewModel(
@@ -127,38 +139,26 @@ class WeaponsTabViewModel(
 
     }
 
-    fun saveWeapon(weapon: WeaponPresentation){
-
-        subscribers.add(
-            saveWeaponToStorageUseCase.execute(
-                weapon
-                    .toDomain()
-            )
-                .doOnComplete {
-                    weapon.apply {
-                        isDownloaded = true
-                    }
-                }
-                .subscribe()
+    fun saveWeapon(weapon: WeaponPresentation): Completable{
+        val result = saveWeaponToStorageUseCase.execute(
+            weapon
+                .toDomain()
         )
-
+            .doOnComplete {
+                weapon.isDownloaded = true
+            }
+        return result
     }
 
-    fun deleteWeapon(weapon: WeaponPresentation){
-
-        subscribers.add(
-            deleteWeaponsFromStorageUseCase.execute(
-                weapon
-                    .toDomain()
-            )
-                .doOnComplete {
-                    weapon.apply {
-                        isDownloaded = false
-                    }
-                }
-                .subscribe()
+    fun deleteWeapon(weapon: WeaponPresentation): Completable {
+        val result =  deleteWeaponsFromStorageUseCase.execute(
+            weapon
+                .toDomain()
         )
-
+            .doOnComplete {
+                weapon.isDownloaded = false
+            }
+        return result
     }
 
     fun changeState(

@@ -18,26 +18,17 @@ import com.example.feature.main.weapons.domain.model.WeaponDomain
 *}
 *
 **/
-@Immutable
 data class WeaponPresentation(
-    @Stable
     val name: String,
-    @Stable
     val ascensionMaterial: String?,
-    @Stable
     val baseAttack: Int,
-    @Stable
     val location: String,
-    @Stable
     val passiveDesc: String,
-    @Stable
     val passiveName: String,
-    @Stable
     val rarity: Int,
-    @Stable
     val subStat: String,
-    @Stable
     val type: String,
+    @Stable
     var isDownloaded: Boolean = false
 ){
 

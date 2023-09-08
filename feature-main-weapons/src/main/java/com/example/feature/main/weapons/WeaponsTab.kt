@@ -30,6 +30,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -67,6 +68,7 @@ fun WeaponsTab() {
 
     ModalBottomSheetLayout(
         sheetShape = BottomSheetShape,
+        scrimColor = colorResource(id = R.color.transparent_black)      ,
         sheetState = bottomSheetState,
         sheetContent = {
             if (bottomSheetContent.value.isNotNull()){
